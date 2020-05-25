@@ -38,6 +38,11 @@
   flex: 0;
 }
 
+// TODO find out why this is needed. Ples halp.
+.sheet-tabs-container {
+  flex: 0;
+}
+
 .sheet-body,
 .sheet-body .tab,
 .sheet-body .tab .editor {
