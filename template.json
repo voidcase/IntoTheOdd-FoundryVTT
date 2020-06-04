@@ -22,25 +22,13 @@
     }
   },
   "Item": {
-    "types": ["item", "weapon", "armour"],
-    "templates": {
-      "base": {
-        "description": "",
-        "quantity": 1
-      }
-    },
+    "types": ["item"],
     "item": {
-      "templates": ["base"]
-    },
-    "weapon": {
-      "templates": ["base"],
-      "damageDie": 6,
-      "hands": 1
-    },
-    "armour": {
-      "templates": ["base"],
-      "armour": 1,
-      "hands": 0
+      "description": "",
+      "quantity": 1,
+      "armour": 0,
+      "damageFormula": "1d0",
+      "equipped": false
     }
   }
 }
