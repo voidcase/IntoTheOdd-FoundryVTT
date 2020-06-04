@@ -24,7 +24,10 @@ export class IntoTheOddActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
-    // TODO calculate armour value
+    data.armour = actorData
+      .items
+      .map(item => item.data.armour * item.data.equipped)
+      .reduce((a,b) => a + b, 0)
 
     // Make modifications to data here. For example:
 
