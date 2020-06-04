@@ -10,7 +10,13 @@ export class IntoTheOddItemSheet extends ItemSheet {
       classes: ["intotheodd", "sheet", "item"],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "description"
+        }
+      ]
     });
   }
 
