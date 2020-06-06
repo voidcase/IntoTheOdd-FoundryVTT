@@ -27,8 +27,9 @@
       "description": "",
       "quantity": 1,
       "armour": 0,
-      "damageFormula": "1d0",
-      "equipped": false
+      "damageFormula": "",
+      "equipped": false,
+      "handedness": 1
     }
   }
 }
