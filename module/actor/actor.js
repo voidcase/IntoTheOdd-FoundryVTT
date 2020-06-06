@@ -30,4 +30,16 @@ export class IntoTheOddActor extends Actor {
       .reduce((a,b) => a + b, 0)
   }
 
+  
+  /** @override */
+  getRollData() {
+    console.log('in getRollData')
+    const data = super.getRollData();
+    // Let us do @str etc, instead of @abilities.str.value
+    for ( let [k, v] of Object.entries(data.abilities) ) {
+      if ( !(k in data) ) data[k] = v.value;
+    }
+    console.log(data)
+    return data
+  }
 }
