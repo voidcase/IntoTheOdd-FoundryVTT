@@ -32,7 +32,7 @@
       <div class="abilities grid grid-3col">
         {{#each data.abilities as |ability key|}}
         <div class="ability flexrow flex-group-center">
-          <label for="data.abilities.{{key}}.value" class="resource-label rollable" data-roll="d20 under @abilities.{{key}}.value">{{key}}</label>
+          <label for="data.abilities.{{key}}.value" class="resource-label rollable" data-roll="d20 under @abilities.{{key}}.value" data-label="{{key}} save">{{key}}</label>
           <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
         </div>
         {{/each}}
