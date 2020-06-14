@@ -32,8 +32,19 @@
       <div class="abilities grid grid-3col">
         {{#each data.abilities as |ability key|}}
         <div class="ability flexrow flex-group-center">
-          <label for="data.abilities.{{key}}.value" class="resource-label rollable" data-roll="d20 under @abilities.{{key}}.value" data-label="{{key}} save">{{key}}</label>
-          <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+          <label
+            for="data.abilities.{{key}}.value"
+            class="resource-label rollable"
+            data-roll="d20 under @abilities.{{key}}.value"
+            data-label="{{key}}
+            save"
+          >{{key}}</label>
+          <input
+            type="text"
+            name="data.abilities.{{key}}.value"
+            value="{{ability.value}}"
+            data-dtype="Number"
+          />
         </div>
         {{/each}}
       </div>
@@ -61,7 +72,7 @@
       <ol class="items-list">
         <li class="item flexrow item-header">
           <div class="item-image"></div>
-          <div class="item-name">Name</div>
+          <div class="item-name">Name <i>(bold means equipped)</i></div>
           <div class="item-controls">
             <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
           </div>
@@ -70,11 +81,21 @@
         <li class="item flexrow" data-item-id="{{item._id}}">
           <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
           <span>
-            <span class="item-name">{{item.name}}</span>
-            {{#if item.data.equipped}}
-            <span><b>(equipped)</b></span>
+            <span class="item-name">
+              {{#boldIf item.data.equipped}}
+              {{item.name}}
+              {{/boldIf}}
+            </span>
+            {{#if item.data.armour}}
+            <span>| Armour {{item.data.armour}}</span>
+            {{/if}}
+            {{#if item.data.handedness}}
+            <span>| <i>req. {{item.data.handedness}} hands</i></span>
+            {{/if}}
             {{#if item.data.damageFormula}}
-            <span class="rollable" data-label="damage with {{item.name}}" data-roll="{{item.data.damageFormula}}">[attack]</span>
+            <span>| ({{item.data.damageFormula}})</span>
+            {{#if item.data.equipped}}
+            <span class="rollable" data-label="damage with {{item.name}}" data-roll="{{item.data.damageFormula}}">[attack {{item.data.damageFormula}}]</span>
             {{/if}}
             {{/if}}
           </span>

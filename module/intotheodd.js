@@ -70,5 +70,9 @@ Hooks.once('init', async function() {
     return str.toLowerCase();
   });
 
+  Handlebars.registerHelper('boldIf', function(cond, options) {
+    return (cond) ? '<b>' + options.fn(this) + '</b>' : options.fn(this);
+  });
+
 });
 
