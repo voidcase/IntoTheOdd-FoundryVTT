@@ -2,9 +2,18 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="120" width="120"/>
+    <img
+      class="profile-img"
+      src="{{actor.img}}"
+      data-edit="img"
+      title="{{actor.name}}"
+      height="120"
+      width="120"
+    />
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+      <h1 class="charname">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+      </h1>
       <div class="resources">
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -13,7 +22,11 @@
           <div class="resource flex-group-center">
             <label for="data.hp.value" class="resource-label">Hitpoints</label>
             <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="data.hp.value" value="{{data.hp.value}}" data-dtype="Number"/>
+              <input type="text"
+                name="data.hp.value"
+                value="{{data.hp.value}}"
+                data-dtype="Number"
+              />
               <span> / </span>
               <input type="text" name="data.hp.max" value="{{data.hp.max}}" data-dtype="Number"/>
             </div>
@@ -64,7 +77,14 @@
 
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
-      {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+      {{
+        editor
+        content=data.biography
+        target="data.biography"
+        button=true
+        owner=owner
+        editable=editable
+      }}
     </div>
 
     {{!-- Owned Items Tab --}}
@@ -74,12 +94,17 @@
           <div class="item-image"></div>
           <div class="item-name">Name <i>(bold means equipped)</i></div>
           <div class="item-controls">
-            <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
+            <a class="item-control item-create" title="Create item" data-type="item">
+              <i class="fas fa-plus"></i>
+              Add item
+            </a>
           </div>
         </li>
         {{#each actor.items as |item id|}}
         <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+          <div class="item-image">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+          </div>
           <span>
             <span class="item-name">
               {{#boldIf item.data.equipped}}
@@ -95,7 +120,13 @@
             {{#if item.data.damageFormula}}
             <span>| ({{item.data.damageFormula}})</span>
             {{#if item.data.equipped}}
-            <span class="rollable" data-label="damage with {{item.name}}" data-roll="{{item.data.damageFormula}}">[attack {{item.data.damageFormula}}]</span>
+            <span
+              class="rollable"
+              data-label="damage with {{item.name}}"
+              data-roll="{{item.data.damageFormula}}"
+            >
+              [attack {{item.data.damageFormula}}]
+            </span>
             {{/if}}
             {{/if}}
           </span>
