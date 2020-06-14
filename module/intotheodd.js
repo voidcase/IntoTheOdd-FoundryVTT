@@ -5,28 +5,17 @@ import { IntoTheOddItem } from "./item/item.js";
 import { IntoTheOddItemSheet } from "./item/item-sheet.js";
 
 Hooks.once('ready', async function() {
-  // Add macros for ITO initiative if they don't exist
-  // TODO make this less duplicatey and ugly.
-  if (game.macros.filter(m => m.data.flags.intotheodd && m.data.flags.intotheodd.NPCsFirst).length < 1) {
-    Macro.create({
-      name:  'Give NPCS first initiative',
-      type: 'script',
-      command: 'game.combat.combatants.forEach(c => {game.combat.setInitiative(c._id, (c.actor.isPC) ? 0 : 1)})',
-      flags: { 'intotheodd.NPCsFirst': true }
-    })
-  } else {
-    console.log('macro already exists')
-  }
+  if (game.user.isGM && game.settings.get('intotheodd', 'showInitiativeHelp') === true) {
+    alert(
+      'To the GM from the game-system developer:\n\n' +
 
-  if (game.macros.filter(m => m.data.flags.intotheodd && m.data.flags.intotheodd.PCsFirst).length < 1) {
-    Macro.create({
-      name:  'Give PCS first initiative',
-      type: 'script',
-      command: 'game.combat.combatants.forEach(c => {game.combat.setInitiative(c._id, (c.actor.isPC) ? 1 : 0)})',
-      flags: { 'intotheodd.PCsFirst': true }
-    })
-  } else {
-    console.log('macro already exists')
+      'In order to use group initiative as written in Into the Odd, use the two macros ' +
+      'in the included compendium (see the compendium tab)' +
+      'to set which side goes first in combat.\n\n' +
+
+      'This message will only appear once (but can be reset in system settings).'
+    )
+    game.settings.set('intotheodd', 'showInitiativeHelp', false)
   }
 });
 
@@ -55,6 +44,16 @@ Hooks.once('init', async function() {
   Actors.registerSheet("intotheodd", IntoTheOddActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("intotheodd", IntoTheOddItemSheet, { makeDefault: true });
+
+  game.settings.register('intotheodd', 'showInitiativeHelp', {
+    name: 'Show initiative helptext on next startup',
+    hint: 'This option only exists so the helptext won\'t appear on every startup.\n' +
+    'When the message appears, this option will uncheck itself.',
+    scope: 'system',
+    config: true,
+    type: Boolean,
+    default: true
+  })
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {

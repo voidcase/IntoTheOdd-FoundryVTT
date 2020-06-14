@@ -10,7 +10,15 @@
   "esmodules": ["module/intotheodd.js"],
   "styles": ["css/intotheodd.css"],
   "scripts": [],
-  "packs": [],
+  "packs": [
+    {
+      "name": "into-the-odd-macros",
+      "label": "Macros for playing Into the Odd",
+      "system": "intotheodd",
+      "path": "./packs/into-the-odd-macros.db",
+      "entity": "Macro"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
