@@ -9,6 +9,8 @@ Map in the background made by [Dyson Logos](https://dysonlogos.blog/).
 
 Manifest URL: https://raw.githubusercontent.com/voidcase/IntoTheOdd-FoundryVTT/master/system.json
 
+follow [this guide](https://foundryvtt.com/article/installation/#system) to install game systems in Foundry VTT.
+
 ## Development philosophy of this project
 
 This is not a complete implementation of everything that is in the book.
