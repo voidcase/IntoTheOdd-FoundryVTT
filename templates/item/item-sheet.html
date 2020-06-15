@@ -9,11 +9,11 @@
                   <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
               </div>
               <div class="resource">
-                <label class="resource-label">Weight</label>
-                  <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+                <label class="resource-label">Equipped</label>
+                <input class="checkbox-block" type="checkbox" {{checked data.equipped}} name="data.equipped" value="{{data.equipped}}" data-dtype="Boolean"/>
               </div>
             </div>
-            <div class="grid grid-4col">
+            <div class="grid grid-3col">
               <div class="resource">
                 <label class="resource-label">Armour</label>
                   <input type="text" name="data.armour" value="{{data.armour}}" data-dtype="Number"/>
@@ -25,10 +25,6 @@
               <div class="resource">
                 <label class="resource-label">Hands</label>
                   <input type="text" name="data.handedness" value="{{data.handedness}}" data-dtype="Number"/>
-              </div>
-              <div class="resource">
-                <label class="resource-label">Equipped</label>
-                <input class="checkbox-block" type="checkbox" {{checked data.equipped}} name="data.equipped" value="{{data.equipped}}" data-dtype="Boolean"/>
               </div>
             </div>
         </div>
