@@ -2,7 +2,7 @@
   "name": "intotheodd",
   "title": "Into the Odd",
   "description": "The Into the Odd system for FoundryVTT!",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.6.2",
   "templateVersion": 2,
@@ -25,6 +25,6 @@
   "primaryTokenAttribute": "health",
   "url": "https://github.com/voidcase/IntoTheOdd-FoundryVTT",
   "manifest": "https://raw.githubusercontent.com/voidcase/IntoTheOdd-FoundryVTT/master/system.json",
-  "download": "https://github.com/voidcase/IntoTheOdd-FoundryVTT/archive/v1.0.1.zip",
+  "download": "https://github.com/voidcase/IntoTheOdd-FoundryVTT/archive/v1.0.2.zip",
   "license": "LICENSE.txt"
 }
