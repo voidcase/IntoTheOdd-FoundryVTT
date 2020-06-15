@@ -2,6 +2,9 @@
 
 This project enables you to play [this game](https://www.drivethrurpg.com/product/145536/Into-the-Odd) on [this virtual tabletop software](https://foundryvtt.com/).
 
+![](screenshot.png)
+Map in the background made by [Dyson Logos](https://dysonlogos.blog/).
+
 ## Installation
 
 Manifest URL: https://raw.githubusercontent.com/voidcase/IntoTheOdd-FoundryVTT/master/system.json
