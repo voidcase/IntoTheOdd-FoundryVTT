@@ -40,4 +40,14 @@ export class IntoTheOddActor extends Actor {
     }
     return data
   }
+
+  /** @override */
+  deleteOwnedItem(itemId) {
+    const item = this.getOwnedItem(itemId);
+    if (item.data.data.quantity > 1) {
+      item.data.data.quantity--;
+    } else {
+      super.deleteOwnedItem(itemId);
+    }
+  }
 }
