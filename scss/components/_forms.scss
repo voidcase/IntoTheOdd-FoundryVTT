@@ -38,7 +38,6 @@
   flex: 0;
 }
 
-// TODO find out why this is needed. Ples halp.
 .sheet-tabs-container {
   flex: 0;
 }
@@ -61,4 +60,8 @@
 
 .checkbox-block {
   display: block;
+}
+
+.editor {
+  height:100%;
 }
