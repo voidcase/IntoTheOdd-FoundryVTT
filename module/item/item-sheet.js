@@ -8,8 +8,8 @@ export class IntoTheOddItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["intotheodd", "sheet", "item"],
-      width: 520,
-      height: 480
+      width: 420,
+      height: 320
     });
   }
 

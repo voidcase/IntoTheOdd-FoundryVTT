@@ -9,8 +9,8 @@ export class IntoTheOddActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["intotheodd", "sheet", "actor"],
       template: "systems/intotheodd/templates/actor/actor-sheet.html",
-      width: 600,
-      height: 600,
+      width: 500,
+      height: 500,
       tabs: [
 		  {navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" },
 	  ]
