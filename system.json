@@ -1,10 +1,10 @@
 {
   "name": "intotheodd",
-  "title": "Into The Odd",
-  "description": "The Into The Odd system for FoundryVTT!",
+  "title": "Into the Odd",
+  "description": "The Into the Odd system for FoundryVTT!",
   "version": "1.0.0",
-  "minimumCoreVersion": "0.5.5",
-  "compatibleCoreVersion": "0.5.5",
+  "minimumCoreVersion": "0.6.2",
+  "compatibleCoreVersion": "0.6.2",
   "templateVersion": 2,
   "author": "voidcase",
   "esmodules": ["module/intotheodd.js"],
@@ -19,18 +19,12 @@
       "entity": "Macro"
     }
   ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
+  "languages": [],
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://github.com/voidcase/IntoTheOdd-FoundryVTT",
+  "manifest": "https://raw.githubusercontent.com/voidcase/IntoTheOdd-FoundryVTT/master/system.json",
+  "download": "https://github.com/voidcase/IntoTheOdd-FoundryVTT/archive/v1.0.0.zip",
   "license": "LICENSE.txt"
 }
