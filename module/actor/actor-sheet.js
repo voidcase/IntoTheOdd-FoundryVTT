@@ -21,12 +21,13 @@ export class IntoTheOddActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const context = super.getData();
+    context.systemData = context.data.data;
     // data.dtypes = ["String", "Number", "Boolean"];
     // for (let attr of Object.values(data.data.attributes)) {
     //   attr.isCheckbox = attr.dtype === "Boolean";
     // }
-    return data;
+    return context;
   }
 
   /** @override */

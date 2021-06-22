@@ -22,18 +22,18 @@
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text"
                 name="data.hp.value"
-                value="{{data.hp.value}}"
+                value="{{systemData.hp.value}}"
                 data-dtype="Number"
               />
               <span> / </span>
-              <input type="text" name="data.hp.max" value="{{data.hp.max}}" data-dtype="Number"/>
+              <input type="text" name="data.hp.max" value="{{systemData.hp.max}}" data-dtype="Number"/>
             </div>
           </div>
           <div class="resource flex-group-center">
             <label for="data.armour" class="resource-label">Armour</label>
             <div class="resource-content flexrow flex-center flex-between">
               <span>
-                {{data.armour}}
+                {{systemData.armour}}
               </span>
             </div>
           </div>
@@ -41,7 +41,7 @@
       </div>
 
       <div class="abilities grid grid-3col">
-        {{#each data.abilities as |ability key|}}
+        {{#each systemData.abilities as |ability key|}}
         <div class="ability flexrow flex-group-center">
           <label
             for="data.abilities.{{key}}.value"
@@ -77,7 +77,7 @@
     <div class="tab biography" data-group="primary" data-tab="description">
       {{
         editor
-        content=data.biography
+        content=systemData.biography
         target="data.biography"
         button=true
         owner=owner
@@ -105,28 +105,28 @@
           <!-- </div> -->
           <span>
             <span class="item-name item-edit">
-              {{item.data.quantity}}
-              {{#boldIf item.data.equipped}}
+              {{item.systemData.quantity}}
+              {{#boldIf item.systemData.equipped}}
               {{item.name}}
               {{/boldIf}}
             </span>
-            {{#if item.data.armour}}
-            <span class="item-info">Armour {{item.data.armour}}</span>
+            {{#if item.systemData.armour}}
+            <span class="item-info">Armour {{item.systemData.armour}}</span>
             {{/if}}
-            {{#if item.data.damageFormula}}
-            <span class="item-info">{{item.data.damageFormula}} damage</span>
+            {{#if item.systemData.damageFormula}}
+            <span class="item-info">{{item.systemData.damageFormula}} damage</span>
             {{/if}}
-            {{#if item.data.handedness}}
-            <span>&nbsp;&nbsp;<small><i> {{item.data.handedness}} handed</i></small></span>
+            {{#if item.systemData.handedness}}
+            <span>&nbsp;&nbsp;<small><i> {{item.systemData.handedness}} handed</i></small></span>
             {{/if}}
           </span>
           <div class="item-controls">
-            {{#if item.data.equipped}}
-            {{#if item.data.damageFormula}}
+            {{#if item.systemData.equipped}}
+            {{#if item.systemData.damageFormula}}
             <span
               class="rollable"
               data-label="damage with {{item.name}}"
-              data-roll="{{item.data.damageFormula}}"
+              data-roll="{{item.systemData.damageFormula}}"
               title="Roll Damage"
             >
             <i class="fas fa-dice-d20"></i>
