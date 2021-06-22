@@ -83,7 +83,7 @@ export class IntoTheOddActorSheet extends ActorSheet {
     delete itemData.data["type"];
 
     // Finally, create the item!
-    return this.actor.createOwnedItem(itemData).then(item => this.actor.getOwnedItem(item._id).sheet.render(true));
+    return this.actor.createOwnedItem(itemData).then(item => this.actor.getOwnedItem(item.id).sheet.render(true));
     // item.sheet.render(true);
   }
 
