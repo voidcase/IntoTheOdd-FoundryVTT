@@ -105,28 +105,28 @@
           <!-- </div> -->
           <span>
             <span class="item-name item-edit">
-              {{item.systemData.quantity}}
-              {{#boldIf item.systemData.equipped}}
+              {{item.data.data.quantity}}
+              {{#boldIf item.data.data.equipped}}
               {{item.name}}
               {{/boldIf}}
             </span>
-            {{#if item.systemData.armour}}
-            <span class="item-info">Armour {{item.systemData.armour}}</span>
+            {{#if item.data.data.armour}}
+            <span class="item-info">Armour {{item.data.data.armour}}</span>
             {{/if}}
-            {{#if item.systemData.damageFormula}}
-            <span class="item-info">{{item.systemData.damageFormula}} damage</span>
+            {{#if item.data.data.damageFormula}}
+            <span class="item-info">{{item.data.data.damageFormula}} damage</span>
             {{/if}}
-            {{#if item.systemData.handedness}}
-            <span>&nbsp;&nbsp;<small><i> {{item.systemData.handedness}} handed</i></small></span>
+            {{#if item.data.data.handedness}}
+            <span>&nbsp;&nbsp;<small><i> {{item.data.data.handedness}} handed</i></small></span>
             {{/if}}
           </span>
           <div class="item-controls">
-            {{#if item.systemData.equipped}}
-            {{#if item.systemData.damageFormula}}
+            {{#if item.data.data.equipped}}
+            {{#if item.data.data.damageFormula}}
             <span
               class="rollable"
               data-label="damage with {{item.name}}"
-              data-roll="{{item.systemData.damageFormula}}"
+              data-roll="{{item.data.data.damageFormula}}"
               title="Roll Damage"
             >
             <i class="fas fa-dice-d20"></i>
