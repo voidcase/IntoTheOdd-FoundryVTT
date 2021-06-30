@@ -28,8 +28,9 @@ export class IntoTheOddItemSheet extends ItemSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
-    return data;
+    const context = super.getData();
+    context.systemData = context.data.data;
+    return context;
   }
 
   /* -------------------------------------------- */

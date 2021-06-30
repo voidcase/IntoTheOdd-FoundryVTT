@@ -26,8 +26,8 @@ export class IntoTheOddActor extends Actor {
     const data = actorData.data;
     data.armour = actorData
       .items
-      .map(item => item.data.armour * item.data.equipped)
-      .reduce((a,b) => a + b, 0)
+      .map(item => item.data.data.armour * item.data.data.equipped)
+      .reduce((a,b) => a + b, 0);
   }
 
   
@@ -42,12 +42,12 @@ export class IntoTheOddActor extends Actor {
   }
 
   /** @override */
-  deleteOwnedItem(itemId) {
-    const item = this.getOwnedItem(itemId);
+  deleteOneItem(itemId) {
+    const item = this.items.get(itemId);
     if (item.data.data.quantity > 1) {
       item.data.data.quantity--;
     } else {
-      super.deleteOwnedItem(itemId);
+      item.delete()
     }
   }
 }

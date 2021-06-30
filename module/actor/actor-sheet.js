@@ -21,12 +21,13 @@ export class IntoTheOddActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const context = super.getData();
+    context.systemData = context.data.data;
     // data.dtypes = ["String", "Number", "Boolean"];
     // for (let attr of Object.values(data.data.attributes)) {
     //   attr.isCheckbox = attr.dtype === "Boolean";
     // }
-    return data;
+    return context;
   }
 
   /** @override */
@@ -42,14 +43,15 @@ export class IntoTheOddActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
+      // this.actor.deleteEmbeddedDocuments('Item', [li.data("itemId")]);
+      this.actor.deleteOneItem(li.data('itemId'));
       li.slideUp(200, () => this.render(false));
     });
 
@@ -83,7 +85,8 @@ export class IntoTheOddActorSheet extends ActorSheet {
     delete itemData.data["type"];
 
     // Finally, create the item!
-    return this.actor.createOwnedItem(itemData).then(item => this.actor.getOwnedItem(item._id).sheet.render(true));
+    return this.actor.createEmbeddedDocuments("Item", [itemData])
+      .then(items => items[0].sheet.render(true));
     // item.sheet.render(true);
   }
 
@@ -100,7 +103,7 @@ export class IntoTheOddActorSheet extends ActorSheet {
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      roll.roll().toMessage({
+      roll.roll({async: false}).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label
       });

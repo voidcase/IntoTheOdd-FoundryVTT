@@ -22,18 +22,18 @@
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text"
                 name="data.hp.value"
-                value="{{data.hp.value}}"
+                value="{{systemData.hp.value}}"
                 data-dtype="Number"
               />
               <span> / </span>
-              <input type="text" name="data.hp.max" value="{{data.hp.max}}" data-dtype="Number"/>
+              <input type="text" name="data.hp.max" value="{{systemData.hp.max}}" data-dtype="Number"/>
             </div>
           </div>
-          <div class="resource flex-group-center">
+          <div class="resource flex-group-center" title="Only equipped items increase your armour.">
             <label for="data.armour" class="resource-label">Armour</label>
             <div class="resource-content flexrow flex-center flex-between">
               <span>
-                {{data.armour}}
+                {{systemData.armour}}
               </span>
             </div>
           </div>
@@ -41,14 +41,14 @@
       </div>
 
       <div class="abilities grid grid-3col">
-        {{#each data.abilities as |ability key|}}
+        {{#each systemData.abilities as |ability key|}}
         <div class="ability flexrow flex-group-center">
           <label
             for="data.abilities.{{key}}.value"
             class="resource-label rollable"
-            data-roll="d20 under @abilities.{{key}}.value"
-            data-label="{{key}}
-            save"
+            data-roll="d20[ ≤ @abilities.{{key}}.value ]"
+            data-label="{{key}} save"
+            title="roll a {{key}} save"
           >{{key}}</label>
           <input
             type="text"
@@ -77,7 +77,7 @@
     <div class="tab biography" data-group="primary" data-tab="description">
       {{
         editor
-        content=data.biography
+        content=systemData.biography
         target="data.biography"
         button=true
         owner=owner
@@ -99,34 +99,34 @@
           </div>
         </li>
         {{#each actor.items as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
+        <li class="item flexrow" data-item-id="{{item.id}}">
           <!-- <div class="item-image"> -->
           <!--   <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> -->
           <!-- </div> -->
           <span>
             <span class="item-name item-edit">
-              {{item.data.quantity}}
-              {{#boldIf item.data.equipped}}
+              {{item.data.data.quantity}}
+              {{#boldIf item.data.data.equipped}}
               {{item.name}}
               {{/boldIf}}
             </span>
-            {{#if item.data.armour}}
-            <span class="item-info">Armour {{item.data.armour}}</span>
+            {{#if item.data.data.armour}}
+            <span class="item-info">Armour {{item.data.data.armour}}</span>
             {{/if}}
-            {{#if item.data.damageFormula}}
-            <span class="item-info">{{item.data.damageFormula}} damage</span>
+            {{#if item.data.data.damageFormula}}
+            <span class="item-info">{{item.data.data.damageFormula}} damage</span>
             {{/if}}
-            {{#if item.data.handedness}}
-            <span>&nbsp;&nbsp;<small><i> {{item.data.handedness}} handed</i></small></span>
+            {{#if item.data.data.handedness}}
+            <span>&nbsp;&nbsp;<small><i> {{item.data.data.handedness}} handed</i></small></span>
             {{/if}}
           </span>
           <div class="item-controls">
-            {{#if item.data.equipped}}
-            {{#if item.data.damageFormula}}
+            {{#if item.data.data.equipped}}
+            {{#if item.data.data.damageFormula}}
             <span
               class="rollable"
               data-label="damage with {{item.name}}"
-              data-roll="{{item.data.damageFormula}}"
+              data-roll="{{item.data.data.damageFormula}}"
               title="Roll Damage"
             >
             <i class="fas fa-dice-d20"></i>
