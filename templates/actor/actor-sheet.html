@@ -46,9 +46,8 @@
           <label
             for="data.abilities.{{key}}.value"
             class="resource-label rollable"
-            data-roll="d20 under @abilities.{{key}}.value"
-            data-label="{{key}}
-            save"
+            data-roll="d20[ ≤ @abilities.{{key}}.value ]"
+            data-label="{{key}} save"
           >{{key}}</label>
           <input
             type="text"
