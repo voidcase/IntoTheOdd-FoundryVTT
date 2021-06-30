@@ -26,8 +26,8 @@ export class IntoTheOddActor extends Actor {
     const data = actorData.data;
     data.armour = actorData
       .items
-      .map(item => item.data.armour * item.data.equipped)
-      .reduce((a,b) => a + b, 0)
+      .map(item => item.data.data.armour * item.data.data.equipped)
+      .reduce((a,b) => a + b, 0);
   }
 
   
