@@ -29,7 +29,7 @@
               <input type="text" name="data.hp.max" value="{{systemData.hp.max}}" data-dtype="Number"/>
             </div>
           </div>
-          <div class="resource flex-group-center">
+          <div class="resource flex-group-center" title="Only equipped items increase your armour.">
             <label for="data.armour" class="resource-label">Armour</label>
             <div class="resource-content flexrow flex-center flex-between">
               <span>
@@ -48,6 +48,7 @@
             class="resource-label rollable"
             data-roll="d20[ ≤ @abilities.{{key}}.value ]"
             data-label="{{key}} save"
+            title="roll a {{key}} save"
           >{{key}}</label>
           <input
             type="text"
