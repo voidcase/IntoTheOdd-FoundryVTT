@@ -10,13 +10,16 @@
       },
       "abilities": {
         "str": {
-          "value": 10
+          "value": 10,
+          "max": 10
         },
         "dex": {
-          "value": 10
+          "value": 10,
+          "max": 10
         },
         "wil": {
-          "value": 10
+          "value": 10,
+          "max": 10
         }
       }
     }
