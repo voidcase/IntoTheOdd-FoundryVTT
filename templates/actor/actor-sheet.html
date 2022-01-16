@@ -46,9 +46,9 @@
           <label
             for="data.abilities.{{key}}.value"
             class="resource-label rollable"
-            data-roll="d20[ ≤ @abilities.{{key}}.value ]"
-            data-label="{{key}} save"
-            title="roll a {{key}} save"
+            data-roll="1d20cs<={{ability.value}}"
+            data-label="<b>{{toUpperCase key}}</b> save"
+            title="roll a {{toUpperCase key}} save"
           >{{key}}</label>
           <input
             type="text"
@@ -56,6 +56,8 @@
             value="{{ability.value}}"
             data-dtype="Number"
           />
+          <span> / </span>
+          <input type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
         </div>
         {{/each}}
       </div>
