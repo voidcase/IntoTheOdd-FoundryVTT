@@ -70,6 +70,10 @@ Hooks.once('init', async function() {
     return str.toLowerCase();
   });
 
+  Handlebars.registerHelper('toUpperCase', function(str) {
+    return str.toUpperCase();
+  });
+
   Handlebars.registerHelper('boldIf', function(cond, options) {
     return (cond) ? '<b>' + options.fn(this) + '</b>' : options.fn(this);
   });
