@@ -18,6 +18,12 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "tar": ">=4.4.18",
+    "ansi-regex": ">=5.0.1",
+    "postcss": ">=8.2.13",
+    "glob-parent": ">=5.1.2",
+    "glob-parent": ">=5.1.2",
+    "trim-newlines": ">=3.0.1"
   }
 }
