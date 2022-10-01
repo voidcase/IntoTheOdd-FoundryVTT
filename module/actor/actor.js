@@ -9,27 +9,23 @@ export class IntoTheOddActor extends Actor {
    */
   prepareData() {
     super.prepareData();
-
-    const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags;
+    // const actorData = this.data;
+    // const data = actorData.system;
+    // const flags = actorData.flags;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'character') this._prepareCharacterData(actorData);
+    if (this.type === 'character') this._prepareCharacterData();
   }
 
   /**
    * Prepare Character type specific data
    */
-  _prepareCharacterData(actorData) {
-    const data = actorData.data;
-    data.armour = actorData
-      .items
-      .map(item => item.data.data.armour * item.data.data.equipped)
+  _prepareCharacterData() {
+    this.system.armour = this.items
+      .map(item => item.system.armour * item.system.equipped)
       .reduce((a,b) => a + b, 0);
   }
-
   
   /** @override */
   getRollData() {
@@ -38,16 +34,16 @@ export class IntoTheOddActor extends Actor {
     for ( let [k, v] of Object.entries(data.abilities) ) {
       if ( !(k in data) ) data[k] = v.value;
     }
-    return data
+    return data;
   }
 
   /** @override */
   deleteOneItem(itemId) {
     const item = this.items.get(itemId);
-    if (item.data.data.quantity > 1) {
-      item.data.data.quantity--;
+    if (item.system.quantity > 1) {
+      item.system.quantity--;
     } else {
-      item.delete()
+      item.delete();
     }
   }
 }

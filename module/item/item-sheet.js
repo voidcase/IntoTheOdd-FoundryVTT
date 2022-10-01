@@ -29,7 +29,8 @@ export class IntoTheOddItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const context = super.getData();
-    context.systemData = context.data.data;
+    context.systemData = context.item.system;
+    context.enrichedBiography = TextEditor.enrichHTML(context.systemData.description, {async: false});
     return context;
   }
 
