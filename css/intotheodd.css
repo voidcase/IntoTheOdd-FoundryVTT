@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
-/* Global styles */
-.window-app {
-  font-family: "Roboto", sans-serif;
-}
+/* @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap"); */
+/* /1* Global styles *1/ */
+/* .window-app { */
+/*   font-family: "Roboto", sans-serif; */
+/* } */
 
 .rollable:hover, .rollable:focus {
   color: #000;
@@ -114,54 +114,54 @@
   justify-content: space-between;
 }
 
-/* Styles limited to intotheodd sheets */
+/* /1* Styles limited to intotheodd sheets *1/ */
 .intotheodd .item-form {
   font-family: "Roboto", sans-serif;
 }
 
-.intotheodd .sheet-header {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 165px;
-  flex: 0 0 165px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
+/* .intotheodd .sheet-header { */
+/*   -webkit-box-flex: 0; */
+/*   -ms-flex: 0 0 200px; */
+/*   flex: 0 0 200px; */
+/*   overflow: hidden; */
+/*   display: -webkit-box; */
+/*   display: -ms-flexbox; */
+/*   display: flex; */
+/*   -webkit-box-orient: horizontal; */
+/*   -webkit-box-direction: normal; */
+/*   -ms-flex-direction: row; */
+/*   flex-direction: row; */
+/*   -ms-flex-wrap: wrap; */
+/*   flex-wrap: wrap; */
+/*   -webkit-box-pack: start; */
+/*   -ms-flex-pack: start; */
+/*   justify-content: flex-start; */
+/*   margin-bottom: 10px; */
+/* } */
 
 .intotheodd .sheet-header .profile-img {
   height: 165px;
   margin-right: 10px;
 }
 
-.intotheodd .sheet-header .header-fields {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
+/* .intotheodd .sheet-header .header-fields { */
+/*   -webkit-box-flex: 1; */
+/*   -ms-flex: 1; */
+/*   flex: 1; */
+/* } */
 
-.intotheodd .sheet-header h1.charname {
-  height: 50px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
-}
+/* .intotheodd .sheet-header h1.charname { */
+/*   height: 50px; */
+/*   padding: 0px; */
+/*   margin: 5px 0; */
+/*   border-bottom: 0; */
+/* } */
 
-.intotheodd .sheet-header h1.charname input {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
+/* .intotheodd .sheet-header h1.charname input { */
+/*   width: 100%; */
+/*   height: 100%; */
+/*   margin: 0; */
+/* } */
 
 .intotheodd .sheet-tabs {
   -webkit-box-flex: 0;
@@ -274,19 +274,12 @@
   color: white;
 }
 
-.app {
-  background-color: rgba(80, 0, 0, 0.95);
-  background-image: none;
-  border-radius: 0px;
-}
-
-@font-face {
-  font-family: 'im_fell_english_proregular';
-  src: url("../fonts/feenrm28c.woff2") format("woff2"), url("../fonts/feenrm28c.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+/* .app { */
+/*   background-color: rgba(80, 0, 0, 0.95); */
+/*   background-image: none; */
+/*   border-radius: 0px; */
+/* } */
 
 body, .window-app {
-  font-family: "im_fell_english_proregular", "Times new roman", "Times", "Serif";
+  font-family: "Times new roman", "Times", "Serif";
 }
