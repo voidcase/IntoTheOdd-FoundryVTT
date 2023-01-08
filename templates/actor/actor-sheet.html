@@ -29,12 +29,12 @@
               >{{key}}</label>
               <input
                 type="text"
-                name="data.abilities.{{key}}.value"
+                name="system.abilities.{{key}}.value"
                 value="{{ability.value}}"
                 data-dtype="Number"
               />
               <span> / </span>
-              <input type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
+              <input type="text" name="system.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
             </div>
             {{/each}}
           </div>
@@ -51,12 +51,12 @@
               <label for="data.hp.value" class="resource-label">Hitpoints</label>
               <div class="resource-content flexrow flex-center flex-between">
                 <input type="text"
-                       name="data.hp.value"
+                       name="system.hp.value"
                        value="{{systemData.hp.value}}"
                        data-dtype="Number"
                        />
                 <span> / </span>
-                <input type="text" name="data.hp.max" value="{{systemData.hp.max}}" data-dtype="Number"/>
+                <input type="text" name="system.hp.max" value="{{systemData.hp.max}}" data-dtype="Number"/>
               </div>
             </div>
           </div>

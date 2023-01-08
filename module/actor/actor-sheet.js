@@ -74,12 +74,10 @@ export class IntoTheOddActorSheet extends ActorSheet {
     const name = `New ${type.capitalize()}`;
     // Prepare the item object.
     const itemData = {
+      ...data,
       name: name,
       type: type,
-      data: data
     };
-    // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
 
     // Finally, create the item!
     return this.actor.createEmbeddedDocuments("Item", [itemData])
