@@ -30,7 +30,7 @@ export class IntoTheOddItemSheet extends ItemSheet {
   getData() {
     const context = super.getData();
     context.systemData = context.item.system;
-    context.enrichedBiography = TextEditor.enrichHTML(context.systemData.description, {async: false});
+    context.enrichedDescription = TextEditor.enrichHTML(context.systemData.description, {async: false});
     return context;
   }
 
