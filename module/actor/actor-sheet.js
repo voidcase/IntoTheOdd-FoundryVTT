@@ -20,6 +20,24 @@ export class IntoTheOddActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+
+    if (this.actor.isOwner) {
+      buttons = [
+        {
+          label: 'Rest',
+          class: 'rest-up',
+          icon: 'fas fa-bed',
+          onclick: () => this._rest(),
+        },
+      ].concat(buttons);
+    }
+
+    return buttons;
+  }
+
+  /** @override */
   getData() {
     const context = super.getData();
     context.systemData = context.data.data;
@@ -110,4 +128,24 @@ export class IntoTheOddActorSheet extends ActorSheet {
     }
   }
 
+  _rest() {
+    let d = new Dialog({
+      title: 'Rest',
+      buttons: {
+        short: {
+          label: 'Short Rest',
+          callback: () => this.actor.rest(false),
+        },
+        full: {
+          label: 'Full Rest',
+          callback: () => this.actor.rest(true),
+        },
+      },
+      default: 'short',
+      close: () => {
+        this.render(false);
+      },
+    });
+    d.render(true);
+  }
 }

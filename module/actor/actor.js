@@ -47,7 +47,17 @@ export class IntoTheOddActor extends Actor {
     if (item.data.data.quantity > 1) {
       item.data.data.quantity--;
     } else {
-      item.delete()
+      item.delete();
+    }
+  }
+
+  rest(full) {
+    this.system.hp.value = this.system.hp.max;
+
+    if (full) {
+      this.system.abilities.dex.value = this.system.abilities.dex.max;
+      this.system.abilities.str.value = this.system.abilities.str.max;
+      this.system.abilities.wil.value = this.system.abilities.wil.max;
     }
   }
 }
