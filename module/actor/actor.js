@@ -3,6 +3,22 @@
  * @extends {Actor}
  */
 export class IntoTheOddActor extends Actor {
+  /** @override */
+  static async create(data, options = {}) {
+    if (data.type === 'character') {
+      mergeObject(
+        data,
+        {
+          prototypeToken: {
+            disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+            actorLink: true,
+          },
+        },
+        { override: false }
+      );
+    }
+    return super.create(data, options);
+  }
 
   /**
    * Augment the basic actor data with additional dynamic data.
