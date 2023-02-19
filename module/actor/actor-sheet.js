@@ -40,11 +40,8 @@ export class IntoTheOddActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const context = super.getData();
-    context.systemData = context.data.data;
-    // data.dtypes = ["String", "Number", "Boolean"];
-    // for (let attr of Object.values(data.data.attributes)) {
-    //   attr.isCheckbox = attr.dtype === "Boolean";
-    // }
+    context.systemData = context.actor.system;
+    context.enrichedBiography = TextEditor.enrichHTML(context.systemData.biography, {async: false});
     return context;
   }
 
@@ -95,12 +92,10 @@ export class IntoTheOddActorSheet extends ActorSheet {
     const name = `New ${type.capitalize()}`;
     // Prepare the item object.
     const itemData = {
+      ...data,
       name: name,
       type: type,
-      data: data
     };
-    // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
 
     // Finally, create the item!
     return this.actor.createEmbeddedDocuments("Item", [itemData])
@@ -119,7 +114,7 @@ export class IntoTheOddActorSheet extends ActorSheet {
     const dataset = element.dataset;
 
     if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
+      let roll = new Roll(dataset.roll, this.actor.system);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
       roll.roll({async: false}).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

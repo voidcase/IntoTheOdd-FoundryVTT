@@ -17,49 +17,53 @@
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
         <div class="grid grid-2col">
-          <div class="resource flex-group-center">
-            <label for="data.hp.value" class="resource-label">Hitpoints</label>
-            <div class="resource-content flexrow flex-center flex-between">
-              <input type="text"
-                name="data.hp.value"
-                value="{{systemData.hp.value}}"
+          <div>
+            {{#each systemData.abilities as |ability key|}}
+            <div class="ability flexrow flex-group-center">
+              <label
+                for="data.abilities.{{key}}.value"
+                class="resource-label rollable"
+                data-roll="1d20cs<={{ability.value}}"
+                data-label="<b>{{toUpperCase key}}</b> save"
+                title="roll a {{toUpperCase key}} save"
+              >{{key}}</label>
+              <input
+                type="text"
+                name="system.abilities.{{key}}.value"
+                value="{{ability.value}}"
                 data-dtype="Number"
               />
               <span> / </span>
-              <input type="text" name="data.hp.max" value="{{systemData.hp.max}}" data-dtype="Number"/>
+              <input type="text" name="system.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
             </div>
+            {{/each}}
           </div>
-          <div class="resource flex-group-center" title="Only equipped items increase your armour.">
-            <label for="data.armour" class="resource-label">Armour</label>
-            <div class="resource-content flexrow flex-center flex-between">
-              <span>
-                {{systemData.armour}}
-              </span>
+          <div>
+            <div class="resource flex-group-center" title="Only equipped items increase your armour.">
+              <label for="data.armour" class="resource-label">Armour</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <span>
+                  {{systemData.armour}}
+                </span>
+              </div>
+            </div>
+            <div class="resource flex-group-center">
+              <label for="data.hp.value" class="resource-label">Hitpoints</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text"
+                       name="system.hp.value"
+                       value="{{systemData.hp.value}}"
+                       data-dtype="Number"
+                       />
+                <span> / </span>
+                <input type="text" name="system.hp.max" value="{{systemData.hp.max}}" data-dtype="Number"/>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="abilities grid grid-3col">
-        {{#each systemData.abilities as |ability key|}}
-        <div class="ability flexrow flex-group-center">
-          <label
-            for="data.abilities.{{key}}.value"
-            class="resource-label rollable"
-            data-roll="1d20cs<={{ability.value}}"
-            data-label="<b>{{toUpperCase key}}</b> save"
-            title="roll a {{toUpperCase key}} save"
-          >{{key}}</label>
-          <input
-            type="text"
-            name="data.abilities.{{key}}.value"
-            value="{{ability.value}}"
-            data-dtype="Number"
-          />
-          <span> / </span>
-          <input type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
-        </div>
-        {{/each}}
       </div>
     </div>
   </header>
@@ -79,8 +83,8 @@
     <div class="tab biography" data-group="primary" data-tab="description">
       {{
         editor
-        content=systemData.biography
-        target="data.biography"
+        enrichedBiography
+        target="system.biography"
         button=true
         owner=owner
         editable=editable
@@ -107,28 +111,28 @@
           <!-- </div> -->
           <span>
             <span class="item-name item-edit">
-              {{item.data.data.quantity}}
-              {{#boldIf item.data.data.equipped}}
+              {{item.system.quantity}}
+              {{#boldIf item.system.equipped}}
               {{item.name}}
               {{/boldIf}}
             </span>
-            {{#if item.data.data.armour}}
-            <span class="item-info">Armour {{item.data.data.armour}}</span>
+            {{#if item.system.armour}}
+            <span class="item-info">Armour {{item.system.armour}}</span>
             {{/if}}
-            {{#if item.data.data.damageFormula}}
-            <span class="item-info">{{item.data.data.damageFormula}} damage</span>
+            {{#if item.system.damageFormula}}
+            <span class="item-info">{{item.system.damageFormula}} damage</span>
             {{/if}}
-            {{#if item.data.data.handedness}}
-            <span>&nbsp;&nbsp;<small><i> {{item.data.data.handedness}} handed</i></small></span>
+            {{#if item.system.handedness}}
+            <span>&nbsp;&nbsp;<small><i> {{item.system.handedness}} handed</i></small></span>
             {{/if}}
           </span>
           <div class="item-controls">
-            {{#if item.data.data.equipped}}
-            {{#if item.data.data.damageFormula}}
+            {{#if item.system.equipped}}
+            {{#if item.system.damageFormula}}
             <span
               class="rollable"
               data-label="damage with {{item.name}}"
-              data-roll="{{item.data.data.damageFormula}}"
+              data-roll="{{item.system.damageFormula}}"
               title="Roll Damage"
             >
             <i class="fas fa-dice-d20"></i>
