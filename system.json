@@ -6,7 +6,7 @@
   "compatibility": {
     "minimum":  "0.6.2",
     "verified": "10"
-  }
+  },
   "templateVersion": 2,
   "author": "voidcase",
   "esmodules": ["module/intotheodd.js"],
