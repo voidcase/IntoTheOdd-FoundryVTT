@@ -3,8 +3,10 @@
   "title": "Into the Odd",
   "description": "The Into the Odd system for FoundryVTT!",
   "version": "1.3.1",
-  "minimumCoreVersion": "0.6.2",
-  "compatibleCoreVersion": "10",
+  "compatibility": {
+    "minimum":  "0.6.2",
+    "verified": "10"
+  }
   "templateVersion": 2,
   "author": "voidcase",
   "esmodules": ["module/intotheodd.js"],
@@ -16,7 +18,7 @@
       "label": "Macros for playing Into the Odd",
       "system": "intotheodd",
       "path": "./packs/into-the-odd-macros.db",
-      "entity": "Macro"
+      "type": "Macro"
     }
   ],
   "languages": [],
