@@ -41,9 +41,9 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("intotheodd", IntoTheOddActorSheet, { makeDefault: true });
+  Actors.registerSheet("intotheodd", IntoTheOddActorSheet, { types: ["character"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("intotheodd", IntoTheOddItemSheet, { makeDefault: true });
+  Items.registerSheet("intotheodd", IntoTheOddItemSheet, { types: ["item"], makeDefault: true });
 
   game.settings.register('intotheodd', 'showInitiativeHelp', {
     name: 'Show initiative helptext on next startup',
