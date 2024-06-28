@@ -6,7 +6,7 @@ export class IntoTheOddActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["intotheodd", "sheet", "actor"],
       template: "systems/intotheodd/templates/actor/actor-sheet.html",
       width: 500,
@@ -38,10 +38,10 @@ export class IntoTheOddActorSheet extends ActorSheet {
   }
 
   /** @override */
-  getData() {
+  async getData() {
     const context = super.getData();
     context.systemData = context.actor.system;
-    context.enrichedBiography = TextEditor.enrichHTML(context.systemData.biography, {async: false});
+    context.enrichedBiography = await TextEditor.enrichHTML(context.systemData.biography, {async: true});
     return context;
   }
 
@@ -87,7 +87,7 @@ export class IntoTheOddActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.duplicate(header.dataset);
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
     // Prepare the item object.
@@ -108,7 +108,7 @@ export class IntoTheOddActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -116,7 +116,8 @@ export class IntoTheOddActorSheet extends ActorSheet {
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.system);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      roll.roll({async: false}).toMessage({
+      await roll.evaluate();          
+      roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label
       });

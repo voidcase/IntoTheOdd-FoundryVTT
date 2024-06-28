@@ -4,11 +4,10 @@
   "description": "The Into the Odd system for FoundryVTT!",
   "version": "#{VERSION}#",
   "compatibility": {
-    "minimum": "10",
-    "verified": "11",
-    "maximum": "11"
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
   },
-  "templateVersion": 2,
   "authors": [
     {
       "name": "voidcase"
@@ -30,8 +29,10 @@
     }
   ],
   "languages": [],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
   "primaryTokenAttribute": "health",
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",

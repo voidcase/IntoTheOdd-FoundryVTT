@@ -6,7 +6,7 @@ export class IntoTheOddItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["intotheodd", "sheet", "item"],
       width: 420,
       height: 320
@@ -27,10 +27,10 @@ export class IntoTheOddItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     const context = super.getData();
     context.systemData = context.item.system;
-    context.enrichedDescription = TextEditor.enrichHTML(context.systemData.description, {async: false});
+    context.enrichedDescription = await TextEditor.enrichHTML(context.systemData.description, {async: true});
     return context;
   }
 
