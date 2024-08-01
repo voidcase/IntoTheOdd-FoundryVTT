@@ -1,0 +1,41 @@
+<section class="tab actor-{{tab.id}} {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="items-list">
+    {{#each actor.items as |item id|}}
+      <div class="item" data-item-id="{{item.id}}">
+        <details>
+          <summary>
+            <span>
+              <span class="item-name item-edit">
+                {{#if (gt item.system.quantity 1)}}
+                    {{item.system.quantity}}
+                {{/if}}                
+                  {{item.name}}
+              </span>
+              {{#if item.system.armour}}
+                <span class="item-info">Armour {{item.system.armour}}</span>
+              {{/if}}
+              {{#if item.system.damageFormula}}
+                <span class="item-info">{{item.system.damageFormula}} damage</span>
+              {{/if}}
+              {{#if item.system.handedness}}
+                <span>&nbsp;&nbsp;<small><i> {{item.system.handedness}} handed</i></small></span>
+              {{/if}}
+            </span>
+            <div class="item-controls">
+              {{#if item.system.equipped}}
+                {{#if item.system.damageFormula}}
+                  <span class="rollable" data-label="damage with {{item.name}}" data-roll="{{item.system.damageFormula}}" data-tooltip="{{localize 'INTOTHEODD.RollDamage'}}">
+                    <i class="fas fa-dice-d20"></i>
+                  </span>
+                {{/if}}
+              {{/if}}
+              <a data-tooltip="{{localize 'INTOTHEODD.Edit'}}" data-action="edit" data-item-id="{{item.id}}"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="{{localize 'INTOTHEODD.Delete'}}" data-action="delete" data-item-id="{{item.id}}"><i class="fas fa-trash"></i></a>
+            </div>
+          </summary>
+          <div class="item-description"></div>
+        </details>
+      </div>
+    {{/each}}
+  </div>
+</section>

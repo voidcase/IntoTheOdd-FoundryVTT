@@ -1,0 +1,78 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Character"
+    }
+  },
+  "INTOTHEODD": {
+    "Character": {
+      "FIELDS": {
+        "biography": {
+          "label": "Biography",
+          "hint": "A brief description of your character."
+        },
+        "hp": {
+          "label": "Hit Points",
+          "hint": "The amount of damage your character can take before dying."
+        },
+        "str": {
+          "label": "Strength",
+          "hint": "How strong your character is."
+        },
+        "dex": {
+          "label": "Dexterity",
+          "hint": "How agile your character is."
+        },
+        "wil": {
+          "label": "Willpower",
+          "hint": "How strong your character's will is."
+        },
+        "deprived": {
+          "label": "Deprived",
+          "tooltip": "Somebody deprived of a crucial need (e.g. food, water, or warmth) cannot benefit from Rests"
+        },
+        "critical": {
+          "label": "Critical Damage",
+          "tooltip": "A character that takes Critical Damage is unable to take further action until they are tended to by an ally and have a Short Rest. If they are left for an hour without being tended to, they die."
+        },
+        "level": {
+          "label": "Experience Level"
+        }
+      }
+    },
+    "Labels": {
+        "short": {          
+          "hp": "HP",
+          "str": "Str",
+          "dex": "Dex",
+          "wil": "Wil",
+          "biography": "Bio"
+        },
+        "long": {          
+          "hp": "Hit Protection",
+          "str": "Strength",
+          "dex": "Dexterity",
+          "wil": "Willpower",
+          "biography": "Biography",
+          "inventory": "Inventory",
+          "armour": "Armour",
+          "shortRest": "Short Rest",
+          "fullRest": "Full Rest"
+        }
+    },
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "RollDamage": "Roll Damage",
+    "Level": {
+        "novice": "Novice",
+        "professional": "Professional",
+        "expert": "Expert",
+        "veteran": "Veteran",
+        "master": "Master",
+        "beyond": "Beyond"
+    },
+    "Warns": {
+      "canNotRest": "You can't rest because you are deprived."
+    }
+  }
+}

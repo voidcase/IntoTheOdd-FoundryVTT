@@ -1,0 +1,48 @@
+{{log "actor-sheet" this}}
+
+<div class="character-grid">
+
+  <fieldset>
+    <legend class="rollable" data-action="save" data-ability="str">{{localize "INTOTHEODD.Labels.long.str"}}</legend>
+    <div class="ability">
+      {{formInput systemFields.abilities.fields.str.fields.value value=system.abilities.str.value rootId=partId}}
+      <div class="divider">/</div>
+      {{formInput systemFields.abilities.fields.str.fields.max value=system.abilities.str.max rootId=partId}}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="rollable" data-action="save" data-ability="dex">{{localize "INTOTHEODD.Labels.long.dex"}}</legend>
+    <div class="ability">
+      {{formInput systemFields.abilities.fields.dex.fields.value value=system.abilities.dex.value rootId=partId}}
+      <div class="divider">/</div>
+      {{formInput systemFields.abilities.fields.dex.fields.max value=system.abilities.dex.max rootId=partId}}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="rollable" data-action="save" data-ability="wil">{{localize "INTOTHEODD.Labels.long.wil"}}</legend>
+    <div class="ability">
+      {{formInput systemFields.abilities.fields.wil.fields.value value=system.abilities.wil.value rootId=partId}}
+      <div class="divider">/</div>
+      {{formInput systemFields.abilities.fields.wil.fields.max value=system.abilities.wil.max rootId=partId}}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "INTOTHEODD.Labels.long.hp"}}</legend>
+    <div class="ability">
+      {{formInput systemFields.hp.fields.value value=system.hp.value rootId=partId}}
+      <div class="divider">/</div>
+      {{formInput systemFields.hp.fields.max value=system.hp.max rootId=partId}}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "INTOTHEODD.Labels.long.armour"}}</legend>
+    <div class="armour">
+      <label>{{system.armour}}</label>
+    </div>
+  </fieldset>
+
+</div>

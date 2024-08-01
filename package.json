@@ -1,29 +1,20 @@
 {
   "name": "intotheodd",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "CSS compiler for the Into The Odd system",
   "scripts": {
-    "build": "gulp",
-    "compile": "gulp css",
+    "css": "gulp css",
     "watch": "gulp",
     "gulp": "gulp"
   },
   "browserslist": [
     "last 3 versions"
   ],
-  "author": "voidcase",
+  "author": "Kristov",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "tar": ">=4.4.18",
-    "ansi-regex": ">=5.0.1",
-    "postcss": ">=8.4.31",
-    "glob-parent": ">=5.1.2",
-    "glob-parent": ">=5.1.2",
-    "trim-newlines": ">=3.0.1"
+    "gulp-less": "^4.0.1"
   }
 }

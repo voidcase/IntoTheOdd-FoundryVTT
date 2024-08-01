@@ -2,26 +2,7 @@
   "Actor": {
     "types": ["character"],
     "character": {
-      "templates": ["base"],
-      "biography": "",
-      "hp": {
-        "value": 10,
-        "max": 10
-      },
-      "abilities": {
-        "str": {
-          "value": 10,
-          "max": 10
-        },
-        "dex": {
-          "value": 10,
-          "max": 10
-        },
-        "wil": {
-          "value": 10,
-          "max": 10
-        }
-      }
+      "htmlFields": ["biography"]
     }
   },
   "Item": {

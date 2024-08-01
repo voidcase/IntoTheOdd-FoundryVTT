@@ -1,264 +1,8 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap"); */
-/* /1* Global styles *1/ */
-/* .window-app { */
-/*   font-family: "Roboto", sans-serif; */
-/* } */
-
-.rollable:hover, .rollable:focus {
-  color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
-}
-
-.grid,
-.grid-2col {
-  display: grid;
-  grid-column: span 2 / span 2;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin: 10px 0;
+/* Styles limited to cthack sheets */
+.intotheodd .no-padding {
   padding: 0;
 }
-
-.grid-3col {
-  grid-column: span 3 / span 3;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.grid-4col {
-  grid-column: span 4 / span 4;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.grid-5col {
-  grid-column: span 5 / span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-6col {
-  grid-column: span 5 / span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-7col {
-  grid-column: span 7 / span 7;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-
-.grid-8col {
-  grid-column: span 8 / span 8;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-}
-
-.grid-9col {
-  grid-column: span 9 / span 9;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-}
-
-.grid-10col {
-  grid-column: span 10 / span 10;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-}
-
-.grid-11col {
-  grid-column: span 11 / span 11;
-  grid-template-columns: repeat(11, minmax(0, 1fr));
-}
-
-.grid-12col {
-  grid-column: span 12 / span 12;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-
-.flex-group-center,
-.flex-group-left,
-.flex-group-right {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  padding: 5px;
-  border: 1px solid #999;
-}
-
-.flex-group-left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.flex-group-right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.flex-center {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.flex-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-/* /1* Styles limited to intotheodd sheets *1/ */
-.intotheodd .item-form {
-  font-family: "Roboto", sans-serif;
-}
-
-/* .intotheodd .sheet-header { */
-/*   -webkit-box-flex: 0; */
-/*   -ms-flex: 0 0 200px; */
-/*   flex: 0 0 200px; */
-/*   overflow: hidden; */
-/*   display: -webkit-box; */
-/*   display: -ms-flexbox; */
-/*   display: flex; */
-/*   -webkit-box-orient: horizontal; */
-/*   -webkit-box-direction: normal; */
-/*   -ms-flex-direction: row; */
-/*   flex-direction: row; */
-/*   -ms-flex-wrap: wrap; */
-/*   flex-wrap: wrap; */
-/*   -webkit-box-pack: start; */
-/*   -ms-flex-pack: start; */
-/*   justify-content: flex-start; */
-/*   margin-bottom: 10px; */
-/* } */
-
-.intotheodd .sheet-header .profile-img {
-  height: 165px;
-  margin-right: 10px;
-}
-
-/* .intotheodd .sheet-header .header-fields { */
-/*   -webkit-box-flex: 1; */
-/*   -ms-flex: 1; */
-/*   flex: 1; */
-/* } */
-
-/* .intotheodd .sheet-header h1.charname { */
-/*   height: 50px; */
-/*   padding: 0px; */
-/*   margin: 5px 0; */
-/*   border-bottom: 0; */
-/* } */
-
-/* .intotheodd .sheet-header h1.charname input { */
-/*   width: 100%; */
-/*   height: 100%; */
-/*   margin: 0; */
-/* } */
-
-.intotheodd .sheet-tabs {
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
-  flex: 0;
-}
-
-.intotheodd .sheet-tabs-container {
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
-  flex: 0;
-}
-
-.intotheodd .sheet-body,
-.intotheodd .sheet-body .tab,
-.intotheodd .sheet-body .tab .editor {
-  height: 100%;
-}
-
-.intotheodd .tox .tox-editor-container {
-  background: #fff;
-}
-
-.intotheodd .tox .tox-edit-area {
-  padding: 0 8px;
-}
-
-.intotheodd .checkbox-block {
-  display: block;
-}
-
-.intotheodd .editor {
-  height: 100%;
-}
-
-.intotheodd .resource-label {
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.intotheodd .tabs {
-  height: 40px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
-}
-
-.intotheodd .tabs .item {
-  line-height: 40px;
-  font-weight: bold;
-}
-
-.intotheodd .tabs .item.active {
-  text-decoration: underline;
-  text-shadow: none;
-}
-
-.intotheodd .items-list {
-  list-style: none;
-  margin: 7px 0;
-  padding: 0;
-  overflow-y: auto;
-}
-
-.intotheodd .items-list .item-header {
-  font-weight: bold;
-}
-
-.intotheodd .items-list .item {
-  height: 30px;
-  line-height: 24px;
-  padding: 3px 0;
-  border-bottom: 1px solid #BBB;
-}
-
-.intotheodd .items-list .item .item-image {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 24px;
-  flex: 0 0 24px;
-  margin-right: 5px;
-}
-
-.intotheodd .items-list .item img {
-  display: block;
-}
-
-.intotheodd .items-list .item-name {
-  margin: 0;
-}
-
-.intotheodd .items-list .item-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 86px;
-  flex: 0 0 86px;
-  text-align: right;
-}
-
-.intotheodd .items-list .item-info {
+.intotheodd .item-info {
   margin-left: 4px;
   border-style: solid;
   border-width: thin;
@@ -268,18 +12,84 @@
   padding-top: 2px;
   padding-bottom: 2px;
 }
-
-.intotheodd .items-list .clickable {
-  background-color: darkred;
-  color: white;
+.intotheodd .rollable:hover,
+.intotheodd .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
 }
-
-/* .app { */
-/*   background-color: rgba(80, 0, 0, 0.95); */
-/*   background-image: none; */
-/*   border-radius: 0px; */
-/* } */
-
-body, .window-app {
-  font-family: "Times new roman", "Times", "Serif";
+.intotheodd .character-grid {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-column: span 5 / span 5;
+}
+.intotheodd .character-grid fieldset {
+  border-radius: 5px;
+}
+.intotheodd .character-grid fieldset legend {
+  font-weight: bold;
+}
+.intotheodd .character-header {
+  display: flex;
+  flex-direction: row;
+}
+.intotheodd .character-header .character-img {
+  width: 100px;
+  flex: 0 0 25%;
+  /* Prend 25% de la largeur */
+}
+.intotheodd .character-header .character-details {
+  flex: 1;
+  /* Prend le reste de la largeur */
+  padding-left: 10px;
+  flex-direction: column;
+}
+.intotheodd .character-header .character-details fieldset {
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.intotheodd .character-header .character-details fieldset legend {
+  font-weight: bold;
+}
+.intotheodd .ability {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  text-align: center;
+}
+.intotheodd .ability input {
+  width: 40px;
+  font-size: 1.2rem;
+}
+.intotheodd .ability .divider {
+  /* Ajuster l'espace entre les éléments */
+  margin: 0 5px;
+  /* Ajuster l'espace entre les éléments */
+  font-weight: bold;
+}
+.intotheodd .armour {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.intotheodd .items-list .item {
+  margin-top: 10px;
+}
+.intotheodd .items-list .item .item-name {
+  flex: 1;
+}
+.intotheodd .items-list .item .item-quantity {
+  width: 40px;
+  font-size: 1.2rem;
+}
+.intotheodd .items-list .item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

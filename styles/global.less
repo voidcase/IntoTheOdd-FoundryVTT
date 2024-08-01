@@ -1,0 +1,29 @@
+.grid-col(@nbcolumns) {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+  grid-template-columns: repeat(@nbcolumns, minmax(0, 1fr));
+  grid-column: span @nbcolumns / span @nbcolumns;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.item-info {
+  margin-left: 4px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.rollable:hover, .rollable:focus {
+    color: #000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+  }

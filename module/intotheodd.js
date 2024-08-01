@@ -1,8 +1,10 @@
 // Import Modules
-import { IntoTheOddActor } from "./actor/actor.js";
-import { IntoTheOddActorSheet } from "./actor/actor-sheet.js";
+import { IntoTheOddActor } from "./documents/actor.js";
+import { IntoTheOddCharacterSheet } from "./sheets/character-sheet.mjs";
 import { IntoTheOddItem } from "./item/item.js";
 import { IntoTheOddItemSheet } from "./item/item-sheet.js";
+
+import IntoTheOddCharacter from "./data/character.mjs";
 
 Hooks.once('ready', async function() {
   if (game.user.isGM && game.settings.get('intotheodd', 'showInitiativeHelp') === true) {
@@ -37,11 +39,15 @@ Hooks.once('init', async function() {
 
   // Define custom Entity classes
   CONFIG.Actor.documentClass = IntoTheOddActor;
+  CONFIG.Actor.dataModels = {
+    character: IntoTheOddCharacter
+  };
+
   CONFIG.Item.documentClass = IntoTheOddItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("intotheodd", IntoTheOddActorSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("intotheodd", IntoTheOddCharacterSheet, { types: ["character"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("intotheodd", IntoTheOddItemSheet, { types: ["item"], makeDefault: true });
 
@@ -64,10 +70,6 @@ Hooks.once('init', async function() {
       }
     }
     return outStr;
-  });
-
-  Handlebars.registerHelper('toLowerCase', function(str) {
-    return str.toLowerCase();
   });
 
   Handlebars.registerHelper('toUpperCase', function(str) {
