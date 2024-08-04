@@ -2,6 +2,9 @@
   "TYPES": {
     "Actor": {
       "character": "Character"
+    },
+    "Item": {
+      "item": "Item"
     }
   },
   "INTOTHEODD": {
@@ -40,6 +43,42 @@
         }
       }
     },
+    "Item": {
+      "FIELDS": {
+        "subType": {
+          "label": "Type"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "armour": {
+          "label": "Protection"
+        },
+        "quantity": {
+          "label": "Quantity"
+        },
+        "damageFormula": {
+          "label": "Damage Formula"
+        },
+        "equipped": {
+          "label": "Equipped"
+        },
+        "bulky": {
+          "label": "Bulky"
+        },
+        "blast": {
+          "label": "Blast"
+        },
+        "arcana": {
+          "label": "Arcana"
+        }
+      },
+      "SubType": {
+        "weapon": "Weapon",
+        "armour": "Armour",
+        "equipment": "Equipment"
+      }
+    },
     "Labels": {
         "short": {          
           "hp": "HP",
@@ -58,11 +97,14 @@
           "armour": "Armour",
           "shortRest": "Short Rest",
           "fullRest": "Full Rest"
-        }
+        },
+        "details": "Details"
     },
     "Edit": "Edit",
     "Delete": "Delete",
     "RollDamage": "Roll Damage",
+    "Equip": "Equip",
+    "Unequip": "Unequip",
     "Level": {
         "novice": "Novice",
         "professional": "Professional",

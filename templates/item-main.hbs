@@ -1,0 +1,54 @@
+<div>
+  {{log "item-sheet" this}}
+  <section class="item-main">
+    <div class="header">
+      <img src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+      {{formInput fields.name value=source.name rootId=partId}}
+    </div>
+    <div class="details">
+      <fieldset>
+        <legend>{{localize "INTOTHEODD.Labels.details"}}</legend>
+        {{formField systemFields.subType value=system.subType localize=true rootId=partId}}
+        {{formField systemFields.quantity value=system.quantity rootId=partId}}
+        {{formField systemFields.arcana value=system.arcana rootId=partId}}
+        {{formField systemFields.bulky value=system.bulky rootId=partId}}
+        {{formField systemFields.equipped value=system.equipped rootId=partId}}
+      </fieldset>
+    </div>
+  </section>
+
+  {{#if (eq item.system.subType "armour")}}
+    <section class="item-armour">
+      <fieldset>
+        <legend>{{localize "INTOTHEODD.Item.SubType.armour"}}</legend>
+        {{formField systemFields.armour value=system.armour localize=true rootId=partId}}
+      </fieldset>
+    </section>
+  {{/if}}
+
+  {{#if (eq item.system.subType "weapon")}}
+    <section class="item-weapon">
+      <fieldset>
+        <legend>{{localize "INTOTHEODD.Item.SubType.weapon"}}</legend>
+        {{formField systemFields.damageFormula value=system.damageFormula rootId=partId}}
+        {{formField systemFields.blast value=system.blast rootId=partId}}
+      </fieldset>
+    </section>
+  {{/if}}
+
+  <section class="item-description">
+    <fieldset>
+      <legend>{{localize "INTOTHEODD.Item.FIELDS.description.label"}}</legend>
+      {{formInput
+        systemFields.description
+        enriched=enrichedDescription
+        value=system.description
+        documentUUID=item.uuid
+        name="system.description"
+        collaborate="false"
+        toggled="true"
+        height="50"
+      }}
+    </fieldset>
+  </section>
+</div>

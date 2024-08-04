@@ -79,10 +79,13 @@
   margin-top: 10px;
 }
 .intotheodd .items-list .item {
+  display: flex;
+  justify-content: space-between;
   margin-top: 10px;
 }
 .intotheodd .items-list .item .item-name {
   flex: 1;
+  font-weight: bold;
 }
 .intotheodd .items-list .item .item-quantity {
   width: 40px;
@@ -92,4 +95,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.intotheodd .item-main,
+.intotheodd .item-weapon,
+.intotheodd .item-armour,
+.intotheodd .item-description {
+  padding-bottom: 5px;
+}
+.intotheodd .item-main fieldset,
+.intotheodd .item-weapon fieldset,
+.intotheodd .item-armour fieldset,
+.intotheodd .item-description fieldset {
+  font-weight: bold;
+  border-radius: 5px;
+}
+.intotheodd .item-main {
+  display: flex;
+  flex-direction: column;
+}
+.intotheodd .item-main .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.intotheodd .item-main .header img {
+  width: 50px;
+  margin: 0 5px 5px 5px;
+}
+.intotheodd .item-main fieldset {
+  font-weight: bold;
+  border-radius: 5px;
 }

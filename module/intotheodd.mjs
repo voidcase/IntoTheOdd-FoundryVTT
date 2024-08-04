@@ -1,12 +1,14 @@
 // Import Modules
-import { IntoTheOddActor } from "./documents/actor.js";
-import { IntoTheOddCharacterSheet } from "./sheets/character-sheet.mjs";
-import { IntoTheOddItem } from "./item/item.js";
-import { IntoTheOddItemSheet } from "./item/item-sheet.js";
+import IntoTheOddActor from "./documents/actor.js";
+import IntoTheOddItem from "./documents/item.js";
+import IntoTheOddCharacterData from "./data/character.mjs";
+import IntoTheOddItemData from "./data/item.mjs";
+import IntoTheOddCharacterSheet from "./sheets/character-sheet.mjs";
+import IntoTheOddItemSheet from "./sheets/item-sheet.js";
 
-import IntoTheOddCharacter from "./data/character.mjs";
 
-Hooks.once('ready', async function() {
+
+Hooks.once('ready', async function () {
   if (game.user.isGM && game.settings.get('intotheodd', 'showInitiativeHelp') === true) {
     alert(
       'To the GM from the game-system developer:\n\n' +
@@ -21,11 +23,11 @@ Hooks.once('ready', async function() {
   }
 });
 
-Hooks.once('init', async function() {
+Hooks.once('init', async function () {
 
   game.intotheodd = {
     IntoTheOddActor,
-    IntoTheOddItem
+    IntoTheOddItemData: IntoTheOddItem
   };
 
   /**
@@ -40,10 +42,13 @@ Hooks.once('init', async function() {
   // Define custom Entity classes
   CONFIG.Actor.documentClass = IntoTheOddActor;
   CONFIG.Actor.dataModels = {
-    character: IntoTheOddCharacter
+    character: IntoTheOddCharacterData
   };
 
   CONFIG.Item.documentClass = IntoTheOddItem;
+  CONFIG.Item.dataModels = {
+    item: IntoTheOddItemData
+  };
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -54,7 +59,7 @@ Hooks.once('init', async function() {
   game.settings.register('intotheodd', 'showInitiativeHelp', {
     name: 'Show initiative helptext on next startup',
     hint: 'This option only exists so the helptext won\'t appear on every startup.\n' +
-    'When the message appears, this option will uncheck itself.',
+      'When the message appears, this option will uncheck itself.',
     scope: 'system',
     config: true,
     type: Boolean,
@@ -62,7 +67,7 @@ Hooks.once('init', async function() {
   })
 
   // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function() {
+  Handlebars.registerHelper('concat', function () {
     var outStr = '';
     for (var arg in arguments) {
       if (typeof arguments[arg] != 'object') {
@@ -72,11 +77,11 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
-  Handlebars.registerHelper('toUpperCase', function(str) {
+  Handlebars.registerHelper('toUpperCase', function (str) {
     return str.toUpperCase();
   });
 
-  Handlebars.registerHelper('boldIf', function(cond, options) {
+  Handlebars.registerHelper('boldIf', function (cond, options) {
     return (cond) ? '<b>' + options.fn(this) + '</b>' : options.fn(this);
   });
 

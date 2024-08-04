@@ -16,7 +16,7 @@
       "name": "Kristov"
     }
   ],
-  "esmodules": ["module/intotheodd.js"],
+  "esmodules": ["module/intotheodd.mjs"],
   "styles": ["css/intotheodd.css"],
   "scripts": [],
   "packs": [

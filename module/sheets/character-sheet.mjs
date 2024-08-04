@@ -1,6 +1,6 @@
 const { HandlebarsApplicationMixin } = foundry.applications.api
 
-export class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
     constructor(options = {}) {
         super(options);
         this.#dragDrop = this.#createDragDropHandlers();
@@ -27,7 +27,9 @@ export class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry
             delete: IntoTheOddCharacterSheet.#onItemDelete,
             save: IntoTheOddCharacterSheet.#onItemSave,
             shortRest: IntoTheOddCharacterSheet.#onShortRest,
-            fullRest: IntoTheOddCharacterSheet.#onFullRest
+            fullRest: IntoTheOddCharacterSheet.#onFullRest,
+            equip: IntoTheOddCharacterSheet.#onItemEquip,
+            unequip: IntoTheOddCharacterSheet.#onItemUnequip
         }
     };
 
@@ -103,7 +105,7 @@ export class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry
                 },
             },
         }
-        console.log('context', context);
+        console.log('character context', context);
         return context;
     }
 
@@ -164,11 +166,11 @@ export class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry
     }
 
     /**
- * Define whether a user is able to begin a dragstart workflow for a given drag selector
- * @param {string} selector       The candidate HTML selector for dragging
- * @returns {boolean}             Can the current user drag this selector?
- * @protected
- */
+     * Define whether a user is able to begin a dragstart workflow for a given drag selector
+     * @param {string} selector       The candidate HTML selector for dragging
+     * @returns {boolean}             Can the current user drag this selector?
+     * @protected
+     */
     _canDragStart(selector) {
         // game.user fetches the current user
         return this.isEditable;
@@ -181,7 +183,6 @@ export class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry
      * @protected
      */
     _canDragDrop(selector) {
-        // game.user fetches the current user
         return this.isEditable;
     }
 
@@ -274,5 +275,17 @@ export class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry
      */
     static async #onFullRest(event, target) {
         await this.actor.system.fullRest();
+    }
+
+    static async #onItemEquip(event, target) {
+        const itemId = target.getAttribute('data-item-id');
+        const item = this.actor.items.get(itemId);
+        await item.update({ "system.equipped": true });
+    }
+
+    static async #onItemUnequip(event, target) {
+        const itemId = target.getAttribute('data-item-id');
+        const item = this.actor.items.get(itemId);
+        await item.update({ "system.equipped": false });
     }
 }

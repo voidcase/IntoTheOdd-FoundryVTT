@@ -8,12 +8,7 @@
   "Item": {
     "types": ["item"],
     "item": {
-      "description": "",
-      "quantity": 1,
-      "armour": 0,
-      "damageFormula": "",
-      "equipped": false,
-      "handedness": 0
+      "htmlFields": ["description"]
     }
   }
 }

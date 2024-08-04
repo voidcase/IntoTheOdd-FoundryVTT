@@ -1,12 +1,12 @@
 import { LEVEL } from "../config.mjs";
 
-export default class IntoTheOddCharacter extends foundry.abstract.TypeDataModel {
+export default class IntoTheOddCharacterData extends foundry.abstract.TypeDataModel {
     /** @override */
     static defineSchema() {
         const fields = foundry.data.fields;
 
         return {
-            biography: new fields.HTMLField({ required: false, blank: true, textSearch: true }),
+            biography: new fields.HTMLField({ required: false, blank: true, initial: "", textSearch: true }),
             hp: new fields.SchemaField({
                 value: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 10, min: 0 }),
                 max: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 10, min: 0 }),
@@ -40,8 +40,9 @@ export default class IntoTheOddCharacter extends foundry.abstract.TypeDataModel 
     /** @override */
     prepareBaseData() {
         this.armour = this.parent.items
-            .map(item => item.system.armour * item.system.equipped)
-            .reduce((a, b) => a + b, 0);
+            .filter(item => item.system.subType === "armour" && item.system.equipped)
+            .map(item => item.system.armour)
+            .reduce((acc, curr) => acc + curr, 0);
     }
 
     /**
