@@ -1,13 +1,13 @@
 // Import Modules
-import IntoTheOddActor from "./documents/actor.js";
-import IntoTheOddItem from "./documents/item.js";
+import IntoTheOddActor from "./documents/actor.mjs";
+import IntoTheOddItem from "./documents/item.mjs";
 import IntoTheOddCharacterData from "./data/character.mjs";
 import IntoTheOddEncounterData from "./data/encounter.mjs";
 import IntoTheOddItemData from "./data/item.mjs";
 import IntoTheOddAttackData from "./data/attack.mjs";
 import IntoTheOddCharacterSheet from "./sheets/character-sheet.mjs";
 import IntoTheOddEncounterSheet from "./sheets/encounter-sheet.mjs";
-import IntoTheOddItemSheet from "./sheets/item-sheet.js";
+import IntoTheOddItemSheet from "./sheets/item-sheet.mjs";
 import IntoTheOddAttackSheet from "./sheets/attack-sheet.mjs";
 
 Hooks.once('ready', async function () {

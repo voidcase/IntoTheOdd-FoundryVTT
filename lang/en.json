@@ -158,6 +158,12 @@
     },
     "Warns": {
       "canNotRest": "You can't rest because you are deprived."
+    },
+    "Roll":{
+      "SaveRoll": "Save Roll of {ability} ({value})",
+      "Success": "Success",
+      "Failure": "Failure",
+      "AttackRollDamage": "Damage Roll of {itemName}"
     }
   }
 }

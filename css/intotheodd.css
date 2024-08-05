@@ -263,3 +263,41 @@
 .intotheodd .attack .attack-description legend {
   font-weight: bold;
 }
+.dice-roll .intro-chat {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.dice-roll .intro-chat .intro-img {
+  padding: 5px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  object-position: center;
+  align-self: center;
+}
+.dice-roll .intro-chat .intro-right {
+  display: flex;
+  flex-direction: column;
+}
+.dice-roll .intro-chat .intro-right .introText {
+  font-size: 1.2em;
+  width: 210px;
+  padding-top: 0.5em;
+  text-align: center;
+}
+.dice-roll .intro-chat .intro-right .success {
+  color: green;
+  font-size: 1.3em;
+  width: 210px;
+  margin-top: 0;
+  text-align: center;
+}
+.dice-roll .intro-chat .intro-right .failure {
+  color: red;
+  font-size: 1.3em;
+  width: 210px;
+  margin-top: 0;
+  text-align: center;
+}
