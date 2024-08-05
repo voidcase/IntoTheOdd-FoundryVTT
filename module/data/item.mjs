@@ -7,9 +7,9 @@ export default class IntoTheOddItemData extends foundry.abstract.TypeDataModel {
             subType: new fields.StringField(
                 {
                     required: true, nullable: false, initial: "weapon", choices: {
-                        equipment: { label: "INTOTHEODD.Item.SubType.equipment" },
-                        armour: { label: "INTOTHEODD.Item.SubType.armour" },
-                        weapon: { label: "INTOTHEODD.Item.SubType.weapon" }
+                        equipment: { label: "INTOTHEODD.Equipment.SubType.equipment" },
+                        armour: { label: "INTOTHEODD.Equipment.SubType.armour" },
+                        weapon: { label: "INTOTHEODD.Equipment.SubType.weapon" }
                     }
                 }),
             description: new fields.HTMLField({ required: false, blank: true, initial: "", textSearch: true }),
@@ -24,7 +24,7 @@ export default class IntoTheOddItemData extends foundry.abstract.TypeDataModel {
     }
 
     /** @override */
-    static LOCALIZATION_PREFIXES = ["INTOTHEODD.Item"];
+    static LOCALIZATION_PREFIXES = ["INTOTHEODD.Equipment"];
 
     get isArmor() {
         return this.subType === "armour";

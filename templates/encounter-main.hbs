@@ -1,0 +1,104 @@
+<div class="encounter-main">
+
+  <div class="encounter-header">
+
+    <div><img class="encounter-img" src="{{actor.img}}" data-edit="img" data-action="editImage" data-tooltip="{{actor.name}}" /></div>
+    <div class="encounter-details">
+      <div class="encounter-name">{{formInput fields.name value=source.name rootId=partId}}</div>
+      <div class="encounter-abilities">
+        <fieldset>
+          <legend class="rollable" data-action="rollSave" data-ability="str">{{localize "INTOTHEODD.Labels.long.str"}}</legend>
+          <div class="ability">
+            {{formInput systemFields.abilities.fields.str.fields.value value=system.abilities.str.value rootId=partId}}
+            <div class="divider">/</div>
+            {{formInput systemFields.abilities.fields.str.fields.max value=system.abilities.str.max rootId=partId}}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="rollable" data-action="rollSave" data-ability="dex">{{localize "INTOTHEODD.Labels.long.dex"}}</legend>
+          <div class="ability">
+            {{formInput systemFields.abilities.fields.dex.fields.value value=system.abilities.dex.value rootId=partId}}
+            <div class="divider">/</div>
+            {{formInput systemFields.abilities.fields.dex.fields.max value=system.abilities.dex.max rootId=partId}}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="rollable" data-action="rollSave" data-ability="wil">{{localize "INTOTHEODD.Labels.long.wil"}}</legend>
+          <div class="ability">
+            {{formInput systemFields.abilities.fields.wil.fields.value value=system.abilities.wil.value rootId=partId}}
+            <div class="divider">/</div>
+            {{formInput systemFields.abilities.fields.wil.fields.max value=system.abilities.wil.max rootId=partId}}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>{{localize "INTOTHEODD.Labels.long.hp"}}</legend>
+          <div class="ability">
+            {{formInput systemFields.hp.fields.value value=system.hp.value rootId=partId}}
+            <div class="divider">/</div>
+            {{formInput systemFields.hp.fields.max value=system.hp.max rootId=partId}}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>{{localize "INTOTHEODD.Labels.long.armour"}}</legend>
+          <div class="armour">
+            {{formInput systemFields.armour value=system.armour rootId=partId}}
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="encounter-items-list">
+    {{#each attacks as |item id|}}
+      {{log "item" id item}}
+      <div class="item" data-item-id="{{item.id}}">
+        <details>
+          <summary>
+            <span>
+              <span class="item-name">
+                {{item.name}}
+                {{#if item.system.hasQuantity}}
+                  ({{item.system.quantity}})
+                {{/if}}
+              </span>
+              {{#if item.system.hasDamage}}
+                <span class="item-info">{{item.system.damageFormula}} {{localize "INTOTHEODD.Labels.long.damage"}}</span>
+              {{/if}}
+              {{#if item.system.isBlast}}
+                <span class="item-info">{{localize "INTOTHEODD.Equipment.FIELDS.blast.label"}}</span>
+              {{/if}}
+            </span>
+          </summary>
+          <div class="item-description">{{{item.enrichedDescription}}}</div>
+        </details>
+        <div class="item-controls">
+          {{#if item.system.hasDamage}}
+            <span class="rollable" data-action="rollDamage" data-name="{{item.name}}" data-formula="{{item.system.damageFormula}}" data-tooltip="{{localize 'INTOTHEODD.RollDamage'}}">
+              <i class="fas fa-dice-d20"></i>
+            </span>
+          {{/if}}
+          <a data-tooltip="{{localize 'INTOTHEODD.Edit'}}" data-action="edit" data-item-id="{{item.id}}"><i class="fas fa-edit"></i></a>
+          <a data-tooltip="{{localize 'INTOTHEODD.Delete'}}" data-action="delete" data-item-id="{{item.id}}"><i class="fas fa-trash"></i></a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <fieldset class="encounter-description">
+    <legend>{{localize "INTOTHEODD.Encounter.FIELDS.description.label"}}</legend>
+    {{formInput
+      systemFields.description
+      enriched=enrichedDescription
+      value=system.description
+      documentUUID=actor.uuid
+      name="system.description"
+      collaborate="false"
+      toggled="true"
+    }}
+  </fieldset>
+
+</div>

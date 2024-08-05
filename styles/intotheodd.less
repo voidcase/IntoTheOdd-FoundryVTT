@@ -1,6 +1,18 @@
-/* Styles limited to cthack sheets */
+@font-face {
+  font-family: "FeENrm28C";
+  src: url("../ui/fonts/feenrm28c.woff");
+}
+
+:root {
+  --font-primary: "FeENrm28C", sans-serif;
+  --font-secondary: "FeENrm28C", sans-serif;
+}
+
+/* Styles limited to Into The Odd sheets */
 .intotheodd {
-    @import 'global.less';
-    @import 'character.less';
-    @import 'item.less';
+  @import "global.less";
+  @import "character.less";
+  @import "encounter.less";
+  @import "equipment.less";
+  @import "attack.less";
 }

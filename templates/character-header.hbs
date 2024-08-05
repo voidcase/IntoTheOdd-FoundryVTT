@@ -1,7 +1,7 @@
 <div class="character-header">
-  <img class="character-img" src="{{actor.img}}" data-edit="{{actor.img}}" title="{{actor.name}}" />
+  <img class="character-img" src="{{actor.img}}" data-edit="img" data-action='editImage' data-tooltip="{{actor.name}}" />
   <div class="character-details">
-    {{formInput fields.name value=source.name rootId=partId}}
+    <div class="character-name">{{formInput fields.name value=source.name rootId=partId}}</div>
     <fieldset>
       <legend>{{localize "INTOTHEODD.Labels.details"}}</legend>
       {{formField systemFields.level value=system.level localize=true rootId=partId}}

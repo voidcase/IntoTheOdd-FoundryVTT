@@ -1,6 +1,6 @@
 const { HandlebarsApplicationMixin } = foundry.applications.api
 
-export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
     constructor(options = {}) {
         super(options);
         this.#dragDrop = this.#createDragDropHandlers();
@@ -10,9 +10,9 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
 
     /** @override */
     static DEFAULT_OPTIONS = {
-        classes: ["intotheodd", "actor", "character"],
+        classes: ["intotheodd", "actor", "encounter"],
         position: {
-            width: 700,
+            width: 870,
             height: 500
         },
         form: {
@@ -23,129 +23,42 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
         },
         dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
         actions: {
-            edit: IntoTheOddCharacterSheet.#onItemEdit,
-            delete: IntoTheOddCharacterSheet.#onItemDelete,
-            rollSave: IntoTheOddCharacterSheet.#onItemRollSave,
-            rollDamage: IntoTheOddCharacterSheet.#onItemRollDamage,            
-            shortRest: IntoTheOddCharacterSheet.#onShortRest,
-            fullRest: IntoTheOddCharacterSheet.#onFullRest,
-            equip: IntoTheOddCharacterSheet.#onItemEquip,
-            unequip: IntoTheOddCharacterSheet.#onItemUnequip,
-            editImage: IntoTheOddCharacterSheet.#onEditImage
+            edit: IntoTheOddEncounterSheet.#onItemEdit,
+            delete: IntoTheOddEncounterSheet.#onItemDelete,
+            rollSave: IntoTheOddEncounterSheet.#onItemRollSave,
+            rollDamage: IntoTheOddEncounterSheet.#onAttackRollDamage,
+            editImage: IntoTheOddEncounterSheet.#onEditImage
         }
     };
 
-    /** @override */
-    _getHeaderControls() {
-        const controls = super._getHeaderControls();
-
-        if (this.actor.system.deprived) {
-            controls.findSplice(c => c.action === "shortRest");
-            controls.findSplice(c => c.action === "fullRest");
-        }
-        else {
-            if (!controls.find(c => c.action === "shortRest")) {
-                controls.push({
-                    icon: 'fa-solid fa-heart-pulse',
-                    label: "INTOTHEODD.Labels.long.shortRest",
-                    action: "shortRest"
-                });
-
-            }
-            if (!controls.find(c => c.action === "fullRest")) {
-                controls.push({
-                    icon: 'fas fa-bed',
-                    label: "INTOTHEODD.Labels.long.fullRest",
-                    action: "fullRest"
-                });
-            }
-
-        }
-
-        return controls;
-    }
 
     /** @override */
     static PARTS = {
-        header: {
-            template: "systems/intotheodd/templates/character-header.hbs"
-        },
         main: {
-            template: "systems/intotheodd/templates/character-main.hbs"
-        },
-        tabs: {
-            template: "templates/generic/tab-navigation.hbs"
-        },
-        biography: {
-            template: "systems/intotheodd/templates/character-biography.hbs"
-        },
-        inventory: {
-            template: "systems/intotheodd/templates/character-inventory.hbs"
+            template: "systems/intotheodd/templates/encounter-main.hbs"
         }
-    }
-
-    /** @override */
-    tabGroups = {
-        sheet: "inventory"
     }
 
     /** @override */
     async _prepareContext() {
         const context = {
-            tabs: this.#getTabs(),
             fields: this.document.schema.fields,
             systemFields: this.document.system.schema.fields,
             actor: this.document,
             system: this.document.system,
             source: this.document.toObject(),
-            data: {
-                deprived: {
-                    tooltip: game.i18n.localize('INTOTHEODD.Character.FIELDS.deprived.tooltip')
-                },
-                critical: {
-                    tooltip: game.i18n.localize('INTOTHEODD.Character.FIELDS.critical.tooltip')
-                },
-            },
+            enrichedDescription: await TextEditor.enrichHTML(this.document.system.description, { async: true })
         }
-        console.log('character context', context);
-        return context;
-    }
 
-    /** @override */
-    async _preparePartContext(partId, context) {
-        const doc = this.document;
-        switch (partId) {
-            case "biography":
-                context.tab = context.tabs.biography;
-                context.enrichedBiography = await TextEditor.enrichHTML(this.document.system.biography, { async: true });                
-                break;
-            case "inventory":
-                context.tab = context.tabs.inventory;
-                context.items = [];
-                const itemsRaw = this.actor.itemTypes.equipment;
-                for (const item of itemsRaw) {
-                    item.enrichedDescription = await TextEditor.enrichHTML(item.system.description, { async: true });
-                    context.items.push(item);
-                }                
-                break;
+        context.attacks = [];
+        const attacksRaw = this.actor.itemTypes.attack;
+        for (const item of attacksRaw) {
+            item.enrichedDescription = await TextEditor.enrichHTML(item.system.description, { async: true });
+            context.attacks.push(item);
         }
-        return context;
-    }
 
-    /**
-     * Prepare an array of form header tabs.
-     * @returns {Record<string, Partial<ApplicationTab>>}
-     */
-    #getTabs() {
-        const tabs = {
-            biography: { id: "biography", group: "sheet", icon: "fa-solid fa-book", label: "INTOTHEODD.Labels.long.biography" },
-            inventory: { id: "inventory", group: "sheet", icon: "fa-solid fa-shapes", label: "INTOTHEODD.Labels.long.inventory" }
-        }
-        for (const v of Object.values(tabs)) {
-            v.active = this.tabGroups[v.group] === v.id;
-            v.cssClass = v.active ? "active" : "";
-        }
-        return tabs;
+        console.log('encounter context', context);
+        return context;
     }
 
     /** @override */
@@ -231,18 +144,18 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
         switch (data.type) {
             case "Item":
                 const item = await fromUuid(data.uuid);
-                if (item.type !== "equipment") return;
+                if (item.type !== "attack") return;
                 return await this.actor.createEmbeddedDocuments("Item", [item], { renderSheet: false });
         }
     }
 
     //#endregion
 
-    //#region Actions
+    //#region Actions    
     /**
-     * @param {PointerEvent} event - The originating click event
-     * @param {HTMLElement} target - the capturing HTML element which defined a [data-action]
-     */
+    * @param {PointerEvent} event - The originating click event
+    * @param {HTMLElement} target - the capturing HTML element which defined a [data-action]
+    */
     static #onItemEdit(event, target) {
         const itemId = target.getAttribute('data-item-id');
         const item = this.actor.items.get(itemId);
@@ -277,39 +190,11 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
      * @param {PointerEvent} event - The originating click event
      * @param {HTMLElement} target - the capturing HTML element which defined a [data-action]
      */
-    static async #onItemRollDamage(event, target) {
+    static async #onAttackRollDamage(event, target) {
         const itemName = target.getAttribute('data-name');
         const formula = target.getAttribute('data-formula');
         const roll = await this.actor.rollDamage(itemName, formula);
         console.log('roll', roll);
-    }
-
-    /**
-     * @param {PointerEvent} event - The originating click event
-     * @param {HTMLElement} target - the capturing HTML element which defined a [data-action]
-     */
-    static async #onShortRest(event, target) {
-        await this.actor.system.shortRest();
-    }
-
-    /**
-     * @param {PointerEvent} event - The originating click event
-     * @param {HTMLElement} target - the capturing HTML element which defined a [data-action]
-     */
-    static async #onFullRest(event, target) {
-        await this.actor.system.fullRest();
-    }
-
-    static async #onItemEquip(event, target) {
-        const itemId = target.getAttribute('data-item-id');
-        const item = this.actor.items.get(itemId);
-        await item.update({ "system.equipped": true });
-    }
-
-    static async #onItemUnequip(event, target) {
-        const itemId = target.getAttribute('data-item-id');
-        const item = this.actor.items.get(itemId);
-        await item.update({ "system.equipped": false });
     }
 
     /**

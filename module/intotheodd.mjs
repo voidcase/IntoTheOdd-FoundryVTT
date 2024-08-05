@@ -2,11 +2,13 @@
 import IntoTheOddActor from "./documents/actor.js";
 import IntoTheOddItem from "./documents/item.js";
 import IntoTheOddCharacterData from "./data/character.mjs";
+import IntoTheOddEncounterData from "./data/encounter.mjs";
 import IntoTheOddItemData from "./data/item.mjs";
+import IntoTheOddAttackData from "./data/attack.mjs";
 import IntoTheOddCharacterSheet from "./sheets/character-sheet.mjs";
+import IntoTheOddEncounterSheet from "./sheets/encounter-sheet.mjs";
 import IntoTheOddItemSheet from "./sheets/item-sheet.js";
-
-
+import IntoTheOddAttackSheet from "./sheets/attack-sheet.mjs";
 
 Hooks.once('ready', async function () {
   if (game.user.isGM && game.settings.get('intotheodd', 'showInitiativeHelp') === true) {
@@ -25,11 +27,6 @@ Hooks.once('ready', async function () {
 
 Hooks.once('init', async function () {
 
-  game.intotheodd = {
-    IntoTheOddActor,
-    IntoTheOddItemData: IntoTheOddItem
-  };
-
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -42,48 +39,32 @@ Hooks.once('init', async function () {
   // Define custom Entity classes
   CONFIG.Actor.documentClass = IntoTheOddActor;
   CONFIG.Actor.dataModels = {
-    character: IntoTheOddCharacterData
+    character: IntoTheOddCharacterData,
+    encounter: IntoTheOddEncounterData
   };
 
   CONFIG.Item.documentClass = IntoTheOddItem;
   CONFIG.Item.dataModels = {
-    item: IntoTheOddItemData
+    equipment: IntoTheOddItemData,
+    attack: IntoTheOddAttackData
   };
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("intotheodd", IntoTheOddCharacterSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("intotheodd", IntoTheOddEncounterSheet, { types: ["encounter"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("intotheodd", IntoTheOddItemSheet, { types: ["item"], makeDefault: true });
+  Items.registerSheet("intotheodd", IntoTheOddItemSheet, { types: ["equipment"], makeDefault: true });
+  Items.registerSheet("intotheodd", IntoTheOddAttackSheet, { types: ["attack"], makeDefault: true });
 
   game.settings.register('intotheodd', 'showInitiativeHelp', {
     name: 'Show initiative helptext on next startup',
-    hint: 'This option only exists so the helptext won\'t appear on every startup.\n' +
-      'When the message appears, this option will uncheck itself.',
+    hint: 'This option only exists so the helptext won\'t appear on every startup.\n When the message appears, this option will uncheck itself.',
     scope: 'system',
     config: true,
     type: Boolean,
     default: true
   })
-
-  // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function () {
-    var outStr = '';
-    for (var arg in arguments) {
-      if (typeof arguments[arg] != 'object') {
-        outStr += arguments[arg];
-      }
-    }
-    return outStr;
-  });
-
-  Handlebars.registerHelper('toUpperCase', function (str) {
-    return str.toUpperCase();
-  });
-
-  Handlebars.registerHelper('boldIf', function (cond, options) {
-    return (cond) ? '<b>' + options.fn(this) + '</b>' : options.fn(this);
-  });
 
 });
 

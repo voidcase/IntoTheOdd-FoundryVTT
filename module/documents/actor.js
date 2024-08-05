@@ -3,15 +3,31 @@
  * @extends {Actor}
  */
 export default class IntoTheOddActor extends Actor {
- 
-  /** @override */
-  getRollData() {
-    const data = super.getRollData();
-    // Let us do @str etc, instead of @abilities.str.value
-    for ( let [k, v] of Object.entries(data.abilities) ) {
-      if ( !(k in data) ) data[k] = v.value;
-    }
-    return data;
-  }
 
+      /**
+     * Roll a save for ability
+     * @param {*} ability 
+     * @returns 
+     */
+      async rollSave(ability) {
+        const roll = await new Roll("1d20").roll();
+        const result = roll.total;
+
+        if (result <= this.system.abilities[ability].value) {
+            return { roll, result, success: true };
+        }
+
+        return { roll, result, success: false };
+    }
+
+    /**
+     * 
+     * @param {*} itemName 
+     * @param {*} formula 
+     */
+    async rollDamage(itemName, formula) {
+        const roll = await new Roll(formula).roll();
+        const result = roll.total;
+        return { roll, result };
+    }    
 }

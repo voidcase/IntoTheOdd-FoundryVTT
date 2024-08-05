@@ -1,10 +1,12 @@
 {
   "TYPES": {
     "Actor": {
-      "character": "Character"
+      "character": "Character",
+      "encounter": "Encounter"
     },
     "Item": {
-      "item": "Item"
+      "equipment": "Equipment",
+      "attack": "Attack"
     }
   },
   "INTOTHEODD": {
@@ -43,7 +45,34 @@
         }
       }
     },
-    "Item": {
+    "Encounter": {
+      "FIELDS": {
+        "description": {
+          "label": "Description",
+          "hint": "A brief description of the encounter."
+        },
+        "hp": {
+          "label": "Hit Points",
+          "hint": "The amount of damage the encounter can take before dying."
+        },
+        "str": {
+          "label": "Strength",
+          "hint": "How strong the encounter is."
+        },
+        "dex": {
+          "label": "Dexterity",
+          "hint": "How agile the encounter is."
+        },
+        "wil": {
+          "label": "Willpower",
+          "hint": "How strong the encounter's will is."
+        },
+        "armour": {
+          "label": "Armour"
+        }
+      }
+    },
+    "Equipment": {
       "FIELDS": {
         "subType": {
           "label": "Type"
@@ -79,6 +108,19 @@
         "equipment": "Equipment"
       }
     },
+    "Attack": {
+      "FIELDS": {
+        "description": {
+          "label": "Description"
+        },
+        "damageFormula": {
+          "label": "Damage Formula"
+        },
+        "blast": {
+          "label": "Blast"
+        }
+      }
+    },
     "Labels": {
         "short": {          
           "hp": "HP",
@@ -96,7 +138,8 @@
           "inventory": "Inventory",
           "armour": "Armour",
           "shortRest": "Short Rest",
-          "fullRest": "Full Rest"
+          "fullRest": "Full Rest",
+          "damage": "damage"
         },
         "details": "Details"
     },

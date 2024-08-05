@@ -1,5 +1,5 @@
-<div>
-  {{log "item-sheet" this}}
+<div class="equipment">
+  {{log "equipment-sheet" this}}
   <section class="item-main">
     <div class="header">
       <img src="{{item.img}}" data-edit="img" title="{{item.name}}" />
@@ -20,7 +20,7 @@
   {{#if (eq item.system.subType "armour")}}
     <section class="item-armour">
       <fieldset>
-        <legend>{{localize "INTOTHEODD.Item.SubType.armour"}}</legend>
+        <legend>{{localize "INTOTHEODD.Equipment.SubType.armour"}}</legend>
         {{formField systemFields.armour value=system.armour localize=true rootId=partId}}
       </fieldset>
     </section>
@@ -29,7 +29,7 @@
   {{#if (eq item.system.subType "weapon")}}
     <section class="item-weapon">
       <fieldset>
-        <legend>{{localize "INTOTHEODD.Item.SubType.weapon"}}</legend>
+        <legend>{{localize "INTOTHEODD.Equipment.SubType.weapon"}}</legend>
         {{formField systemFields.damageFormula value=system.damageFormula rootId=partId}}
         {{formField systemFields.blast value=system.blast rootId=partId}}
       </fieldset>
@@ -38,7 +38,7 @@
 
   <section class="item-description">
     <fieldset>
-      <legend>{{localize "INTOTHEODD.Item.FIELDS.description.label"}}</legend>
+      <legend>{{localize "INTOTHEODD.Equipment.FIELDS.description.label"}}</legend>
       {{formInput
         systemFields.description
         enriched=enrichedDescription

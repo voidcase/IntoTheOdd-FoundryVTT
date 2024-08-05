@@ -1,14 +1,14 @@
 const { HandlebarsApplicationMixin } = foundry.applications.api
 
-export default class IntoTheOddItemSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2) {
+export default class IntoTheOddAttackSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2) {
 
 
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ["intotheodd", "item", "equipment"],
+    classes: ["intotheodd", "item", "attack"],
     position: {
       width: 350,
-      height: 550
+      height: 500
     },
     form: {
       submitOnChange: true
@@ -21,7 +21,7 @@ export default class IntoTheOddItemSheet extends HandlebarsApplicationMixin(foun
   /** @override */
   static PARTS = {
     main: {
-      template: "systems/intotheodd/templates/equipment-main.hbs"
+      template: "systems/intotheodd/templates/attack-main.hbs"
     }
   }
 
@@ -35,7 +35,7 @@ export default class IntoTheOddItemSheet extends HandlebarsApplicationMixin(foun
       source: this.document.toObject(),
       enrichedDescription: await TextEditor.enrichHTML(this.document.system.description, { async: true })
     }
-    console.log('equipment context', context);
+    console.log('attack context', context);
     return context;
   }
 

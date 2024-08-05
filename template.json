@@ -1,13 +1,19 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["character","encounter"],
     "character": {
       "htmlFields": ["biography"]
+    },
+    "encounter": {
+      "htmlFields": ["description"]
     }
   },
   "Item": {
-    "types": ["item"],
-    "item": {
+    "types": ["equipment","attack"],
+    "equipment": {
+      "htmlFields": ["description"]
+    },
+    "attack": {
       "htmlFields": ["description"]
     }
   }

@@ -46,22 +46,6 @@ export default class IntoTheOddCharacterData extends foundry.abstract.TypeDataMo
     }
 
     /**
-     * Roll a save for ability
-     * @param {*} ability 
-     * @returns 
-     */
-    async rollSave(ability) {
-        const roll = await new Roll("1d20").roll();
-        const result = roll.total;
-
-        if (result <= this.abilities[ability].value) {
-            return { roll, result, success: true };
-        }
-
-        return { roll, result, success: false };
-    }
-
-    /**
      * A few minutes of rest and a swig of water recovers all of a character’s lost hp.
      */
     shortRest() {

@@ -1,4 +1,4 @@
-.character-grid {
+.character-main {
   .grid-col(5);
   fieldset {
     legend {
@@ -6,11 +6,40 @@
     }
     border-radius: 5px;
   }
+
+  .ability {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    text-align: center;
+    input {
+      width: 40px;
+      font-size: 1.2rem;
+    }
+    .divider {
+      font-size: x-large;
+    }
+  }
+
+  .armour {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+  }
 }
 
 .character-header {
   display: flex;
   flex-direction: row;
+
+  .character-name {
+    input {
+        font-size: 1.5rem;
+    }
+  }
 
   .character-img {
     width: 100px;
@@ -22,42 +51,17 @@
     padding-left: 10px;
     flex-direction: column;
     fieldset {
-        margin-top: 10px;
-//        box-shadow: inset 1px 1px 1px black;
-        border-radius: 5px;
-        legend {
-          font-weight: bold;
-        }
+      margin-top: 10px;
+      //        box-shadow: inset 1px 1px 1px black;
+      border-radius: 5px;
+      legend {
+        font-weight: bold;
+      }
     }
   }
 }
 
-.ability {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  text-align: center;
-  input {
-    width: 40px;
-    font-size: 1.2rem;
-  }
-  .divider {
-    margin: 0 5px; /* Ajuster l'espace entre les éléments */
-    margin: 0 5px; /* Ajuster l'espace entre les éléments */
-    font-weight: bold;
-  }
-}
-
-.armour {
-  font-size: 1.6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.items-list {
+.character-items-list {
   .item {
     display: flex;
     justify-content: space-between;
@@ -71,9 +75,9 @@
       font-size: 1.2rem;
     }
     summary {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 }

@@ -1,4 +1,40 @@
-/* Styles limited to cthack sheets */
+@font-face {
+  font-family: "FeENrm28C";
+  src: url("../ui/fonts/feenrm28c.woff");
+}
+:root {
+  --font-primary: "FeENrm28C", sans-serif;
+  --font-secondary: "FeENrm28C", sans-serif;
+}
+/* Styles limited to Into The Odd sheets */
+.intotheodd .grid-abilities {
+  display: grid;
+  margin: 10px 0;
+  padding: 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-column: span 5 / span 5;
+}
+.intotheodd .grid-abilities fieldset {
+  border-radius: 5px;
+}
+.intotheodd .grid-abilities fieldset legend {
+  font-weight: bold;
+}
+.intotheodd .grid-abilities .ability {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  text-align: center;
+}
+.intotheodd .grid-abilities .ability input {
+  width: 40px;
+  font-size: 1.2rem;
+}
+.intotheodd .grid-abilities .ability .divider {
+  margin: 0 5px;
+  font-size: x-large;
+}
 .intotheodd .no-padding {
   padding: 0;
 }
@@ -18,23 +54,46 @@
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
-.intotheodd .character-grid {
+.intotheodd .character-main {
   display: grid;
-  gap: 10px;
   margin: 10px 0;
   padding: 0;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-column: span 5 / span 5;
 }
-.intotheodd .character-grid fieldset {
+.intotheodd .character-main fieldset {
   border-radius: 5px;
 }
-.intotheodd .character-grid fieldset legend {
+.intotheodd .character-main fieldset legend {
   font-weight: bold;
+}
+.intotheodd .character-main .ability {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  text-align: center;
+}
+.intotheodd .character-main .ability input {
+  width: 40px;
+  font-size: 1.2rem;
+}
+.intotheodd .character-main .ability .divider {
+  font-size: x-large;
+}
+.intotheodd .character-main .armour {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }
 .intotheodd .character-header {
   display: flex;
   flex-direction: row;
+}
+.intotheodd .character-header .character-name input {
+  font-size: 1.5rem;
 }
 .intotheodd .character-header .character-img {
   width: 100px;
@@ -54,75 +113,153 @@
 .intotheodd .character-header .character-details fieldset legend {
   font-weight: bold;
 }
-.intotheodd .ability {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  text-align: center;
-}
-.intotheodd .ability input {
-  width: 40px;
-  font-size: 1.2rem;
-}
-.intotheodd .ability .divider {
-  /* Ajuster l'espace entre les éléments */
-  margin: 0 5px;
-  /* Ajuster l'espace entre les éléments */
-  font-weight: bold;
-}
-.intotheodd .armour {
-  font-size: 1.6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-.intotheodd .items-list .item {
+.intotheodd .character-items-list .item {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
-.intotheodd .items-list .item .item-name {
+.intotheodd .character-items-list .item .item-name {
   flex: 1;
   font-weight: bold;
 }
-.intotheodd .items-list .item .item-quantity {
+.intotheodd .character-items-list .item .item-quantity {
   width: 40px;
   font-size: 1.2rem;
 }
-.intotheodd .items-list .item summary {
+.intotheodd .character-items-list .item summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.intotheodd .item-main,
-.intotheodd .item-weapon,
-.intotheodd .item-armour,
-.intotheodd .item-description {
+.intotheodd .encounter-header {
+  display: flex;
+}
+.intotheodd .encounter-header .encounter-name input {
+  font-size: 1.5rem;
+}
+.intotheodd .encounter-header .encounter-img {
+  width: 100px;
+  flex: 0 0 25%;
+  /* Prend 25% de la largeur */
+}
+.intotheodd .encounter-header .encounter-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities {
+  display: grid;
+  margin: 10px 0;
+  padding: 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-column: span 5 / span 5;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities fieldset {
+  border-radius: 5px;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities fieldset legend {
+  font-weight: bold;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities .ability {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  text-align: center;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities .ability input {
+  width: 40px;
+  font-size: 1.2rem;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities .ability .divider {
+  font-size: x-large;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities .armour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+.intotheodd .encounter-header .encounter-details .encounter-abilities .armour input {
+  width: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.intotheodd .encounter-description {
+  border-radius: 5px;
+}
+.intotheodd .encounter-description legend {
+  font-weight: bold;
+}
+.intotheodd .encounter-items-list {
+  margin: 0 10px 20px 10px;
+}
+.intotheodd .encounter-items-list .item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.intotheodd .encounter-items-list .item .item-name {
+  flex: 1;
+  font-weight: bold;
+}
+.intotheodd .encounter-items-list .item .item-quantity {
+  width: 40px;
+  font-size: 1.2rem;
+}
+.intotheodd .encounter-items-list .item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.intotheodd .equipment .item-main,
+.intotheodd .equipment .item-weapon,
+.intotheodd .equipment .item-armour {
   padding-bottom: 5px;
 }
-.intotheodd .item-main fieldset,
-.intotheodd .item-weapon fieldset,
-.intotheodd .item-armour fieldset,
-.intotheodd .item-description fieldset {
+.intotheodd .equipment .item-main fieldset,
+.intotheodd .equipment .item-weapon fieldset,
+.intotheodd .equipment .item-armour fieldset {
   font-weight: bold;
   border-radius: 5px;
 }
-.intotheodd .item-main {
+.intotheodd .equipment .item-description legend {
+  font-weight: bold;
+}
+.intotheodd .equipment .item-main {
   display: flex;
   flex-direction: column;
 }
-.intotheodd .item-main .header {
+.intotheodd .equipment .item-main .header {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.intotheodd .item-main .header img {
+.intotheodd .equipment .item-main .header img {
   width: 50px;
   margin: 0 5px 5px 5px;
 }
-.intotheodd .item-main fieldset {
+.intotheodd .equipment .item-main fieldset {
   font-weight: bold;
   border-radius: 5px;
+}
+.intotheodd .attack .attack-main {
+  display: flex;
+  flex-direction: column;
+}
+.intotheodd .attack .attack-main .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.intotheodd .attack .attack-main .header img {
+  width: 50px;
+  margin: 0 5px 5px 5px;
+}
+.intotheodd .attack .attack-main fieldset {
+  font-weight: bold;
+  border-radius: 5px;
+}
+.intotheodd .attack .attack-description legend {
+  font-weight: bold;
 }

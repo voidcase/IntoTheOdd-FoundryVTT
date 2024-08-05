@@ -1,0 +1,87 @@
+.encounter-header {
+  display: flex;
+
+  .encounter-name {
+    input {
+        font-size: 1.5rem;
+    }
+  }
+
+  .encounter-img {
+    width: 100px;
+    flex: 0 0 25%; /* Prend 25% de la largeur */
+  }
+
+  .encounter-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+
+    .encounter-abilities {
+      .grid-col(5);
+
+      fieldset {
+        legend {
+          font-weight: bold;
+        }
+        border-radius: 5px;
+      }
+
+      .ability {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+        text-align: center;
+        input {
+          width: 40px;
+          font-size: 1.2rem;
+        }
+        .divider {
+          font-size: x-large;
+        }
+      }
+
+      .armour {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+        input {
+          width: 40px;
+          font-size: 1.2rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.encounter-description {
+  border-radius: 5px;
+  legend {
+    font-weight: bold;
+  }
+}
+
+.encounter-items-list {
+  margin: 0 10px 20px 10px;
+  .item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    .item-name {
+      flex: 1;
+      font-weight: bold;
+    }
+    .item-quantity {
+      width: 40px;
+      font-size: 1.2rem;
+    }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
