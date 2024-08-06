@@ -1,0 +1,170 @@
+{
+    "TYPES": {
+      "Actor": {
+        "character": "Personnage",
+        "encounter": "Rencontre"
+      },
+      "Item": {
+        "equipment": "Équipement",
+        "attack": "Attaque"
+      }
+    },
+    "INTOTHEODD": {
+      "Character": {
+        "FIELDS": {
+          "biography": {
+            "label": "Biographie",
+            "hint": "Une brève description de votre personnage."
+          },
+          "hp": {
+            "label": "Points de Vie",
+            "hint": "La quantité de dégâts que votre personnage peut subir avant de mourir."
+          },
+          "str": {
+            "label": "Force",
+            "hint": "La force de votre personnage."
+          },
+          "dex": {
+            "label": "Dextérité",
+            "hint": "L'agilité de votre personnage."
+          },
+          "wil": {
+            "label": "Volonté",
+            "hint": "La volonté de votre personnage."
+          },
+          "deprived": {
+            "label": "Privé",
+            "tooltip": "Une personne privée d'un besoin crucial (par exemple nourriture, eau ou chaleur) ne peut pas bénéficier des Récupérations."
+          },
+          "critical": {
+            "label": "Dégâts Critiques",
+            "tooltip": "Un personnage qui subit des Dégâts Critiques est incapable d'agir jusqu'à ce qu'un allié prenne soin de lui et qu'il ait une Récupération Courte. S'il est laissé pendant une heure sans soins, il meurt."
+          },
+          "level": {
+            "label": "Niveau d'Expérience"
+          }
+        }
+      },
+      "Encounter": {
+        "FIELDS": {
+          "description": {
+            "label": "Description",
+            "hint": "Une brève description de la rencontre."
+          },
+          "hp": {
+            "label": "Points de Vie",
+            "hint": "La quantité de dégâts que la rencontre peut subir avant de mourir."
+          },
+          "str": {
+            "label": "Force",
+            "hint": "La force de la rencontre."
+          },
+          "dex": {
+            "label": "Dextérité",
+            "hint": "L'agilité de la rencontre."
+          },
+          "wil": {
+            "label": "Volonté",
+            "hint": "La volonté de la rencontre."
+          },
+          "armour": {
+            "label": "Armure"
+          }
+        }
+      },
+      "Equipment": {
+        "FIELDS": {
+          "subType": {
+            "label": "Type"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "armour": {
+            "label": "Protection"
+          },
+          "quantity": {
+            "label": "Quantité"
+          },
+          "damageFormula": {
+            "label": "Formule de Dégâts"
+          },
+          "equipped": {
+            "label": "Équipé"
+          },
+          "bulky": {
+            "label": "Encombrant"
+          },
+          "blast": {
+            "label": "Explosion"
+          },
+          "arcana": {
+            "label": "Arcane"
+          }
+        },
+        "SubType": {
+          "weapon": "Arme",
+          "armour": "Armure",
+          "equipment": "Équipement"
+        }
+      },
+      "Attack": {
+        "FIELDS": {
+          "description": {
+            "label": "Description"
+          },
+          "damageFormula": {
+            "label": "Formule de Dégâts"
+          },
+          "blast": {
+            "label": "Explosion"
+          }
+        }
+      },
+      "Labels": {
+          "short": {          
+            "hp": "PV",
+            "str": "For",
+            "dex": "Dex",
+            "wil": "Vol",
+            "biography": "Bio"
+          },
+          "long": {          
+            "hp": "Points de vie",
+            "str": "Force",
+            "dex": "Dextérité",
+            "wil": "Volonté",
+            "biography": "Biographie",
+            "inventory": "Inventaire",
+            "armour": "Armure",
+            "shortRest": "Récupération Courte",
+            "fullRest": "Récupération Complète",
+            "damage": "dégâts"
+          },
+          "details": "Détails"
+      },
+      "Edit": "Modifier",
+      "Delete": "Supprimer",
+      "RollDamage": "Lancer les Dégâts",
+      "Equip": "Équiper",
+      "Unequip": "Déséquiper",
+      "Level": {
+          "novice": "Novice",
+          "professional": "Professionnel",
+          "expert": "Expert",
+          "veteran": "Vétéran",
+          "master": "Maître",
+          "beyond": "Au-delà"
+      },
+      "Warns": {
+        "canNotRest": "Vous ne pouvez pas vous reposer car vous êtes privé."
+      },
+      "Roll": {
+        "SaveRoll": "Jet de Sauvegarde de {ability} ({value})",
+        "Success": "Succès",
+        "Failure": "Échec",
+        "AttackRollDamage": "Jet de Dégâts de {itemName}"
+      }
+    }
+  }
+  
