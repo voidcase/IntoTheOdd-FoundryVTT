@@ -26,7 +26,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
             edit: IntoTheOddCharacterSheet.#onItemEdit,
             delete: IntoTheOddCharacterSheet.#onItemDelete,
             rollSave: IntoTheOddCharacterSheet.#onItemRollSave,
-            rollDamage: IntoTheOddCharacterSheet.#onItemRollDamage,            
+            rollDamage: IntoTheOddCharacterSheet.#onItemRollDamage,
             shortRest: IntoTheOddCharacterSheet.#onShortRest,
             fullRest: IntoTheOddCharacterSheet.#onFullRest,
             equip: IntoTheOddCharacterSheet.#onItemEquip,
@@ -117,7 +117,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
         switch (partId) {
             case "biography":
                 context.tab = context.tabs.biography;
-                context.enrichedBiography = await TextEditor.enrichHTML(this.document.system.biography, { async: true });                
+                context.enrichedBiography = await TextEditor.enrichHTML(this.document.system.biography, { async: true });
                 break;
             case "inventory":
                 context.tab = context.tabs.inventory;
@@ -126,7 +126,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
                 for (const item of itemsRaw) {
                     item.enrichedDescription = await TextEditor.enrichHTML(item.system.description, { async: true });
                     context.items.push(item);
-                }                
+                }
                 break;
         }
         return context;

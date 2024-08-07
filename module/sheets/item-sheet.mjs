@@ -15,6 +15,9 @@ export default class IntoTheOddItemSheet extends HandlebarsApplicationMixin(foun
     },
     window: {
       resizable: true
+    },
+    actions: {
+      editImage: IntoTheOddItemSheet.#onEditImage
     }
   };
 
@@ -39,4 +42,31 @@ export default class IntoTheOddItemSheet extends HandlebarsApplicationMixin(foun
     return context;
   }
 
+  /**
+ * Handle changing a Document's image.
+ *
+ * @this BoilerplateActorSheet
+ * @param {PointerEvent} event   The originating click event
+ * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+ * @returns {Promise}
+ * @private
+ */
+  static async #onEditImage(event, target) {
+    const attr = target.dataset.edit;
+    const current = foundry.utils.getProperty(this.document, attr);
+    const { img } =
+      this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
+      {};
+    const fp = new FilePicker({
+      current,
+      type: 'image',
+      redirectToRoot: img ? [img] : [],
+      callback: (path) => {
+        this.document.update({ [attr]: path });
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10,
+    });
+    return fp.browse();
+  }
 }

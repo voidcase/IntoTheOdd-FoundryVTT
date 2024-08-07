@@ -48,9 +48,11 @@
   padding-bottom: 2px;
 }
 
-.rollable:hover,
-.rollable:focus {
-  color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
+.rollable {
+  &:hover,
+  &:focus {
+    color: #000;
+    text-shadow: 0 0 10px rgb(238, 163, 163);
+    cursor: url("../ui/d20-highlight.svg") 32 24, pointer;
+  }
 }

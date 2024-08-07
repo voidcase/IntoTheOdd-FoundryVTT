@@ -2,7 +2,7 @@
   {{log "attack-sheet" this}}
   <section class="attack-main">
     <div class="header">
-      <img src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+      <img src="{{item.img}}" data-edit="img" data-action='editImage' data-tooltip="{{item.name}}" />
       {{formInput fields.name value=source.name rootId=partId}}
     </div>
     <div class="details">

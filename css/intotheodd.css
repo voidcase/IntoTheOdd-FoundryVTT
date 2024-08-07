@@ -51,8 +51,8 @@
 .intotheodd .rollable:hover,
 .intotheodd .rollable:focus {
   color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
+  text-shadow: 0 0 10px #eea3a3;
+  cursor: url("../ui/d20-highlight.svg") 32 24, pointer;
 }
 .intotheodd .character-main {
   display: grid;
