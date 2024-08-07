@@ -29,6 +29,16 @@
     align-items: center;
     margin-top: 5px;
   }
+
+  .rollable {
+    &:hover,
+    &:focus {
+      //color: #000;
+      color: rgb(63, 32, 32);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+      cursor: url("systems/intotheodd/ui/d20-highlight.svg") 32 24, pointer;
+    }
+  }
 }
 
 .character-header {
@@ -37,7 +47,7 @@
 
   .character-name {
     input {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
   }
 

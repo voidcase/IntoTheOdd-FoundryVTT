@@ -48,12 +48,6 @@
   padding-top: 2px;
   padding-bottom: 2px;
 }
-.intotheodd .rollable:hover,
-.intotheodd .rollable:focus {
-  color: #000;
-  text-shadow: 0 0 10px #eea3a3;
-  cursor: url("../ui/d20-highlight.svg") 32 24, pointer;
-}
 .intotheodd .character-main {
   display: grid;
   margin: 10px 0;
@@ -87,6 +81,12 @@
   justify-content: center;
   align-items: center;
   margin-top: 5px;
+}
+.intotheodd .character-main .rollable:hover,
+.intotheodd .character-main .rollable:focus {
+  color: #3f2020;
+  text-shadow: 0 0 10px var(--color-shadow-primary);
+  cursor: url("systems/intotheodd/ui/d20-highlight.svg") 32 24, pointer;
 }
 .intotheodd .character-header {
   display: flex;

@@ -146,6 +146,9 @@
       "Edit": "Modifier",
       "Delete": "Supprimer",
       "RollDamage": "Lancer les Dégâts",
+      "RollStrength": "Lancer un Jet de Force",
+      "RollDexterity": "Lancer un Jet de Dextérité",
+      "RollWillpower": "Lancer un Jet de Volonté",
       "Equip": "Équiper",
       "Unequip": "Déséquiper",
       "Level": {

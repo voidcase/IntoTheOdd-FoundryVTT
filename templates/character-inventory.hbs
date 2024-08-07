@@ -37,7 +37,7 @@
         <div class="item-controls">
           {{#if item.system.isEquipped}}
             {{#if item.system.hasDamage}}
-              <span class="rollable" data-action="rollDamage" data-name="{{item.name}}" data-formula="{{item.system.damageFormula}}" data-tooltip="{{localize 'INTOTHEODD.RollDamage'}}">
+              <span class="rollable" data-action="rollDamage" data-name="{{item.name}}" data-formula="{{item.system.damageFormula}}" data-tooltip="{{localize 'INTOTHEODD.RollDamage'}}" data-tooltip-direction="UP">
                 <i class="fas fa-dice-d20"></i>
               </span>
             {{/if}}
