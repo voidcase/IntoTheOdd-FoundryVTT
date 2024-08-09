@@ -13,12 +13,8 @@ Manifest URL: https://raw.githubusercontent.com/voidcase/IntoTheOdd-FoundryVTT/m
 
 ## Development philosophy of this project
 
-You will still need the book to play.
-The goal of the project is only to make Into the Odd playable in Foundry VTT.
-One of the core mottos of the OSR is "Rulings, not rules".
-It is important that the game system implementation does not get in the way of the GM when they want to make a ruling.
-
-The version is now the Remastered Version
+The goal of the project is to make Into the Odd playable in Foundry VTT. You will still need the book to play.
+The version is now the Remastered Version.
 
 ## Features
 

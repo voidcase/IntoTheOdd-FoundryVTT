@@ -33,7 +33,7 @@
             "hint": "La volonté de votre personnage."
           },
           "deprived": {
-            "label": "Privé",
+            "label": "Privation",
             "tooltip": "Une personne privée d'un besoin crucial (par exemple nourriture, eau ou chaleur) ne peut pas bénéficier des Récupérations."
           },
           "critical": {
@@ -96,7 +96,7 @@
             "label": "Encombrant"
           },
           "blast": {
-            "label": "Explosion"
+            "label": "Explosif"
           },
           "arcana": {
             "label": "Arcane"
@@ -137,8 +137,8 @@
             "biography": "Biographie",
             "inventory": "Inventaire",
             "armour": "Armure",
-            "shortRest": "Récupération Courte",
-            "fullRest": "Récupération Complète",
+            "shortRest": "Repos Court",
+            "fullRest": "Repos Long",
             "damage": "dégâts"
           },
           "details": "Détails"
