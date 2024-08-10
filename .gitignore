@@ -1,2 +1,3 @@
-node_modules/
-kra/
+node_modules/*
+packs/*
+styles/**/*.css

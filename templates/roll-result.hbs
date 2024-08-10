@@ -1,0 +1,26 @@
+<div class="dice-roll">
+  <div class="intro-chat">
+    {{#if (ne data.actingCharImg "icons/svg/mystery-man.svg")}}
+      <div class="intro-img">
+        <img src="{{actingCharImg}}" title="{{actingCharName}}" />
+      </div>
+    {{/if}}
+    <div class="intro-right">
+      <p class="introText">{{{introText}}}</p>
+
+    {{#if (eq rollType "save")}}
+          {{#if success}}
+        <p class="success">{{localize "INTOTHEODD.Roll.Success"}}</p>
+      {{else}}
+        <p class="failure">{{localize "INTOTHEODD.Roll.Failure"}}</p>
+      {{/if}}
+    {{/if}}
+
+    </div>
+  </div>
+  <div class="dice-result">
+    <div class="dice-formula">{{formula}}</div>
+    {{{tooltip}}}
+    <h4 class="dice-total">{{total}}</h4>
+  </div>
+</div>

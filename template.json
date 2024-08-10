@@ -1,38 +1,20 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["character","encounter"],
     "character": {
-      "templates": ["base"],
-      "biography": "",
-      "hp": {
-        "value": 10,
-        "max": 10
-      },
-      "abilities": {
-        "str": {
-          "value": 10,
-          "max": 10
-        },
-        "dex": {
-          "value": 10,
-          "max": 10
-        },
-        "wil": {
-          "value": 10,
-          "max": 10
-        }
-      }
+      "htmlFields": ["biography"]
+    },
+    "encounter": {
+      "htmlFields": ["description"]
     }
   },
   "Item": {
-    "types": ["item"],
-    "item": {
-      "description": "",
-      "quantity": 1,
-      "armour": 0,
-      "damageFormula": "",
-      "equipped": false,
-      "handedness": 0
+    "types": ["equipment","attack"],
+    "equipment": {
+      "htmlFields": ["description"]
+    },
+    "attack": {
+      "htmlFields": ["description"]
     }
   }
 }

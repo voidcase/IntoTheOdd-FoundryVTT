@@ -1,7 +1,7 @@
 {
   "id": "intotheodd",
   "title": "Into the Odd",
-  "description": "The Into the Odd system for FoundryVTT!",
+  "description": "The Into the Odd system for FoundryVTT !",
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": "12",
@@ -16,7 +16,7 @@
       "name": "Kristov"
     }
   ],
-  "esmodules": ["module/intotheodd.js"],
+  "esmodules": ["module/intotheodd.mjs"],
   "styles": ["css/intotheodd.css"],
   "scripts": [],
   "packs": [
@@ -28,7 +28,16 @@
       "type": "Macro"
     }
   ],
-  "languages": [],
+  "languages": [{
+    "lang": "en",
+    "name": "English",
+    "path": "lang/en.json"
+  },
+  {
+    "lang": "fr",
+    "name": "Français",
+    "path": "lang/fr.json"
+  }],
   "grid": {
     "distance": 5,
     "units": "ft"
@@ -37,5 +46,11 @@
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
-  "license": "LICENSE.txt"
+  "license": "LICENSE.txt",
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "html", "hbs", "json", "mjs"],
+      "path": ["css", "templates", "lang", "module"]
+    }
+  }
 }

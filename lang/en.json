@@ -1,0 +1,172 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "encounter": "Encounter"
+    },
+    "Item": {
+      "equipment": "Equipment",
+      "attack": "Attack"
+    }
+  },
+  "INTOTHEODD": {
+    "Character": {
+      "FIELDS": {
+        "biography": {
+          "label": "Biography",
+          "hint": "A brief description of your character."
+        },
+        "hp": {
+          "label": "Hit Points",
+          "hint": "The amount of damage your character can take before dying."
+        },
+        "str": {
+          "label": "Strength",
+          "hint": "How strong your character is."
+        },
+        "dex": {
+          "label": "Dexterity",
+          "hint": "How agile your character is."
+        },
+        "wil": {
+          "label": "Willpower",
+          "hint": "How strong your character's will is."
+        },
+        "deprived": {
+          "label": "Deprived",
+          "tooltip": "Somebody deprived of a crucial need (e.g. food, water, or warmth) cannot benefit from Rests"
+        },
+        "critical": {
+          "label": "Critical Damage",
+          "tooltip": "A character that takes Critical Damage is unable to take further action until they are tended to by an ally and have a Short Rest. If they are left for an hour without being tended to, they die."
+        },
+        "level": {
+          "label": "Experience Level"
+        }
+      }
+    },
+    "Encounter": {
+      "FIELDS": {
+        "description": {
+          "label": "Description",
+          "hint": "A brief description of the encounter."
+        },
+        "hp": {
+          "label": "Hit Points",
+          "hint": "The amount of damage the encounter can take before dying."
+        },
+        "str": {
+          "label": "Strength",
+          "hint": "How strong the encounter is."
+        },
+        "dex": {
+          "label": "Dexterity",
+          "hint": "How agile the encounter is."
+        },
+        "wil": {
+          "label": "Willpower",
+          "hint": "How strong the encounter's will is."
+        },
+        "armour": {
+          "label": "Armour"
+        }
+      }
+    },
+    "Equipment": {
+      "FIELDS": {
+        "subType": {
+          "label": "Type"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "armour": {
+          "label": "Protection"
+        },
+        "quantity": {
+          "label": "Quantity"
+        },
+        "damageFormula": {
+          "label": "Damage Formula"
+        },
+        "equipped": {
+          "label": "Equipped"
+        },
+        "bulky": {
+          "label": "Bulky"
+        },
+        "blast": {
+          "label": "Blast"
+        },
+        "arcana": {
+          "label": "Arcana"
+        }
+      },
+      "SubType": {
+        "weapon": "Weapon",
+        "armour": "Armour",
+        "equipment": "Equipment"
+      }
+    },
+    "Attack": {
+      "FIELDS": {
+        "description": {
+          "label": "Description"
+        },
+        "damageFormula": {
+          "label": "Damage Formula"
+        },
+        "blast": {
+          "label": "Blast"
+        }
+      }
+    },
+    "Labels": {
+        "short": {          
+          "hp": "HP",
+          "str": "Str",
+          "dex": "Dex",
+          "wil": "Wil",
+          "biography": "Bio"
+        },
+        "long": {          
+          "hp": "Hit Protection",
+          "str": "Strength",
+          "dex": "Dexterity",
+          "wil": "Willpower",
+          "biography": "Biography",
+          "inventory": "Inventory",
+          "armour": "Armour",
+          "shortRest": "Short Rest",
+          "fullRest": "Full Rest",
+          "damage": "damage"
+        },
+        "details": "Details"
+    },
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "RollStrength": "Roll Strength save",
+    "RollDexterity": "Roll Dexterity save",
+    "RollWillpower": "Roll Willpower save",
+    "RollDamage": "Roll Damage",
+    "Equip": "Equip",
+    "Unequip": "Unequip",
+    "Level": {
+        "novice": "Novice",
+        "professional": "Professional",
+        "expert": "Expert",
+        "veteran": "Veteran",
+        "master": "Master",
+        "beyond": "Beyond"
+    },
+    "Warns": {
+      "canNotRest": "You can't rest because you are deprived."
+    },
+    "Roll":{
+      "SaveRoll": "Save Roll of {ability} ({value})",
+      "Success": "Success",
+      "Failure": "Failure",
+      "AttackRollDamage": "Damage Roll of {itemName}"
+    }
+  }
+}

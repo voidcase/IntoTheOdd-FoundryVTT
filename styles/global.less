@@ -1,0 +1,50 @@
+.grid-col(@nbcolumns) {
+  display: grid;
+  margin: 10px 0;
+  padding: 0;
+  grid-template-columns: repeat(@nbcolumns, minmax(0, 1fr));
+  grid-column: span @nbcolumns / span @nbcolumns;
+}
+
+.grid-abilities {
+  .grid-col(5);
+
+  fieldset {
+    legend {
+      font-weight: bold;
+    }
+    border-radius: 5px;
+  }
+
+  .ability {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    text-align: center;
+    input {
+      width: 40px;
+      font-size: 1.2rem;
+    }
+    .divider {
+      margin: 0 5px;
+      font-size: x-large;
+    }
+  }
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.item-info {
+  margin-left: 4px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+

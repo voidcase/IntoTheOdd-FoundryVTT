@@ -1,0 +1,12 @@
+<div class="character-header">
+  <img class="character-img" src="{{actor.img}}" data-edit="img" data-action='editImage' data-tooltip="{{actor.name}}" />
+  <div class="character-details">
+    <div class="character-name">{{formInput fields.name value=source.name rootId=partId}}</div>
+    <fieldset>
+      <legend>{{localize "INTOTHEODD.Labels.details"}}</legend>
+      {{formField systemFields.level value=system.level localize=true rootId=partId}}
+      {{formField systemFields.deprived value=system.deprived dataset=data.deprived rootId=partId}}
+      {{formField systemFields.critical value=system.critical dataset=data.critical rootId=partId}}
+    </fieldset>
+  </div>
+</div>
