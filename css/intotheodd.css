@@ -243,25 +243,27 @@
   font-weight: bold;
   border-radius: 5px;
 }
-.intotheodd .attack .attack-main {
+.intotheodd .attack .attack-main,
+.intotheodd .attack .attack-description {
   display: flex;
   flex-direction: column;
+  padding-bottom: 5px;
 }
-.intotheodd .attack .attack-main .header {
+.intotheodd .attack .attack-main fieldset legend,
+.intotheodd .attack .attack-description fieldset legend {
+  font-weight: bold;
+  border-radius: 5px;
+}
+.intotheodd .attack .attack-main .header,
+.intotheodd .attack .attack-description .header {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.intotheodd .attack .attack-main .header img {
+.intotheodd .attack .attack-main .header img,
+.intotheodd .attack .attack-description .header img {
   width: 50px;
   margin: 0 5px 5px 5px;
-}
-.intotheodd .attack .attack-main fieldset {
-  font-weight: bold;
-  border-radius: 5px;
-}
-.intotheodd .attack .attack-description legend {
-  font-weight: bold;
 }
 .dice-roll .intro-chat {
   border-radius: 20px;

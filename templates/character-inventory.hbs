@@ -1,7 +1,7 @@
 <section class="tab character-{{tab.id}} {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="character-items-list">
     {{#each actor.items as |item id|}}
-      {{log "item" id item}}
+      {{!log "item" id item}}
       <div class="item" data-item-id="{{item.id}}">
         <details>
           <summary>

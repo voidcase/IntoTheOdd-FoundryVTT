@@ -57,7 +57,7 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
             context.attacks.push(item);
         }
 
-        console.log('encounter context', context);
+        //console.log('encounter context', context);
         return context;
     }
 
@@ -183,7 +183,7 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
     static async #onItemRollSave(event, target) {
         const ability = target.getAttribute('data-ability');
         const roll = await this.actor.rollSave(ability);
-        console.log('roll', roll);
+        //console.log('roll', roll);
     }
 
     /**
@@ -194,7 +194,7 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
         const itemName = target.getAttribute('data-name');
         const formula = target.getAttribute('data-formula');
         const roll = await this.actor.rollDamage(itemName, formula);
-        console.log('roll', roll);
+        //console.log('roll', roll);
     }
 
     /**

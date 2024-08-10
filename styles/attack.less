@@ -1,8 +1,15 @@
 .attack {
-  .attack-main {
+  .attack-main, .attack-description {
     display: flex;
     flex-direction: column;
+    padding-bottom: 5px;
 
+    fieldset {
+      legend {
+        font-weight: bold;
+        border-radius: 5px;
+      }
+    }    
     .header {
       display: flex;
       flex-direction: row;
@@ -11,17 +18,6 @@
         width: 50px;
         margin: 0 5px 5px 5px;
       }
-    }
-
-    fieldset {
-      font-weight: bold;
-      border-radius: 5px;
-    }
-  }
-
-  .attack-description {
-    legend {
-      font-weight: bold;
-    }
+    }    
   }
 }

@@ -38,7 +38,7 @@ export default class IntoTheOddAttackSheet extends HandlebarsApplicationMixin(fo
       source: this.document.toObject(),
       enrichedDescription: await TextEditor.enrichHTML(this.document.system.description, { async: true })
     }
-    console.log('attack context', context);
+    //console.log('attack context', context);
     return context;
   }
 

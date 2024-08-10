@@ -107,7 +107,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
                 },
             },
         }
-        console.log('character context', context);
+        //console.log('character context', context);
         return context;
     }
 
@@ -270,7 +270,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
     static async #onItemRollSave(event, target) {
         const ability = target.getAttribute('data-ability');
         const roll = await this.actor.rollSave(ability);
-        console.log('roll', roll);
+        //console.log('roll', roll);
     }
 
     /**
@@ -281,7 +281,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
         const itemName = target.getAttribute('data-name');
         const formula = target.getAttribute('data-formula');
         const roll = await this.actor.rollDamage(itemName, formula);
-        console.log('roll', roll);
+        //console.log('roll', roll);
     }
 
     /**

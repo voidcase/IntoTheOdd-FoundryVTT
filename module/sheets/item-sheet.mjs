@@ -38,7 +38,7 @@ export default class IntoTheOddItemSheet extends HandlebarsApplicationMixin(foun
       source: this.document.toObject(),
       enrichedDescription: await TextEditor.enrichHTML(this.document.system.description, { async: true })
     }
-    console.log('equipment context', context);
+    //console.log('equipment context', context);
     return context;
   }
 
