@@ -19,7 +19,39 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
             submitOnChange: true
         },
         window: {
-            resizable: true
+            resizable: true,
+            controls: [
+                {
+                    action: "configurePrototypeToken",
+                    icon: "fa-solid fa-user-circle",
+                    label: "TOKEN.TitlePrototype",
+                    ownership: "OWNER"
+                },
+                {
+                    action: "showPortraitArtwork",
+                    icon: "fa-solid fa-image",
+                    label: "SIDEBAR.CharArt",
+                    ownership: "OWNER"
+                },
+                {
+                    action: "showTokenArtwork",
+                    icon: "fa-solid fa-image",
+                    label: "SIDEBAR.TokenArt",
+                    ownership: "OWNER"
+                },
+                {
+                    icon: 'fa-solid fa-heart-pulse',
+                    label: "INTOTHEODD.Labels.long.shortRest",
+                    action: "shortRest",
+                    ownership: "OWNER"
+                },
+                {
+                    icon: 'fas fa-bed',
+                    label: "INTOTHEODD.Labels.long.fullRest",
+                    action: "fullRest",
+                    ownership: "OWNER"
+                }
+            ]
         },
         dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
         actions: {
@@ -89,6 +121,22 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
         sheet: "inventory"
     }
 
+    /**
+     * Prepare an array of form header tabs.
+     * @returns {Record<string, Partial<ApplicationTab>>}
+     */
+    #getTabs() {
+        const tabs = {
+            biography: { id: "biography", group: "sheet", icon: "fa-solid fa-book", label: "INTOTHEODD.Labels.long.biography" },
+            inventory: { id: "inventory", group: "sheet", icon: "fa-solid fa-shapes", label: "INTOTHEODD.Labels.long.inventory" }
+        }
+        for (const v of Object.values(tabs)) {
+            v.active = this.tabGroups[v.group] === v.id;
+            v.cssClass = v.active ? "active" : "";
+        }
+        return tabs;
+    }
+
     /** @override */
     async _prepareContext() {
         const context = {
@@ -130,22 +178,6 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
                 break;
         }
         return context;
-    }
-
-    /**
-     * Prepare an array of form header tabs.
-     * @returns {Record<string, Partial<ApplicationTab>>}
-     */
-    #getTabs() {
-        const tabs = {
-            biography: { id: "biography", group: "sheet", icon: "fa-solid fa-book", label: "INTOTHEODD.Labels.long.biography" },
-            inventory: { id: "inventory", group: "sheet", icon: "fa-solid fa-shapes", label: "INTOTHEODD.Labels.long.inventory" }
-        }
-        for (const v of Object.values(tabs)) {
-            v.active = this.tabGroups[v.group] === v.id;
-            v.cssClass = v.active ? "active" : "";
-        }
-        return tabs;
     }
 
     /** @override */

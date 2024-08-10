@@ -19,7 +19,27 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
             submitOnChange: true
         },
         window: {
-            resizable: true
+            resizable: true,
+            controls: [
+                {
+                    action: "configurePrototypeToken",
+                    icon: "fa-solid fa-user-circle",
+                    label: "TOKEN.TitlePrototype",
+                    ownership: "OWNER"
+                },
+                {
+                    action: "showPortraitArtwork",
+                    icon: "fa-solid fa-image",
+                    label: "SIDEBAR.CharArt",
+                    ownership: "OWNER"
+                },
+                {
+                    action: "showTokenArtwork",
+                    icon: "fa-solid fa-image",
+                    label: "SIDEBAR.TokenArt",
+                    ownership: "OWNER"
+                }
+            ]
         },
         dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
         actions: {
@@ -31,6 +51,41 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
         }
     };
 
+    /** @override */
+    _getHeaderControls() {
+        const controls = this.options.window.controls;
+
+        if (!controls.find(c => c.action === "showPortraitArtwork")) {
+            controls.push({
+                action: "showPortraitArtwork",
+                icon: "fa-solid fa-image",
+                label: "SIDEBAR.CharArt",
+                ownership: "OWNER"
+            });
+
+        }
+        if (!controls.find(c => c.action === "showTokenArtwork")) {
+            controls.push({
+                action: "showTokenArtwork",
+                icon: "fa-solid fa-image",
+                label: "SIDEBAR.TokenArt",
+                ownership: "OWNER"
+            });
+        }
+
+        // Portrait image
+        const img = this.actor.img;
+        if (img === CONST.DEFAULT_TOKEN) controls.findSplice(c => c.action === "showPortraitArtwork");
+
+        // Token image
+        const pt = this.actor.prototypeToken;
+        const tex = pt.texture.src;
+        if (pt.randomImg || [null, undefined, CONST.DEFAULT_TOKEN].includes(tex)) {
+            controls.findSplice(c => c.action === "showTokenArtwork");
+        }
+
+        return controls;
+    }
 
     /** @override */
     static PARTS = {
