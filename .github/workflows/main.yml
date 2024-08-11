@@ -117,8 +117,8 @@ jobs:
             system.json                          \
             template.json                        \
             README.md                            \
-            CHANGELOG.md                         \  
-            LICENSE.txt                          \
+            CHANGELOG.md                         \
+            LICENSE                            \
             templates/                           \
             module/                              \
             css/                                 \
