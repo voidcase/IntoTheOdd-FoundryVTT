@@ -1,93 +1,122 @@
-.character-main {
-  .grid-col(5);
-  fieldset {
-    legend {
-      font-weight: bold;
-    }
-    border-radius: 5px;
-  }
-
-  .ability {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-    text-align: center;
-    input {
-      width: 40px;
-      font-size: 1.2rem;
-    }
-    .divider {
-      font-size: x-large;
-    }
-  }
-
-  .armour {
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-  }
-
-  .rollable {
-    &:hover,
-    &:focus {
-      //color: #000;
-      color: rgb(63, 32, 32);
-      text-shadow: 0 0 10px var(--color-shadow-primary);
-      cursor: url("systems/intotheodd/ui/d20-highlight.svg") 32 24, pointer;
-    }
-  }
-}
-
-.character-header {
-  display: flex;
-  flex-direction: row;
-
-  .character-name {
-    input {
-      font-size: 1.5rem;
-    }
-  }
-
-  .character-img {
-    width: 100px;
-    flex: 0 0 25%; /* Prend 25% de la largeur */
-  }
-
-  .character-details {
-    flex: 1; /* Prend le reste de la largeur */
-    padding-left: 10px;
-    flex-direction: column;
+&.actor.character {
+  min-width: 675px;
+  .character-abilities {
+    .grid-col(5);
     fieldset {
-      margin-top: 10px;
-      //        box-shadow: inset 1px 1px 1px black;
       border-radius: 5px;
       legend {
         font-weight: bold;
       }
     }
-  }
-}
 
-.character-items-list {
-  .item {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    .item-name {
-      flex: 1;
-      font-weight: bold;
-    }
-    .item-quantity {
-      width: 40px;
-      font-size: 1.2rem;
-    }
-    summary {
+    .ability {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 5px;
+      text-align: center;
+      input {
+        width: 40px;
+        font-size: 1.2rem;
+      }
+      .divider {
+        font-size: x-large;
+      }
+    }
+
+    .armour {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    .rollable {
+      &:hover,
+      &:focus {
+        //color: #000;
+        color: rgb(63, 32, 32);
+        text-shadow: 0 0 10px var(--color-shadow-primary);
+        cursor: url("systems/intotheodd/ui/d20-highlight.svg") 32 24, pointer;
+      }
+    }
+  }
+
+  .character-wealth {
+    display: flex;
+
+    fieldset {
+      width: 100%;
+      border-radius: 5px;
+      legend {
+        font-weight: bold;
+      }
+    }
+    .wealth {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      label {
+        font-weight: bold;;
+      }
+      input {
+        font-size: 1rem;
+        margin: 0 20px 0 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  .character-header {
+    display: flex;
+    flex-direction: row;
+
+    .character-name {
+      input {
+        font-size: 1.5rem;
+      }
+    }
+
+    .character-img {
+      width: 100px;
+      flex: 0 0 25%; /* Prend 25% de la largeur */
+    }
+
+    .character-details {
+      flex: 1; /* Prend le reste de la largeur */
+      padding-left: 10px;
+      flex-direction: column;
+      fieldset {
+        margin-top: 10px;
+        //        box-shadow: inset 1px 1px 1px black;
+        border-radius: 5px;
+        legend {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .character-items-list {
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      .item-name {
+        flex: 1;
+        font-weight: bold;
+      }
+      .item-quantity {
+        width: 40px;
+        font-size: 1.2rem;
+      }
+      summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   }
 }

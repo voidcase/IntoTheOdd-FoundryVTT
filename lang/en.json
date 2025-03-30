@@ -42,6 +42,17 @@
         },
         "level": {
           "label": "Experience Level"
+        },
+        "wealth": {
+          "guilders": {
+            "label": "Guilders (G)"
+          },
+          "shillings": {
+            "label": "Shillings (S)"
+          },
+          "pennies": {
+            "label": "Pennies (P)"
+          }
         }
       }
     },
@@ -139,7 +150,10 @@
           "armour": "Armour",
           "shortRest": "Short Rest",
           "fullRest": "Full Rest",
-          "damage": "damage"
+          "damage": "damage",
+          "guilders": "Guilders (G)",
+          "shillings": "Shillings (S)",
+          "pennies": "Pennies (P)"
         },
         "details": "Details"
     },

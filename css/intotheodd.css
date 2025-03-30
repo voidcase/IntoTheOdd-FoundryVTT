@@ -48,85 +48,112 @@
   padding-top: 2px;
   padding-bottom: 2px;
 }
-.intotheodd .character-main {
+.intotheodd.actor.character {
+  min-width: 675px;
+}
+.intotheodd.actor.character .character-abilities {
   display: grid;
   margin: 10px 0;
   padding: 0;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-column: span 5 / span 5;
 }
-.intotheodd .character-main fieldset {
+.intotheodd.actor.character .character-abilities fieldset {
   border-radius: 5px;
 }
-.intotheodd .character-main fieldset legend {
+.intotheodd.actor.character .character-abilities fieldset legend {
   font-weight: bold;
 }
-.intotheodd .character-main .ability {
+.intotheodd.actor.character .character-abilities .ability {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
   text-align: center;
 }
-.intotheodd .character-main .ability input {
+.intotheodd.actor.character .character-abilities .ability input {
   width: 40px;
   font-size: 1.2rem;
 }
-.intotheodd .character-main .ability .divider {
+.intotheodd.actor.character .character-abilities .ability .divider {
   font-size: x-large;
 }
-.intotheodd .character-main .armour {
+.intotheodd.actor.character .character-abilities .armour {
   font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 5px;
 }
-.intotheodd .character-main .rollable:hover,
-.intotheodd .character-main .rollable:focus {
+.intotheodd.actor.character .character-abilities .rollable:hover,
+.intotheodd.actor.character .character-abilities .rollable:focus {
   color: #3f2020;
   text-shadow: 0 0 10px var(--color-shadow-primary);
   cursor: url("systems/intotheodd/ui/d20-highlight.svg") 32 24, pointer;
 }
-.intotheodd .character-header {
+.intotheodd.actor.character .character-wealth {
+  display: flex;
+}
+.intotheodd.actor.character .character-wealth fieldset {
+  width: 100%;
+  border-radius: 5px;
+}
+.intotheodd.actor.character .character-wealth fieldset legend {
+  font-weight: bold;
+}
+.intotheodd.actor.character .character-wealth .wealth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.intotheodd.actor.character .character-wealth .wealth label {
+  font-weight: bold;
+}
+.intotheodd.actor.character .character-wealth .wealth input {
+  font-size: 1rem;
+  margin: 0 20px 0 20px;
+  text-align: center;
+}
+.intotheodd.actor.character .character-header {
   display: flex;
   flex-direction: row;
 }
-.intotheodd .character-header .character-name input {
+.intotheodd.actor.character .character-header .character-name input {
   font-size: 1.5rem;
 }
-.intotheodd .character-header .character-img {
+.intotheodd.actor.character .character-header .character-img {
   width: 100px;
   flex: 0 0 25%;
   /* Prend 25% de la largeur */
 }
-.intotheodd .character-header .character-details {
+.intotheodd.actor.character .character-header .character-details {
   flex: 1;
   /* Prend le reste de la largeur */
   padding-left: 10px;
   flex-direction: column;
 }
-.intotheodd .character-header .character-details fieldset {
+.intotheodd.actor.character .character-header .character-details fieldset {
   margin-top: 10px;
   border-radius: 5px;
 }
-.intotheodd .character-header .character-details fieldset legend {
+.intotheodd.actor.character .character-header .character-details fieldset legend {
   font-weight: bold;
 }
-.intotheodd .character-items-list .item {
+.intotheodd.actor.character .character-items-list .item {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
-.intotheodd .character-items-list .item .item-name {
+.intotheodd.actor.character .character-items-list .item .item-name {
   flex: 1;
   font-weight: bold;
 }
-.intotheodd .character-items-list .item .item-quantity {
+.intotheodd.actor.character .character-items-list .item .item-quantity {
   width: 40px;
   font-size: 1.2rem;
 }
-.intotheodd .character-items-list .item summary {
+.intotheodd.actor.character .character-items-list .item summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
