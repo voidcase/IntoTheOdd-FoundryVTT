@@ -1,29 +1,42 @@
-import IntoTheOddChat from "../chat.mjs";
+import IntoTheOddChat from "../chat.mjs"
 
 export default class IntoTheOddActor extends Actor {
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user)
+
+    // Configure prototype token settings
+    const prototypeToken = {}
+    if (this.type === "character") {
+      Object.assign(prototypeToken, {
+        sight: { enabled: true },
+        actorLink: true,
+        disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+      })
+      this.updateSource({ prototypeToken })
+    }
+  }
 
   /**
- * Roll a save for ability
- * @param {*} ability 
- * @returns 
- */
+   * Roll a save for ability
+   * @param {*} ability
+   * @returns
+   */
   async rollSave(ability) {
-    const roll = await new Roll("1d20").roll();
-    const total = roll.total;
-    let success = false;
-    const abilityValue = this.system.abilities[ability].value;
+    const roll = await new Roll("1d20").roll()
+    const total = roll.total
+    let success = false
+    const abilityValue = this.system.abilities[ability].value
 
     if (total <= abilityValue) {
-      success = true;
+      success = true
     }
 
-    const abilityName = game.i18n.localize(`INTOTHEODD.Character.FIELDS.${ability}.label`);
-    let introText;
+    const abilityName = game.i18n.localize(`INTOTHEODD.Character.FIELDS.${ability}.label`)
+    let introText
     if (success) {
-      introText = game.i18n.format("INTOTHEODD.Roll.SaveRoll", { ability: abilityName, value: abilityValue });
-    }
-    else {
-      introText = game.i18n.format("INTOTHEODD.Roll.SaveRoll", { ability: abilityName, value: abilityValue });
+      introText = game.i18n.format("INTOTHEODD.Roll.SaveRoll", { ability: abilityName, value: abilityValue })
+    } else {
+      introText = game.i18n.format("INTOTHEODD.Roll.SaveRoll", { ability: abilityName, value: abilityValue })
     }
 
     let chatData = {
@@ -35,30 +48,26 @@ export default class IntoTheOddActor extends Actor {
       formula: roll.formula,
       total: total,
       tooltip: await roll.getTooltip(),
-      success
+      success,
     }
 
-    let chat = await new IntoTheOddChat(this)
-      .withTemplate("systems/intotheodd/templates/roll-result.hbs")
-      .withData(chatData)
-      .withRolls([roll])
-      .create();
+    let chat = await new IntoTheOddChat(this).withTemplate("systems/intotheodd/templates/roll-result.hbs").withData(chatData).withRolls([roll]).create()
 
-    await chat.display();
+    await chat.display()
 
-    return { roll, total, success };
+    return { roll, total, success }
   }
 
   /**
-   * 
-   * @param {*} itemName 
-   * @param {*} formula 
+   *
+   * @param {*} itemName
+   * @param {*} formula
    */
   async rollDamage(itemName, formula) {
-    const roll = await new Roll(formula).roll();
-    const result = roll.total;
+    const roll = await new Roll(formula).roll()
+    const result = roll.total
 
-    const label = game.i18n.format("INTOTHEODD.Roll.AttackRollDamage", { itemName });
+    const label = game.i18n.format("INTOTHEODD.Roll.AttackRollDamage", { itemName })
 
     let chatData = {
       rollType: "damage",
@@ -67,17 +76,13 @@ export default class IntoTheOddActor extends Actor {
       introText: label,
       formula: roll.formula,
       total: roll.total,
-      tooltip: await roll.getTooltip()
+      tooltip: await roll.getTooltip(),
     }
 
-    let chat = await new IntoTheOddChat(this)
-      .withTemplate("systems/intotheodd/templates/roll-result.hbs")
-      .withData(chatData)
-      .withRolls([roll])
-      .create();
+    let chat = await new IntoTheOddChat(this).withTemplate("systems/intotheodd/templates/roll-result.hbs").withData(chatData).withRolls([roll]).create()
 
-    await chat.display();
+    await chat.display()
 
-    return { roll, result };
+    return { roll, result }
   }
 }
