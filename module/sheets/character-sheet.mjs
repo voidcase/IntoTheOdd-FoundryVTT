@@ -154,6 +154,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
                     tooltip: game.i18n.localize('INTOTHEODD.Character.FIELDS.critical.tooltip')
                 },
             },
+            displayWealth: game.settings.get("intotheodd", "displayWealth"),
         }
         //console.log('character context', context);
         return context;

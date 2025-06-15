@@ -133,30 +133,30 @@
       }
     },
     "Labels": {
-        "short": {          
-          "hp": "HP",
-          "str": "Str",
-          "dex": "Dex",
-          "wil": "Wil",
-          "biography": "Bio"
-        },
-        "long": {          
-          "hp": "Hit Protection",
-          "str": "Strength",
-          "dex": "Dexterity",
-          "wil": "Willpower",
-          "biography": "Biography",
-          "inventory": "Inventory",
-          "armour": "Armour",
-          "shortRest": "Short Rest",
-          "fullRest": "Full Rest",
-          "damage": "damage",
-          "wealth": "Wealth",
-          "guilders": "Guilders (G)",
-          "shillings": "Shillings (S)",
-          "pennies": "Pennies (P)"
-        },
-        "details": "Details"
+      "short": {
+        "hp": "HP",
+        "str": "Str",
+        "dex": "Dex",
+        "wil": "Wil",
+        "biography": "Bio"
+      },
+      "long": {
+        "hp": "Hit Protection",
+        "str": "Strength",
+        "dex": "Dexterity",
+        "wil": "Willpower",
+        "biography": "Biography",
+        "inventory": "Inventory",
+        "armour": "Armour",
+        "shortRest": "Short Rest",
+        "fullRest": "Full Rest",
+        "damage": "damage",
+        "wealth": "Wealth",
+        "guilders": "Guilders (G)",
+        "shillings": "Shillings (S)",
+        "pennies": "Pennies (P)"
+      },
+      "details": "Details"
     },
     "Edit": "Edit",
     "Delete": "Delete",
@@ -167,21 +167,31 @@
     "Equip": "Equip",
     "Unequip": "Unequip",
     "Level": {
-        "novice": "Novice",
-        "professional": "Professional",
-        "expert": "Expert",
-        "veteran": "Veteran",
-        "master": "Master",
-        "beyond": "Beyond"
+      "novice": "Novice",
+      "professional": "Professional",
+      "expert": "Expert",
+      "veteran": "Veteran",
+      "master": "Master",
+      "beyond": "Beyond"
     },
     "Warns": {
       "canNotRest": "You can't rest because you are deprived."
     },
-    "Roll":{
+    "Roll": {
       "SaveRoll": "Save Roll of {ability} ({value})",
       "Success": "Success",
       "Failure": "Failure",
       "AttackRollDamage": "Damage Roll of {itemName}"
+    },
+    "Settings": {
+      "displayWealth": {
+        "label": "Display Wealth",
+        "hint": "Show wealth in the character sheet."
+      },
+      "showInitiativeHelper": {
+        "label": "Show initiative helptext on next startup",
+        "hint": "This option only exists so the helptext won't appear on every startup. When the message appears, this option will uncheck itself."
+      }
     }
   }
 }

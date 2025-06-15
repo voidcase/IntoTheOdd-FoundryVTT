@@ -58,12 +58,22 @@ Hooks.once('init', async function () {
   Items.registerSheet("intotheodd", IntoTheOddAttackSheet, { types: ["attack"], makeDefault: true });
 
   game.settings.register('intotheodd', 'showInitiativeHelp', {
-    name: 'Show initiative helptext on next startup',
-    hint: 'This option only exists so the helptext won\'t appear on every startup.\n When the message appears, this option will uncheck itself.',
+    name: 'INTOTHEODD.Settings.showInitiativeHelp.label',
+    hint: 'INTOTHEODD.Settings.showInitiativeHelp.hint',
     scope: 'system',
     config: true,
     type: Boolean,
     default: true
+  })
+
+  game.settings.register('intotheodd', 'displayWealth', {
+    name: 'INTOTHEODD.Settings.displayWealth.label',
+    hint: 'INTOTHEODD.Settings.displayWealth.hint',
+    scope: 'system',
+    config: true,
+    type: Boolean,
+    default: true,
+    requiresReload: true
   })
 
 });

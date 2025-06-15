@@ -52,15 +52,17 @@
     </fieldset>
   </div>
 
-  <div class="character-wealth">
-    <fieldset>
-      <legend>{{localize "INTOTHEODD.Labels.long.wealth"}}</legend>
-      <div class="wealth">
-        {{formField systemFields.wealth.fields.guilders value=system.wealth.guilders }}
-        {{formField systemFields.wealth.fields.shillings value=system.wealth.shillings }}
-        {{formField systemFields.wealth.fields.pennies value=system.wealth.pennies }}
-      </div>
-    </fieldset>
-  </div>
+  {{#if displayWealth}}
+    <div class="character-wealth">
+      <fieldset>
+        <legend>{{localize "INTOTHEODD.Labels.long.wealth"}}</legend>
+        <div class="wealth">
+          {{formField systemFields.wealth.fields.guilders value=system.wealth.guilders }}
+          {{formField systemFields.wealth.fields.shillings value=system.wealth.shillings }}
+          {{formField systemFields.wealth.fields.pennies value=system.wealth.pennies }}
+        </div>
+      </fieldset>
+    </div>
+  {{/if}}
 
 </div>
