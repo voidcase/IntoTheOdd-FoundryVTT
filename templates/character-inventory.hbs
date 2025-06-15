@@ -1,4 +1,4 @@
-<section class="tab standard-form character-{{tab.id}} {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+<section class="tab standard-form character-inventory {{#if tabs.inventory.active}} active{{/if}}" data-group="primary" data-tab="inventory">
   <div class="character-items-list">
     {{#each actor.items as |item id|}}
       {{!log "item" id item}}
