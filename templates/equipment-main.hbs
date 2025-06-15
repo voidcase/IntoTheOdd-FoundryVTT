@@ -3,16 +3,16 @@
   <section class="item-main">
     <div class="header">
       <img src="{{item.img}}" data-edit="img" data-action='editImage' data-tooltip="{{item.name}}" />
-      {{formInput fields.name value=source.name rootId=partId}}
+      {{formInput fields.name value=source.name }}
     </div>
     <div class="details">
       <fieldset>
         <legend>{{localize "INTOTHEODD.Labels.details"}}</legend>
-        {{formField systemFields.subType value=system.subType localize=true rootId=partId}}
-        {{formField systemFields.quantity value=system.quantity rootId=partId}}
-        {{formField systemFields.arcana value=system.arcana rootId=partId}}
-        {{formField systemFields.bulky value=system.bulky rootId=partId}}
-        {{formField systemFields.equipped value=system.equipped rootId=partId}}
+        {{formField systemFields.subType value=system.subType localize=true }}
+        {{formField systemFields.quantity value=system.quantity }}
+        {{formField systemFields.arcana value=system.arcana }}
+        {{formField systemFields.bulky value=system.bulky }}
+        {{formField systemFields.equipped value=system.equipped }}
       </fieldset>
     </div>
   </section>
@@ -21,7 +21,7 @@
     <section class="item-armour">
       <fieldset>
         <legend>{{localize "INTOTHEODD.Equipment.SubType.armour"}}</legend>
-        {{formField systemFields.armour value=system.armour localize=true rootId=partId}}
+        {{formField systemFields.armour value=system.armour localize=true }}
       </fieldset>
     </section>
   {{/if}}
@@ -30,8 +30,8 @@
     <section class="item-weapon">
       <fieldset>
         <legend>{{localize "INTOTHEODD.Equipment.SubType.weapon"}}</legend>
-        {{formField systemFields.damageFormula value=system.damageFormula rootId=partId}}
-        {{formField systemFields.blast value=system.blast rootId=partId}}
+        {{formField systemFields.damageFormula value=system.damageFormula }}
+        {{formField systemFields.blast value=system.blast }}
       </fieldset>
     </section>
   {{/if}}
