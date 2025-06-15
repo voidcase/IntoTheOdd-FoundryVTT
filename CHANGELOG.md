@@ -1,3 +1,6 @@
+# 3.0.0
+- Compatibility Foundry V13
+
 # 2.2.0
 - Fix issue [#51](https://github.com/voidcase/IntoTheOdd-FoundryVTT/issues/51)
 - Add an option to display or not the wealth section in a character sheet

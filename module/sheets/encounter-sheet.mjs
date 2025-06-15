@@ -1,8 +1,8 @@
-const { ux } = foundry.applications
+const { sheets, ux } = foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api
 const { DragDrop } = foundry.applications.ux
 
-export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2) {
   /** @override */
   static DEFAULT_OPTIONS = {
     classes: ["intotheodd", "actor", "encounter"],
@@ -15,26 +15,6 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
     },
     window: {
       resizable: true,
-      controls: [
-        {
-          action: "configurePrototypeToken",
-          icon: "fa-solid fa-user-circle",
-          label: "TOKEN.TitlePrototype",
-          ownership: "OWNER",
-        },
-        {
-          action: "showPortraitArtwork",
-          icon: "fa-solid fa-image",
-          label: "SIDEBAR.CharArt",
-          ownership: "OWNER",
-        },
-        {
-          action: "showTokenArtwork",
-          icon: "fa-solid fa-image",
-          label: "SIDEBAR.TokenArt",
-          ownership: "OWNER",
-        },
-      ],
     },
     actions: {
       edit: IntoTheOddEncounterSheet.#onItemEdit,
@@ -46,41 +26,6 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
   }
 
   /** @override */
-  _getHeaderControls() {
-    const controls = this.options.window.controls
-
-    if (!controls.find((c) => c.action === "showPortraitArtwork")) {
-      controls.push({
-        action: "showPortraitArtwork",
-        icon: "fa-solid fa-image",
-        label: "SIDEBAR.CharArt",
-        ownership: "OWNER",
-      })
-    }
-    if (!controls.find((c) => c.action === "showTokenArtwork")) {
-      controls.push({
-        action: "showTokenArtwork",
-        icon: "fa-solid fa-image",
-        label: "SIDEBAR.TokenArt",
-        ownership: "OWNER",
-      })
-    }
-
-    // Portrait image
-    const img = this.actor.img
-    if (img === CONST.DEFAULT_TOKEN) controls.findSplice((c) => c.action === "showPortraitArtwork")
-
-    // Token image
-    const pt = this.actor.prototypeToken
-    const tex = pt.texture.src
-    if (pt.randomImg || [null, undefined, CONST.DEFAULT_TOKEN].includes(tex)) {
-      controls.findSplice((c) => c.action === "showTokenArtwork")
-    }
-
-    return controls
-  }
-
-  /** @override */
   static PARTS = {
     main: {
       template: "systems/intotheodd/templates/encounter-main.hbs",
@@ -88,22 +33,27 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
   }
 
   /** @override */
-  async _prepareContext() {
-    const context = {
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options)
+    Object.assign(context, {
       fields: this.document.schema.fields,
       systemFields: this.document.system.schema.fields,
       actor: this.document,
       system: this.document.system,
       source: this.document.toObject(),
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, { async: true }),
-    }
+    })
 
-    context.attacks = []
+    const attacks = []
     const attacksRaw = this.actor.itemTypes.attack
     for (const item of attacksRaw) {
       item.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description, { async: true })
-      context.attacks.push(item)
+      attacks.push(item)
     }
+
+    Object.assign(context, {
+      attacks,
+    })
 
     //console.log('encounter context', context);
     return context

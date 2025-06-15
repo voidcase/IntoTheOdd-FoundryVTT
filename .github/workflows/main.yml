@@ -108,7 +108,7 @@ jobs:
       
       # Pull YAML to LDB packs
       - name: Build Packs
-        run: npm run YAMLtoLDB
+        run: npm run YMLtoLDB
 
       # Create a "system.zip" archive containing all the module's required files.
       # If you have other directories or files that will need to be added to

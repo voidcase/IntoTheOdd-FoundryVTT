@@ -8,11 +8,11 @@
     <div class="details">
       <fieldset>
         <legend>{{localize "INTOTHEODD.Labels.details"}}</legend>
-        {{formField systemFields.subType value=system.subType localize=true }}
-        {{formField systemFields.quantity value=system.quantity }}
-        {{formField systemFields.arcana value=system.arcana }}
-        {{formField systemFields.bulky value=system.bulky }}
-        {{formField systemFields.equipped value=system.equipped }}
+        {{formGroup systemFields.subType value=system.subType localize=true }}
+        {{formGroup systemFields.quantity value=system.quantity }}
+        {{formGroup systemFields.arcana value=system.arcana }}
+        {{formGroup systemFields.bulky value=system.bulky }}
+        {{formGroup systemFields.equipped value=system.equipped }}
       </fieldset>
     </div>
   </section>
@@ -21,7 +21,7 @@
     <section class="item-armour">
       <fieldset>
         <legend>{{localize "INTOTHEODD.Equipment.SubType.armour"}}</legend>
-        {{formField systemFields.armour value=system.armour localize=true }}
+        {{formGroup systemFields.armour value=system.armour localize=true }}
       </fieldset>
     </section>
   {{/if}}
@@ -30,8 +30,8 @@
     <section class="item-weapon">
       <fieldset>
         <legend>{{localize "INTOTHEODD.Equipment.SubType.weapon"}}</legend>
-        {{formField systemFields.damageFormula value=system.damageFormula }}
-        {{formField systemFields.blast value=system.blast }}
+        {{formGroup systemFields.damageFormula value=system.damageFormula }}
+        {{formGroup systemFields.blast value=system.blast }}
       </fieldset>
     </section>
   {{/if}}

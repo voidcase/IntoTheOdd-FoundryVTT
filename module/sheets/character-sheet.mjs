@@ -1,52 +1,20 @@
-const { ux } = foundry.applications
+const { sheets, ux } = foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api
 const { DragDrop } = foundry.applications.ux
 
-export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2) {
   /** @override */
   static DEFAULT_OPTIONS = {
     classes: ["intotheodd", "actor", "character"],
     position: {
-      width: 700,
-      height: 500,
+      width: 750,
+      height: 800,
     },
     form: {
       submitOnChange: true,
     },
     window: {
       resizable: true,
-      controls: [
-        {
-          action: "configurePrototypeToken",
-          icon: "fa-solid fa-user-circle",
-          label: "TOKEN.TitlePrototype",
-          ownership: "OWNER",
-        },
-        {
-          action: "showPortraitArtwork",
-          icon: "fa-solid fa-image",
-          label: "SIDEBAR.CharArt",
-          ownership: "OWNER",
-        },
-        {
-          action: "showTokenArtwork",
-          icon: "fa-solid fa-image",
-          label: "SIDEBAR.TokenArt",
-          ownership: "OWNER",
-        },
-        {
-          icon: "fa-solid fa-heart-pulse",
-          label: "INTOTHEODD.Labels.long.shortRest",
-          action: "shortRest",
-          ownership: "OWNER",
-        },
-        {
-          icon: "fas fa-bed",
-          label: "INTOTHEODD.Labels.long.fullRest",
-          action: "fullRest",
-          ownership: "OWNER",
-        },
-      ],
     },
     actions: {
       edit: IntoTheOddCharacterSheet.#onItemEdit,
@@ -59,6 +27,86 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
       unequip: IntoTheOddCharacterSheet.#onItemUnequip,
       editImage: IntoTheOddCharacterSheet.#onEditImage,
     },
+  }
+
+  /** @override */
+  static PARTS = {
+    header: { template: "systems/intotheodd/templates/character-header.hbs" },
+    main: { template: "systems/intotheodd/templates/character-main.hbs" },
+    tabs: { template: "templates/generic/tab-navigation.hbs" },
+    biography: { template: "systems/intotheodd/templates/character-biography.hbs" },
+    inventory: { template: "systems/intotheodd/templates/character-inventory.hbs" },
+  }
+
+  /** @override */
+  static TABS = {
+    primary: {
+      tabs: [
+        { id: "biography", icon: "fa-solid fa-book" },
+        { id: "inventory", icon: "fa-solid fa-shapes" },
+      ],
+      initial: "inventory",
+      labelPrefix: "INTOTHEODD.Labels.long",
+    },
+  }
+
+  /** @override */
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options)
+    Object.assign(context, {
+      fields: this.document.schema.fields,
+      systemFields: this.document.system.schema.fields,
+      actor: this.document,
+      system: this.document.system,
+      source: this.document.toObject(),
+      data: {
+        deprived: {
+          tooltip: game.i18n.localize("INTOTHEODD.Character.FIELDS.deprived.tooltip"),
+        },
+        critical: {
+          tooltip: game.i18n.localize("INTOTHEODD.Character.FIELDS.critical.tooltip"),
+        },
+      },
+      displayWealth: game.settings.get("intotheodd", "displayWealth"),
+    })
+    return context
+  }
+
+  /** @override */
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options)
+
+    switch (partId) {
+      case "biography":
+        context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.biography, { async: true })
+        break
+      case "inventory":
+        context.items = []
+        const itemsRaw = this.actor.itemTypes.equipment
+        for (const item of itemsRaw) {
+          item.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description, { async: true })
+          context.items.push(item)
+        }
+        break
+    }
+    return context
+  }
+
+  /** @inheritDoc */
+  async _onRender(context, options) {
+    await super._onRender(context, options)
+    new DragDrop.implementation({
+      dragSelector: ".draggable",
+      permissions: {
+        dragstart: this._canDragStart.bind(this),
+        drop: this._canDragDrop.bind(this),
+      },
+      callbacks: {
+        dragstart: this._onDragStart.bind(this),
+        dragover: this._onDragOver.bind(this),
+        drop: this._onDrop.bind(this),
+      },
+    }).bind(this.element)
   }
 
   /** @override */
@@ -86,107 +134,6 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
     }
 
     return controls
-  }
-
-  /** @override */
-  static PARTS = {
-    header: {
-      template: "systems/intotheodd/templates/character-header.hbs",
-    },
-    main: {
-      template: "systems/intotheodd/templates/character-main.hbs",
-    },
-    tabs: {
-      template: "templates/generic/tab-navigation.hbs",
-    },
-    biography: {
-      template: "systems/intotheodd/templates/character-biography.hbs",
-    },
-    inventory: {
-      template: "systems/intotheodd/templates/character-inventory.hbs",
-    },
-  }
-
-  /** @override */
-  tabGroups = {
-    sheet: "inventory",
-  }
-
-  /**
-   * Prepare an array of form header tabs.
-   * @returns {Record<string, Partial<ApplicationTab>>}
-   */
-  #getTabs() {
-    const tabs = {
-      biography: { id: "biography", group: "sheet", icon: "fa-solid fa-book", label: "INTOTHEODD.Labels.long.biography" },
-      inventory: { id: "inventory", group: "sheet", icon: "fa-solid fa-shapes", label: "INTOTHEODD.Labels.long.inventory" },
-    }
-    for (const v of Object.values(tabs)) {
-      v.active = this.tabGroups[v.group] === v.id
-      v.cssClass = v.active ? "active" : ""
-    }
-    return tabs
-  }
-
-  /** @override */
-  async _prepareContext() {
-    const context = {
-      tabs: this.#getTabs(),
-      fields: this.document.schema.fields,
-      systemFields: this.document.system.schema.fields,
-      actor: this.document,
-      system: this.document.system,
-      source: this.document.toObject(),
-      data: {
-        deprived: {
-          tooltip: game.i18n.localize("INTOTHEODD.Character.FIELDS.deprived.tooltip"),
-        },
-        critical: {
-          tooltip: game.i18n.localize("INTOTHEODD.Character.FIELDS.critical.tooltip"),
-        },
-      },
-      displayWealth: game.settings.get("intotheodd", "displayWealth"),
-    }
-    //console.log('character context', context);
-    return context
-  }
-
-  /** @override */
-  async _preparePartContext(partId, context) {
-    const doc = this.document
-    switch (partId) {
-      case "biography":
-        context.tab = context.tabs.biography
-        context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.biography, { async: true })
-        break
-      case "inventory":
-        context.tab = context.tabs.inventory
-        context.items = []
-        const itemsRaw = this.actor.itemTypes.equipment
-        for (const item of itemsRaw) {
-          item.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description, { async: true })
-          context.items.push(item)
-        }
-        break
-    }
-    return context
-  }
-
-  /** @inheritDoc */
-  async _onRender(context, options) {
-    await super._onRender(context, options)
-    new DragDrop.implementation({
-      dragSelector: ".draggable",
-      permissions: {
-        dragstart: this._canDragStart.bind(this),
-        drop: this._canDragDrop.bind(this),
-      },
-      callbacks: {
-        dragstart: this._onDragStart.bind(this),
-        dragover: this._onDragOver.bind(this),
-        drop: this._onDrop.bind(this),
-      },
-    }).bind(this.element)
   }
 
   //#region Drag-and-Drop Workflow

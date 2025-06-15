@@ -158,6 +158,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.intotheodd.actor.character nav {
+  margin: 10px 0 10px 0;
+}
 .intotheodd.actor.encounter {
   min-width: 675px;
 }

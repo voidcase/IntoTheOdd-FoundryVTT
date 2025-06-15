@@ -1,4 +1,4 @@
-<section class="tab standard-form character-{{tab.id}} {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+<section class="tab standard-form character-biography {{#if tabs.biography.active}} active{{/if}}" data-group="primary" data-tab="biography">
   {{formInput
     systemFields.biography
     enriched=enrichedBiography
