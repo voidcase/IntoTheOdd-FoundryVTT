@@ -50,12 +50,12 @@ Hooks.once('init', async function () {
   };
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("intotheodd", IntoTheOddCharacterSheet, { types: ["character"], makeDefault: true });
-  Actors.registerSheet("intotheodd", IntoTheOddEncounterSheet, { types: ["encounter"], makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("intotheodd", IntoTheOddItemSheet, { types: ["equipment"], makeDefault: true });
-  Items.registerSheet("intotheodd", IntoTheOddAttackSheet, { types: ["attack"], makeDefault: true });
+  foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+  foundry.documents.collections.Actors.registerSheet("intotheodd", IntoTheOddCharacterSheet, { types: ["character"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("intotheodd", IntoTheOddEncounterSheet, { types: ["encounter"], makeDefault: true });
+  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet("intotheodd", IntoTheOddItemSheet, { types: ["equipment"], makeDefault: true });
+  foundry.documents.collections.Items.registerSheet("intotheodd", IntoTheOddAttackSheet, { types: ["attack"], makeDefault: true });
 
   game.settings.register('intotheodd', 'showInitiativeHelp', {
     name: 'INTOTHEODD.Settings.showInitiativeHelp.label',

@@ -158,83 +158,86 @@
   justify-content: space-between;
   align-items: center;
 }
-.intotheodd .encounter-header {
+.intotheodd.actor.encounter {
+  min-width: 675px;
+}
+.intotheodd.actor.encounter .encounter-header {
   display: flex;
 }
-.intotheodd .encounter-header .encounter-name input {
+.intotheodd.actor.encounter .encounter-header .encounter-name input {
   font-size: 1.5rem;
 }
-.intotheodd .encounter-header .encounter-img {
+.intotheodd.actor.encounter .encounter-header .encounter-img {
   width: 100px;
   flex: 0 0 25%;
   /* Prend 25% de la largeur */
 }
-.intotheodd .encounter-header .encounter-details {
+.intotheodd.actor.encounter .encounter-header .encounter-details {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities {
   display: grid;
   margin: 10px 0;
   padding: 0;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-column: span 5 / span 5;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities fieldset {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities fieldset {
   border-radius: 5px;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities fieldset legend {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities fieldset legend {
   font-weight: bold;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities .ability {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities .ability {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
   text-align: center;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities .ability input {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities .ability input {
   width: 40px;
   font-size: 1.2rem;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities .ability .divider {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities .ability .divider {
   font-size: x-large;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities .armour {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities .armour {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 5px;
 }
-.intotheodd .encounter-header .encounter-details .encounter-abilities .armour input {
+.intotheodd.actor.encounter .encounter-header .encounter-details .encounter-abilities .armour input {
   width: 40px;
   font-size: 1.2rem;
   text-align: center;
 }
-.intotheodd .encounter-description {
+.intotheodd.actor.encounter .encounter-description {
   border-radius: 5px;
 }
-.intotheodd .encounter-description legend {
+.intotheodd.actor.encounter .encounter-description legend {
   font-weight: bold;
 }
-.intotheodd .encounter-items-list {
+.intotheodd.actor.encounter .encounter-items-list {
   margin: 0 10px 20px 10px;
 }
-.intotheodd .encounter-items-list .item {
+.intotheodd.actor.encounter .encounter-items-list .item {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
-.intotheodd .encounter-items-list .item .item-name {
+.intotheodd.actor.encounter .encounter-items-list .item .item-name {
   flex: 1;
   font-weight: bold;
 }
-.intotheodd .encounter-items-list .item .item-quantity {
+.intotheodd.actor.encounter .encounter-items-list .item .item-quantity {
   width: 40px;
   font-size: 1.2rem;
 }
-.intotheodd .encounter-items-list .item summary {
+.intotheodd.actor.encounter .encounter-items-list .item summary {
   display: flex;
   justify-content: space-between;
   align-items: center;

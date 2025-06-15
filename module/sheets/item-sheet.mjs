@@ -36,7 +36,7 @@ export default class IntoTheOddItemSheet extends HandlebarsApplicationMixin(foun
       item: this.document,
       system: this.document.system,
       source: this.document.toObject(),
-      enrichedDescription: await TextEditor.enrichHTML(this.document.system.description, { async: true })
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, { async: true })
     }
     //console.log('equipment context', context);
     return context;

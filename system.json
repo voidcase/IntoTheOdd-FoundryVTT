@@ -4,9 +4,9 @@
   "description": "The Into the Odd system for FoundryVTT !",
   "version": "#{VERSION}#",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12",
-    "maximum": "12"
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
   },
   "authors": [
     {
@@ -24,7 +24,7 @@
       "name": "into-the-odd-macros",
       "label": "Macros for playing Into the Odd",
       "system": "intotheodd",
-      "path": "./packs/into-the-odd-macros.db",
+      "path": "./packs/into-the-odd-macros",
       "type": "Macro"
     }
   ],

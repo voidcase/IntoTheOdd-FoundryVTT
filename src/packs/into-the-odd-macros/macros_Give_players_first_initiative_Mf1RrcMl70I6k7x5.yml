@@ -1,0 +1,26 @@
+name: Give players first initiative
+type: script
+flags:
+  intotheodd:
+    PCsFirst: true
+scope: global
+command: "if (game.combat) {\r\n  game.combat.combatants.forEach(c => {\r\n    game.combat.setInitiative(c._id, (c.actor.hasPlayerOwner) ? 1 : 0)\r\n  })\r\n} else {\r\n  ui.notifications.error('No active combat')\r\n}"
+author: a5lORL3tX2Zt17F6
+img: systems/intotheodd/img/icons/macro_players_first.png
+_id: Mf1RrcMl70I6k7x5
+_stats:
+  coreVersion: '13.345'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+ownership:
+  default: 0
+  a5lORL3tX2Zt17F6: 3
+folder: null
+sort: 0
+_key: '!macros!Mf1RrcMl70I6k7x5'

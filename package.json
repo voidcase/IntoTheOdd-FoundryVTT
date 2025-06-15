@@ -5,7 +5,9 @@
   "scripts": {
     "css": "gulp css",
     "watch": "gulp",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "LDBtoYML": "node ./tools/LDBtoYML.mjs",
+    "YMLtoLDB": "node ./tools/YMLtoLDB.mjs"
   },
   "browserslist": [
     "last 3 versions"
@@ -16,5 +18,8 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-less": "^4.0.1"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.0.2"
   }
 }

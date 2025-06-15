@@ -36,7 +36,7 @@ export default class IntoTheOddAttackSheet extends HandlebarsApplicationMixin(fo
       item: this.document,
       system: this.document.system,
       source: this.document.toObject(),
-      enrichedDescription: await TextEditor.enrichHTML(this.document.system.description, { async: true })
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, { async: true })
     }
     //console.log('attack context', context);
     return context;
