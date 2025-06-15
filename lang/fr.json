@@ -150,7 +150,11 @@
             "armour": "Armure",
             "shortRest": "Repos Court",
             "fullRest": "Repos Long",
-            "damage": "dégâts"
+            "damage": "dégâts",
+            "wealth": "Richesse",
+            "guilders": "Guilders (G)",
+            "shillings": "Shillings (S)",
+            "pennies": "Pennies (P)"
           },
           "details": "Détails"
       },
