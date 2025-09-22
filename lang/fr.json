@@ -172,6 +172,8 @@
       },
       "details": "Détails"
     },
+    "Attacks": "Attaques",
+    "Add": "Ajouter",
     "Edit": "Modifier",
     "Delete": "Supprimer",
     "RollDamage": "Lancer les Dégâts",
@@ -179,6 +181,8 @@
     "RollDexterity": "Lancer un Jet de Dextérité",
     "RollWillpower": "Lancer un Jet de Volonté",
     "RollCharisma": "Lancer un Jet de Charisme",
+    "NewAttack": "Nouvelle Attaque",
+    "NewEquipment": "Nouvel Équipement",
     "Equip": "Équiper",
     "Unequip": "Déséquiper",
     "Level": {

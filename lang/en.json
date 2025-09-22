@@ -172,6 +172,8 @@
       },
       "details": "Details"
     },
+    "Attacks": "Attacks",
+    "Add": "Add",
     "Edit": "Edit",
     "Delete": "Delete",
     "RollStrength": "Roll Strength save",
@@ -179,6 +181,8 @@
     "RollWillpower": "Roll Willpower save",
     "RollCharisma": "Roll Charisma save",
     "RollDamage": "Roll Damage",
+    "NewAttack": "New Attack",
+    "NewEquipment": "New Equipment",
     "Equip": "Equip",
     "Unequip": "Unequip",
     "Level": {
