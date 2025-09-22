@@ -1,5 +1,7 @@
 # 3.1.0
-- New Electric Bastionland option : no experience level, willpower is replaced by charisma, only one currency (pound), debut field
+- New Electric Bastionland option : no experience level, willpower is replaced by charisma, only one currency (pound), debt field, add roll Luck submenu in the header
+- Add button to create an equipment directory in the character sheet
+- Add a button to create an attack directly in the encounter sheet
 
 # 3.0.0
 - Compatibility Foundry V13
