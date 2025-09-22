@@ -4,7 +4,9 @@
     <div class="character-name">{{formInput fields.name value=source.name }}</div>
     <fieldset>
       <legend>{{localize "INTOTHEODD.Labels.details"}}</legend>
-      {{formGroup systemFields.level value=system.level localize=true }}
+      {{#unless electricBastionland}}
+        {{formGroup systemFields.level value=system.level localize=true }}
+      {{/unless}}
       {{formGroup systemFields.deprived value=system.deprived dataset=data.deprived }}
       {{formGroup systemFields.critical value=system.critical dataset=data.critical }}
     </fieldset>

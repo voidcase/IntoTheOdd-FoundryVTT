@@ -22,6 +22,7 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
       rollSave: IntoTheOddEncounterSheet.#onItemRollSave,
       rollDamage: IntoTheOddEncounterSheet.#onAttackRollDamage,
       editImage: IntoTheOddEncounterSheet.#onEditImage,
+      createItem: IntoTheOddEncounterSheet.#onCreateItem,
     },
   }
 
@@ -215,6 +216,25 @@ export default class IntoTheOddEncounterSheet extends HandlebarsApplicationMixin
       left: this.position.left + 10,
     })
     return fp.browse()
+  }
+
+  static #onCreateItem(event, target) {
+    event.preventDefault()
+    const type = target.dataset.type
+
+    const itemData = {
+      type: type,
+      system: foundry.utils.expandObject({ ...target.dataset }),
+    }
+    delete itemData.system.type
+
+    switch (type) {
+      case "attack":
+        itemData.name = game.i18n.localize("INTOTHEODD.NewAttack")
+        break
+    }
+
+    return this.actor.createEmbeddedDocuments("Item", [itemData])
   }
 
   //#endregion

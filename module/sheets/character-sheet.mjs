@@ -26,6 +26,8 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
       equip: IntoTheOddCharacterSheet.#onItemEquip,
       unequip: IntoTheOddCharacterSheet.#onItemUnequip,
       editImage: IntoTheOddCharacterSheet.#onEditImage,
+      createItem: IntoTheOddCharacterSheet.#onCreateItem,
+      rollLuck: IntoTheOddCharacterSheet.#onRollLuck,
     },
   }
 
@@ -33,7 +35,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
   static PARTS = {
     header: { template: "systems/intotheodd/templates/character-header.hbs" },
     main: { template: "systems/intotheodd/templates/character-main.hbs" },
-    tabs: { template: "templates/generic/tab-navigation.hbs" },
+    tabs: { template: "systems/intotheodd/templates/tab-navigation.hbs" },
     biography: { template: "systems/intotheodd/templates/character-biography.hbs" },
     inventory: { template: "systems/intotheodd/templates/character-inventory.hbs" },
   }
@@ -42,8 +44,8 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
   static TABS = {
     primary: {
       tabs: [
-        { id: "biography", icon: "fa-solid fa-book" },
-        { id: "inventory", icon: "fa-solid fa-shapes" },
+        { id: "biography", icon: "fa-solid fa-book", create: false },
+        { id: "inventory", icon: "fa-solid fa-shapes", create: true },
       ],
       initial: "inventory",
       labelPrefix: "INTOTHEODD.Labels.long",
@@ -68,6 +70,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
         },
       },
       displayWealth: game.settings.get("intotheodd", "displayWealth"),
+      electricBastionland: game.settings.get("intotheodd", "electricBastionland"),
     })
     return context
   }
@@ -129,6 +132,18 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
           icon: "fas fa-bed",
           label: "INTOTHEODD.Labels.long.fullRest",
           action: "fullRest",
+        })
+      }
+    }
+
+    // Electric Bastionland : add Luck roll
+    if (game.settings.get("intotheodd", "electricBastionland")) {
+      // Add Luck roll button if not present
+      if (!controls.find((c) => c.action === "rollLuck")) {
+        controls.push({
+          icon: "fa-solid fa-shoe-prints",
+          label: "INTOTHEODD.Labels.long.rollLuck",
+          action: "rollLuck",
         })
       }
     }
@@ -303,6 +318,32 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
       left: this.position.left + 10,
     })
     return fp.browse()
+  }
+
+  static #onCreateItem(event, target) {
+    event.preventDefault()
+    const type = target.dataset.type
+
+    const itemData = {
+      type: type,
+      system: foundry.utils.expandObject({ ...target.dataset }),
+    }
+    delete itemData.system.type
+
+    switch (type) {
+      case "equipment":
+        itemData.name = game.i18n.localize("INTOTHEODD.NewEquipment")
+        break
+    }
+
+    return this.actor.createEmbeddedDocuments("Item", [itemData])
+  }
+
+  static async #onRollLuck(event, target) {
+    let roll = new Roll("1d6")
+    await roll.roll()
+    roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.actor }), flavor: game.i18n.localize("INTOTHEODD.Chat.LuckRoll") })
+    return roll
   }
 
   //#endregion

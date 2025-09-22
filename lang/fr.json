@@ -53,6 +53,18 @@
           "pennies": {
             "label": "Pennies (P)"
           }
+        },
+        "electricBastionland": {
+          "cha": {
+            "label": "Charisme",
+            "hint": "Le charisme de votre personnage."
+          },
+          "pounds": {
+            "label": "Livres (£)"
+          },
+          "debt": {
+            "label": "Dette (£)"
+          }
         }
       }
     },
@@ -138,6 +150,7 @@
         "str": "For",
         "dex": "Dex",
         "wil": "Vol",
+        "cha": "Cha",
         "biography": "Bio"
       },
       "long": {
@@ -145,11 +158,13 @@
         "str": "Force",
         "dex": "Dextérité",
         "wil": "Volonté",
+        "cha": "Charisme",
         "biography": "Biographie",
         "inventory": "Inventaire",
         "armour": "Armure",
         "shortRest": "Repos Court",
         "fullRest": "Repos Long",
+        "rollLuck": "Jet de Chance",
         "damage": "dégâts",
         "wealth": "Richesse",
         "guilders": "Guilders (G)",
@@ -158,12 +173,17 @@
       },
       "details": "Détails"
     },
+    "Attacks": "Attaques",
+    "Add": "Ajouter",
     "Edit": "Modifier",
     "Delete": "Supprimer",
     "RollDamage": "Lancer les Dégâts",
     "RollStrength": "Lancer un Jet de Force",
     "RollDexterity": "Lancer un Jet de Dextérité",
     "RollWillpower": "Lancer un Jet de Volonté",
+    "RollCharisma": "Lancer un Jet de Charisme",
+    "NewAttack": "Nouvelle Attaque",
+    "NewEquipment": "Nouvel Équipement",
     "Equip": "Équiper",
     "Unequip": "Déséquiper",
     "Level": {
@@ -191,7 +211,14 @@
       "showInitiativeHelp": {
         "label": "Afficher l'aide sur l'initiative au prochain démarrage",
         "hint": "Cette option n'existe que pour que l'aide ne réapparaisse pas à chaque démarrage. Lorsque le message apparaît, cette option se désélectionnera."
+      },
+      "electricBastionland": {
+        "label": "Mode Electric Bastionland",
+        "hint": "Active les règles d'Electric Bastionland."
       }
+    },
+    "Chat": {
+      "LuckRoll": "Jet de Chance"
     }
   }
 }

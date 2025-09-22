@@ -36,7 +36,15 @@ export default class IntoTheOddCharacterData extends foundry.abstract.TypeDataMo
       wealth: new fields.SchemaField({
         guilders: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0, min: 0 }),
         shillings: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0, min: 0 }),
-        pennies: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0, min: 0 }),      
+        pennies: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0, min: 0 }),
+      }),
+      electricBastionland: new fields.SchemaField({
+        cha: new fields.SchemaField({
+          value: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 10, min: 0 }),
+          max: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 10, min: 0 }),
+        }),
+        pounds: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0, min: 0 }),
+        debt: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0, min: 0 }),
       }),
     }
   }
