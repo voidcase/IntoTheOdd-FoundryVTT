@@ -25,14 +25,25 @@
     </fieldset>
 
     <fieldset>
-      <legend class="rollable" data-action="rollSave" data-ability="wil" data-tooltip="{{localize 'INTOTHEODD.RollWillpower'}}" data-tooltip-direction="UP">{{localize
-          "INTOTHEODD.Labels.long.wil"
-        }}</legend>
-      <div class="ability">
-        {{formInput systemFields.abilities.fields.wil.fields.value value=system.abilities.wil.value }}
-        <div class="divider">/</div>
-        {{formInput systemFields.abilities.fields.wil.fields.max value=system.abilities.wil.max }}
-      </div>
+      {{#unless electricBastionland}}
+        <legend class="rollable" data-action="rollSave" data-ability="wil" data-tooltip="{{localize 'INTOTHEODD.RollWillpower'}}" data-tooltip-direction="UP">{{localize
+            "INTOTHEODD.Labels.long.wil"
+          }}</legend>
+        <div class="ability">
+          {{formInput systemFields.abilities.fields.wil.fields.value value=system.abilities.wil.value }}
+          <div class="divider">/</div>
+          {{formInput systemFields.abilities.fields.wil.fields.max value=system.abilities.wil.max }}
+        </div>
+      {{else}}
+        <legend class="rollable" data-action="rollSave" data-ability="cha" data-tooltip="{{localize 'INTOTHEODD.RollCharisma'}}" data-tooltip-direction="UP">{{localize
+            "INTOTHEODD.Labels.long.cha"
+          }}</legend>
+        <div class="ability">
+          {{formInput systemFields.electricBastionland.fields.cha.fields.value value=system.electricBastionland.cha.value }}
+          <div class="divider">/</div>
+          {{formInput systemFields.electricBastionland.fields.cha.fields.max value=system.electricBastionland.cha.max }}
+        </div>
+      {{/unless}}
     </fieldset>
 
     <fieldset>
@@ -57,9 +68,14 @@
       <fieldset>
         <legend>{{localize "INTOTHEODD.Labels.long.wealth"}}</legend>
         <div class="wealth">
-          {{formGroup systemFields.wealth.fields.guilders value=system.wealth.guilders }}
-          {{formGroup systemFields.wealth.fields.shillings value=system.wealth.shillings }}
-          {{formGroup systemFields.wealth.fields.pennies value=system.wealth.pennies }}
+          {{#unless electricBastionland}}
+            {{formGroup systemFields.wealth.fields.guilders value=system.wealth.guilders }}
+            {{formGroup systemFields.wealth.fields.shillings value=system.wealth.shillings }}
+            {{formGroup systemFields.wealth.fields.pennies value=system.wealth.pennies }}
+          {{else}}
+            {{formGroup systemFields.electricBastionland.fields.pounds value=system.electricBastionland.pounds }}
+            {{formGroup systemFields.electricBastionland.fields.debt value=system.electricBastionland.debt }}
+          {{/unless}}
         </div>
       </fieldset>
     </div>

@@ -53,6 +53,18 @@
           "pennies": {
             "label": "Pennies (P)"
           }
+        },
+        "electricBastionland": {
+          "cha": {
+            "label": "Charisma",
+            "hint": "How charismatic your character is."
+          },
+          "pounds": {
+            "label": "Pounds (£)"
+          },
+          "debt": {
+            "label": "Debt (£)"
+          }
         }
       }
     },
@@ -138,6 +150,7 @@
         "str": "Str",
         "dex": "Dex",
         "wil": "Wil",
+        "cha": "Cha",
         "biography": "Bio"
       },
       "long": {
@@ -145,6 +158,7 @@
         "str": "Strength",
         "dex": "Dexterity",
         "wil": "Willpower",
+        "cha": "Charisma",
         "biography": "Biography",
         "inventory": "Inventory",
         "armour": "Armour",
@@ -163,6 +177,7 @@
     "RollStrength": "Roll Strength save",
     "RollDexterity": "Roll Dexterity save",
     "RollWillpower": "Roll Willpower save",
+    "RollCharisma": "Roll Charisma save",
     "RollDamage": "Roll Damage",
     "Equip": "Equip",
     "Unequip": "Unequip",
@@ -188,9 +203,13 @@
         "label": "Display Wealth",
         "hint": "Show wealth in the character sheet."
       },
-      "showInitiativeHelper": {
+      "showInitiativeHelp": {
         "label": "Show initiative helptext on next startup",
         "hint": "This option only exists so the helptext won't appear on every startup. When the message appears, this option will uncheck itself."
+      },
+      "electricBastionland": {
+        "label": "Electric Bastionland Mode",
+        "hint": "Enable rules and items from Electric Bastionland."
       }
     }
   }

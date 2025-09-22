@@ -76,5 +76,15 @@ Hooks.once('init', async function () {
     requiresReload: true
   })
 
+  game.settings.register('intotheodd', 'electricBastionland', {
+    name: 'INTOTHEODD.Settings.electricBastionland.label',
+    hint: 'INTOTHEODD.Settings.electricBastionland.hint',
+    scope: 'system',
+    config: true,
+    type: Boolean,
+    default: false,
+    requiresReload: true
+  })
+
 });
 

@@ -68,6 +68,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
         },
       },
       displayWealth: game.settings.get("intotheodd", "displayWealth"),
+      electricBastionland: game.settings.get("intotheodd", "electricBastionland"),
     })
     return context
   }
