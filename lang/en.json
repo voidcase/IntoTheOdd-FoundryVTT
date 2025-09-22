@@ -164,6 +164,7 @@
         "armour": "Armour",
         "shortRest": "Short Rest",
         "fullRest": "Full Rest",
+        "rollLuck": "Luck Roll",
         "damage": "damage",
         "wealth": "Wealth",
         "guilders": "Guilders (G)",
@@ -215,6 +216,9 @@
         "label": "Electric Bastionland Mode",
         "hint": "Enable rules and items from Electric Bastionland."
       }
+    },
+    "Chat": {
+      "LuckRoll": "Luck Roll"
     }
   }
 }

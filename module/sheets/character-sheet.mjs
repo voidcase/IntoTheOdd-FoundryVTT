@@ -27,6 +27,7 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
       unequip: IntoTheOddCharacterSheet.#onItemUnequip,
       editImage: IntoTheOddCharacterSheet.#onEditImage,
       createItem: IntoTheOddCharacterSheet.#onCreateItem,
+      rollLuck: IntoTheOddCharacterSheet.#onRollLuck,
     },
   }
 
@@ -131,6 +132,18 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
           icon: "fas fa-bed",
           label: "INTOTHEODD.Labels.long.fullRest",
           action: "fullRest",
+        })
+      }
+    }
+
+    // Electric Bastionland : add Luck roll
+    if (game.settings.get("intotheodd", "electricBastionland")) {
+      // Add Luck roll button if not present
+      if (!controls.find((c) => c.action === "rollLuck")) {
+        controls.push({
+          icon: "fa-solid fa-shoe-prints",
+          label: "INTOTHEODD.Labels.long.rollLuck",
+          action: "rollLuck",
         })
       }
     }
@@ -324,6 +337,13 @@ export default class IntoTheOddCharacterSheet extends HandlebarsApplicationMixin
     }
 
     return this.actor.createEmbeddedDocuments("Item", [itemData])
+  }
+
+  static async #onRollLuck(event, target) {
+    let roll = new Roll("1d6")
+    await roll.roll()
+    roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.actor }), flavor: game.i18n.localize("INTOTHEODD.Chat.LuckRoll") })
+    return roll
   }
 
   //#endregion

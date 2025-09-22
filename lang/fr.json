@@ -164,6 +164,7 @@
         "armour": "Armure",
         "shortRest": "Repos Court",
         "fullRest": "Repos Long",
+        "rollLuck": "Jet de Chance",
         "damage": "dégâts",
         "wealth": "Richesse",
         "guilders": "Guilders (G)",
@@ -215,6 +216,9 @@
         "label": "Mode Electric Bastionland",
         "hint": "Active les règles d'Electric Bastionland."
       }
+    },
+    "Chat": {
+      "LuckRoll": "Jet de Chance"
     }
   }
 }
