@@ -1,3 +1,6 @@
-node_modules/*
-packs/*
+# Node Modules
+node_modules/
+
+# Foundry VTT
+packs
 styles/**/*.css
