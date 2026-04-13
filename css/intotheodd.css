@@ -161,10 +161,15 @@
 .intotheodd.actor.character nav {
   margin: 10px 0 10px 0;
 }
-.intotheodd.actor.character .character-biography {
-  flex: 1;
+.intotheodd.actor.character .tab {
+  display: none;
+}
+.intotheodd.actor.character .tab.active {
   display: flex;
   flex-direction: column;
+}
+.intotheodd.actor.character .character-biography {
+  flex: 1;
 }
 .intotheodd.actor.character .character-biography prose-mirror {
   flex: 1;
