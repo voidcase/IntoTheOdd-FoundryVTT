@@ -161,6 +161,20 @@
 .intotheodd.actor.character nav {
   margin: 10px 0 10px 0;
 }
+.intotheodd.actor.character .character-biography {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.intotheodd.actor.character .character-biography prose-mirror {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.intotheodd.actor.character .character-biography prose-mirror .editor-content {
+  flex: 1;
+  overflow: auto;
+}
 .intotheodd.actor.encounter {
   min-width: 675px;
 }
@@ -335,4 +349,39 @@
   width: 210px;
   margin-top: 0;
   text-align: center;
+}
+prose-mirror,
+.prosemirror {
+  flex: 1;
+  max-width: 100%;
+  min-height: 50px;
+  position: relative;
+}
+prose-mirror > button,
+.prosemirror > button {
+  display: none;
+}
+prose-mirror .editor-menu,
+.prosemirror .editor-menu {
+  padding: 4px;
+}
+prose-mirror .editor-content,
+.prosemirror .editor-content {
+  overflow: hidden;
+  position: relative;
+  white-space: wrap;
+}
+prose-mirror:hover:not([open]) > button,
+.prosemirror:hover:not([open]) > button {
+  display: flex;
+}
+prose-mirror .editor-container,
+.prosemirror .editor-container {
+  height: clamp(25px, 100%, 50vh);
+  padding: 0 0 8px 8px;
+  overflow: hidden scroll;
+}
+prose-mirror .editor-container .editor-content,
+.prosemirror .editor-container .editor-content {
+  padding: 0;
 }

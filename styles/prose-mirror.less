@@ -1,0 +1,37 @@
+prose-mirror,
+.prosemirror {
+  flex: 1;
+  max-width: 100%;
+  min-height: 50px;
+  position: relative;
+
+  >button {
+    display: none;
+  }
+
+  .editor-menu {
+    padding: 4px;
+  }
+
+  .editor-content {
+    overflow: hidden;
+    position: relative;
+    white-space: wrap;
+  }
+
+  &:hover:not([open]) {
+    >button {
+      display: flex;
+    }
+  }
+
+  .editor-container {
+    height: clamp(25px, 100%, 50vh);
+    padding: 0 0 8px 8px;
+    overflow: hidden scroll;
+
+    .editor-content { 
+      padding: 0;
+    }
+  }
+}
